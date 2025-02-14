@@ -1,0 +1,14 @@
+[package]
+name = "edoc"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+crossterm = "0.25"
+tui = "0.19"
+tree-sitter = "0.20"
+cc = "1.2.9"
+chrono = "0.4.39"
+
+[build-dependencies]
+cc = "1.0"
