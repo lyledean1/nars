@@ -1,3 +1,8 @@
+mod ollama;
+mod parser;
+
+use futures_util::StreamExt;  // Add this import
+use anyhow::Result;
 use crossterm::{
     event::{self, Event, KeyCode},
     execute,
@@ -15,6 +20,8 @@ use tui::{
 };
 use std::fs::OpenOptions;
 use std::io::Write;
+use crate::ollama::OllamaClient;
+use crate::parser::parse_code_output;
 
 struct Editor {
     content: String,
@@ -49,7 +56,7 @@ impl Editor {
             Err("No filename specified".into())
         }
     }
-    fn load_file(&mut self, path: String) -> Result<(), Box<dyn Error>> {
+    fn load_file(&mut self, path: String) -> Result<()> {
         self.content = fs::read_to_string(&path)?;
         self.filename = Some(path);
         self.cursor_position = 0;
@@ -59,7 +66,7 @@ impl Editor {
     }
 
     fn get_current_line(&self) -> usize {
-        self.content[..self.cursor_position].chars().filter(|&c| c == '\n').count()
+        self.content[..self.cursor_position].chars().filter(|&c| c == '\n' || c == '\t').count()
     }
 
     fn ensure_cursor_visible(&mut self, window_height: usize) {
@@ -76,9 +83,34 @@ impl Editor {
         }
     }
 
-    fn insert_char(&mut self, c: char) {
-        self.content.insert(self.cursor_position, c);
-        self.cursor_position += 1;
+
+    fn get_current_line_content(&self) -> String {
+        let line_start = self.content[..self.cursor_position]
+            .rfind('\n')
+            .map(|pos| pos + 1)
+            .unwrap_or(0);
+
+        let line_end = self.content[self.cursor_position..]
+            .find('\n')
+            .map(|pos| self.cursor_position + pos)
+            .unwrap_or(self.content.len());
+
+        let content = self.content[line_start..line_end].to_string();
+        log_to_file(content.as_str());
+        content
+    }
+
+    fn insert_char(&mut self, c: char, cursor_position: usize) {
+        if c == '\t' {
+            // Insert 4 spaces instead of a tab character
+            for _ in 0..4 {
+                self.content.insert(self.cursor_position, ' ');
+                self.cursor_position += 1;
+            }
+        } else {
+            self.content.insert(self.cursor_position, c);
+            self.cursor_position += cursor_position;
+        }
         self.update_syntax_tree();
     }
 
@@ -350,7 +382,7 @@ fn tree_sitter_rust() -> Language {
     }
 }
 
-fn run_editor(filename: Option<String>) -> Result<(), Box<dyn Error>> {
+async fn run_editor(client: OllamaClient, filename: Option<String>) -> Result<()> {
     enable_raw_mode()?;
     let mut stdout = io::stdout();
     execute!(stdout, EnterAlternateScreen)?;
@@ -420,10 +452,10 @@ fn run_editor(filename: Option<String>) -> Result<(), Box<dyn Error>> {
                             }
                             // Add the cursor
                             new_spans.push(Span::styled(
-                                "█",
+                                "|".to_string(),
                                 Style::default()
                                     .fg(Color::Rgb(169, 183, 198))
-                                    .add_modifier(Modifier::SLOW_BLINK)
+                                    .add_modifier(Modifier::RAPID_BLINK)
                             ));
                             if cursor_rel_pos < span_len {
                                 new_spans.push(Span::styled(
@@ -440,10 +472,10 @@ fn run_editor(filename: Option<String>) -> Result<(), Box<dyn Error>> {
                     // If cursor is at the end of the line
                     if cursor_offset >= current_pos {
                         new_spans.push(Span::styled(
-                            "█",
+                            "|".to_string(),
                             Style::default()
                                 .fg(Color::Rgb(169, 183, 198))
-                                .add_modifier(Modifier::SLOW_BLINK)
+                                .add_modifier(Modifier::RAPID_BLINK)
                         ));
                     }
 
@@ -485,8 +517,15 @@ fn run_editor(filename: Option<String>) -> Result<(), Box<dyn Error>> {
                         }
                     }
                 }
-                KeyCode::Char(c) => editor.insert_char(c),
-                KeyCode::Enter => editor.insert_char('\n'),
+                KeyCode::Tab => {
+                    let content = editor.get_current_line_content();
+                    let pred = stream_prediction(client.clone(), content).await?;
+                    status_message = format!("{}", pred);
+                    status_time = std::time::Instant::now();
+                }
+                // KeyCode::Tab => editor.insert_char('\t', 4),
+                KeyCode::Char(c) => editor.insert_char(c, 1),
+                KeyCode::Enter => editor.insert_char('\n', 1),
                 KeyCode::Backspace => editor.delete_char(),
                 KeyCode::Left => editor.move_cursor_left(),
                 KeyCode::Right => editor.move_cursor_right(),
@@ -516,9 +555,51 @@ fn log_to_file(message: &str) {
     }
 }
 
-fn main() -> Result<(), Box<dyn Error>> {
+async fn stream_prediction(client: OllamaClient, line: String) -> Result<String> {
+        let prompt = format!("Complete the code on this line, returning only the raw code without any formatting, comments, or extra text. Example input: 'let x = '  Example output: 'let x = Some(42);'. Here is the code {}", line);
+        log_to_file(&prompt);
+        let mut stream = client.stream_generate("qwen2.5-coder:7b", prompt.as_str()).await?;
+        let mut pred = "".to_string();
+        while let Some(chunk) = stream.next().await {
+            match chunk {
+                Ok(text) => {
+                    pred = format!("{}{}", pred, text);
+                },
+                Err(e) => eprintln!("Error: {}", e),
+            }
+        }
+        log_to_file(&pred);
+        let output = parse_code_output(&pred)?;
+        Ok(output.raw_code)
+}
+
+#[tokio::main]
+async fn main() -> Result<()>  {
+    let client = OllamaClient::new();
     let args: Vec<String> = env::args().collect();
     let filename = args.get(1).cloned();
 
-    run_editor(filename)
+    run_editor(client, filename).await
 }
+
+
+
+//
+// #[tokio::main]
+// async fn main() -> Result<()> {
+//     let client = OllamaClient::new();
+//     //
+//     // // Single response generation
+//     // let response = client.generate("codellama:7b-code", "Tell me a joke").await?;
+//     // println!("Response: {}", response);
+//
+//     // Streaming response
+//     let mut stream = client.stream_generate("qwen2.5-coder:7b", "complete this code, show only the completed code, don't say anything else apart from the code def calculate_fibonacci(n):'''Calculate the nth number in the Fibonacci sequence").await?;
+//     while let Some(chunk) = stream.next().await {
+//         match chunk {
+//             Ok(text) => print!("{}", text),
+//             Err(e) => eprintln!("Error: {}", e),
+//         }
+//     }
+//     Ok(())
+// }

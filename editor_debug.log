@@ -1,1152 +1,611 @@
-[2025-02-14 21:05:10] Syntax tree generated successfully
-[2025-02-14 21:05:10] Root node type: source_file
-[2025-02-14 21:05:10] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:05:10] Node 1: kind=use, text="use"
-[2025-02-14 21:05:10] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:05:10] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:05:10] Node 4: kind=::, text="::"
-[2025-02-14 21:05:10] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:05:10] Node 6: kind={, text="{"
-[2025-02-14 21:05:10] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:05:10] Node 8: kind=identifier, text="event"
-[2025-02-14 21:05:10] Node 9: kind=::, text="::"
-[2025-02-14 21:05:16] Syntax tree generated successfully
-[2025-02-14 21:05:16] Root node type: source_file
-[2025-02-14 21:05:16] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:05:16] Node 1: kind=use, text="use"
-[2025-02-14 21:05:16] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:05:16] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:05:16] Node 4: kind=::, text="::"
-[2025-02-14 21:05:16] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:05:16] Node 6: kind={, text="{"
-[2025-02-14 21:05:16] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:05:16] Node 8: kind=identifier, text="event"
-[2025-02-14 21:05:16] Node 9: kind=::, text="::"
-[2025-02-14 21:06:21] Syntax tree generated successfully
-[2025-02-14 21:06:21] Root node type: source_file
-[2025-02-14 21:06:21] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:06:21] Node 1: kind=use, text="use"
-[2025-02-14 21:06:21] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:06:21] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:06:21] Node 4: kind=::, text="::"
-[2025-02-14 21:06:21] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:06:21] Node 6: kind={, text="{"
-[2025-02-14 21:06:21] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:06:21] Node 8: kind=identifier, text="event"
-[2025-02-14 21:06:21] Node 9: kind=::, text="::"
-[2025-02-14 21:06:40] Syntax tree generated successfully
-[2025-02-14 21:06:40] Root node type: source_file
-[2025-02-14 21:06:40] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:06:40] Node 1: kind=use, text="use"
-[2025-02-14 21:06:40] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:06:40] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:06:40] Node 4: kind=::, text="::"
-[2025-02-14 21:06:40] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:06:40] Node 6: kind={, text="{"
-[2025-02-14 21:06:40] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:06:40] Node 8: kind=identifier, text="event"
-[2025-02-14 21:06:40] Node 9: kind=::, text="::"
-[2025-02-14 21:06:41] Syntax tree generated successfully
-[2025-02-14 21:06:41] Root node type: source_file
-[2025-02-14 21:06:41] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:06:41] Node 1: kind=use, text="use"
-[2025-02-14 21:06:41] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:06:41] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:06:41] Node 4: kind=::, text="::"
-[2025-02-14 21:06:41] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:06:41] Node 6: kind={, text="{"
-[2025-02-14 21:06:41] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:06:41] Node 8: kind=identifier, text="event"
-[2025-02-14 21:06:41] Node 9: kind=::, text="::"
-[2025-02-14 21:06:53] Syntax tree generated successfully
-[2025-02-14 21:06:53] Root node type: source_file
-[2025-02-14 21:06:53] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:06:53] Node 1: kind=use, text="use"
-[2025-02-14 21:06:53] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:06:53] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:06:53] Node 4: kind=::, text="::"
-[2025-02-14 21:06:53] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:06:53] Node 6: kind={, text="{"
-[2025-02-14 21:06:53] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:06:53] Node 8: kind=identifier, text="event"
-[2025-02-14 21:06:53] Node 9: kind=::, text="::"
-[2025-02-14 21:07:51] Syntax tree generated successfully
-[2025-02-14 21:07:51] Root node type: source_file
-[2025-02-14 21:07:51] Node 0: kind=use_declaration, text="cuse crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:07:51] Node 1: kind=use, text="cus"
-[2025-02-14 21:07:51] Node 2: kind=scoped_use_list, text=" crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n"
-[2025-02-14 21:07:51] Node 3: kind=identifier, text=" crosster"
-[2025-02-14 21:07:51] Node 4: kind=::, text="m:"
-[2025-02-14 21:07:51] Node 5: kind=use_list, text=":{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n"
-[2025-02-14 21:07:51] Node 6: kind={, text=":"
-[2025-02-14 21:07:51] Node 7: kind=scoped_use_list, text=" event::{self, Event, KeyCode"
-[2025-02-14 21:07:51] Node 8: kind=identifier, text=" even"
-[2025-02-14 21:07:51] Node 9: kind=::, text="t:"
-[2025-02-14 21:07:54] Syntax tree generated successfully
-[2025-02-14 21:07:54] Root node type: source_file
-[2025-02-14 21:07:54] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:07:54] Node 1: kind=use, text="use"
-[2025-02-14 21:07:54] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:07:54] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:07:54] Node 4: kind=::, text="::"
-[2025-02-14 21:07:54] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:07:54] Node 6: kind={, text="{"
-[2025-02-14 21:07:54] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:07:54] Node 8: kind=identifier, text="event"
-[2025-02-14 21:07:54] Node 9: kind=::, text="::"
-[2025-02-14 21:08:23] Syntax tree generated successfully
-[2025-02-14 21:08:23] Root node type: source_file
-[2025-02-14 21:08:23] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:08:23] Node 1: kind=use, text="use"
-[2025-02-14 21:08:23] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:08:23] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:08:23] Node 4: kind=::, text="::"
-[2025-02-14 21:08:23] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:08:23] Node 6: kind={, text="{"
-[2025-02-14 21:08:23] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:08:23] Node 8: kind=identifier, text="event"
-[2025-02-14 21:08:23] Node 9: kind=::, text="::"
-[2025-02-14 21:08:25] Syntax tree generated successfully
-[2025-02-14 21:08:25] Root node type: source_file
-[2025-02-14 21:08:25] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:08:25] Node 1: kind=use, text="use"
-[2025-02-14 21:08:25] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:08:25] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:08:25] Node 4: kind=::, text="::"
-[2025-02-14 21:08:25] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:08:25] Node 6: kind={, text="{"
-[2025-02-14 21:08:25] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:08:25] Node 8: kind=identifier, text="event"
-[2025-02-14 21:08:25] Node 9: kind=::, text="::"
-[2025-02-14 21:09:52] Syntax tree generated successfully
-[2025-02-14 21:09:52] Root node type: source_file
-[2025-02-14 21:09:52] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:09:52] Node 1: kind=use, text="use"
-[2025-02-14 21:09:52] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:09:52] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:09:52] Node 4: kind=::, text="::"
-[2025-02-14 21:09:52] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:09:52] Node 6: kind={, text="{"
-[2025-02-14 21:09:52] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:09:52] Node 8: kind=identifier, text="event"
-[2025-02-14 21:09:52] Node 9: kind=::, text="::"
-[2025-02-14 21:11:53] Syntax tree generated successfully
-[2025-02-14 21:11:53] Root node type: source_file
-[2025-02-14 21:11:53] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:11:53] Node 1: kind=use, text="use"
-[2025-02-14 21:11:53] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:11:53] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:11:53] Node 4: kind=::, text="::"
-[2025-02-14 21:11:53] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:11:53] Node 6: kind={, text="{"
-[2025-02-14 21:11:53] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:11:53] Node 8: kind=identifier, text="event"
-[2025-02-14 21:11:53] Node 9: kind=::, text="::"
-[2025-02-14 21:12:04] Syntax tree generated successfully
-[2025-02-14 21:12:04] Root node type: source_file
-[2025-02-14 21:12:04] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:12:04] Node 1: kind=use, text="use"
-[2025-02-14 21:12:04] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:12:04] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:12:04] Node 4: kind=::, text="::"
-[2025-02-14 21:12:04] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:12:04] Node 6: kind={, text="{"
-[2025-02-14 21:12:04] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:12:04] Node 8: kind=identifier, text="event"
-[2025-02-14 21:12:04] Node 9: kind=::, text="::"
-[2025-02-14 21:12:10] Syntax tree generated successfully
-[2025-02-14 21:12:10] Root node type: source_file
-[2025-02-14 21:12:10] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:12:10] Node 1: kind=use, text="use"
-[2025-02-14 21:12:10] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:12:10] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:12:10] Node 4: kind=::, text="::"
-[2025-02-14 21:12:10] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:12:10] Node 6: kind={, text="{"
-[2025-02-14 21:12:10] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:12:10] Node 8: kind=identifier, text="event"
-[2025-02-14 21:12:10] Node 9: kind=::, text="::"
-[2025-02-14 21:12:19] Syntax tree generated successfully
-[2025-02-14 21:12:19] Root node type: source_file
-[2025-02-14 21:12:19] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:12:19] Node 1: kind=use, text="use"
-[2025-02-14 21:12:19] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:12:19] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:12:19] Node 4: kind=::, text="::"
-[2025-02-14 21:12:19] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:12:19] Node 6: kind={, text="{"
-[2025-02-14 21:12:19] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:12:19] Node 8: kind=identifier, text="event"
-[2025-02-14 21:12:19] Node 9: kind=::, text="::"
-[2025-02-14 21:12:20] Syntax tree generated successfully
-[2025-02-14 21:12:20] Root node type: source_file
-[2025-02-14 21:12:20] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:12:20] Node 1: kind=use, text="use"
-[2025-02-14 21:12:20] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:12:20] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:12:20] Node 4: kind=::, text="::"
-[2025-02-14 21:12:20] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:12:20] Node 6: kind={, text="{"
-[2025-02-14 21:12:20] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:12:20] Node 8: kind=identifier, text="event"
-[2025-02-14 21:12:20] Node 9: kind=::, text="::"
-[2025-02-14 21:12:22] Syntax tree generated successfully
-[2025-02-14 21:12:22] Root node type: source_file
-[2025-02-14 21:12:22] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:12:22] Node 1: kind=use, text="use"
-[2025-02-14 21:12:22] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:12:22] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:12:22] Node 4: kind=::, text="::"
-[2025-02-14 21:12:22] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:12:22] Node 6: kind={, text="{"
-[2025-02-14 21:12:22] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:12:22] Node 8: kind=identifier, text="event"
-[2025-02-14 21:12:22] Node 9: kind=::, text="::"
-[2025-02-14 21:12:22] Syntax tree generated successfully
-[2025-02-14 21:12:22] Root node type: source_file
-[2025-02-14 21:12:22] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:12:22] Node 1: kind=use, text="use"
-[2025-02-14 21:12:22] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:12:22] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:12:22] Node 4: kind=::, text="::"
-[2025-02-14 21:12:22] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:12:22] Node 6: kind={, text="{"
-[2025-02-14 21:12:22] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:12:22] Node 8: kind=identifier, text="event"
-[2025-02-14 21:12:22] Node 9: kind=::, text="::"
-[2025-02-14 21:12:24] Syntax tree generated successfully
-[2025-02-14 21:12:24] Root node type: source_file
-[2025-02-14 21:12:24] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:12:24] Node 1: kind=use, text="use"
-[2025-02-14 21:12:24] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:12:24] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:12:24] Node 4: kind=::, text="::"
-[2025-02-14 21:12:24] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:12:24] Node 6: kind={, text="{"
-[2025-02-14 21:12:24] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:12:24] Node 8: kind=identifier, text="event"
-[2025-02-14 21:12:24] Node 9: kind=::, text="::"
-[2025-02-14 21:12:26] Syntax tree generated successfully
-[2025-02-14 21:12:26] Root node type: source_file
-[2025-02-14 21:12:26] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:12:26] Node 1: kind=use, text="use"
-[2025-02-14 21:12:26] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:12:26] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:12:26] Node 4: kind=::, text="::"
-[2025-02-14 21:12:26] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:12:26] Node 6: kind={, text="{"
-[2025-02-14 21:12:26] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:12:26] Node 8: kind=identifier, text="event"
-[2025-02-14 21:12:26] Node 9: kind=::, text="::"
-[2025-02-14 21:13:18] Syntax tree generated successfully
-[2025-02-14 21:13:18] Root node type: source_file
-[2025-02-14 21:13:18] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:13:18] Node 1: kind=use, text="use"
-[2025-02-14 21:13:18] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:13:18] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:13:18] Node 4: kind=::, text="::"
-[2025-02-14 21:13:18] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:13:18] Node 6: kind={, text="{"
-[2025-02-14 21:13:18] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:13:18] Node 8: kind=identifier, text="event"
-[2025-02-14 21:13:18] Node 9: kind=::, text="::"
-[2025-02-14 21:13:18] Syntax tree generated successfully
-[2025-02-14 21:13:18] Root node type: source_file
-[2025-02-14 21:13:18] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:13:18] Node 1: kind=use, text="use"
-[2025-02-14 21:13:18] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:13:18] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:13:18] Node 4: kind=::, text="::"
-[2025-02-14 21:13:18] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:13:18] Node 6: kind={, text="{"
-[2025-02-14 21:13:18] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:13:18] Node 8: kind=identifier, text="event"
-[2025-02-14 21:13:18] Node 9: kind=::, text="::"
-[2025-02-14 21:13:18] Syntax tree generated successfully
-[2025-02-14 21:13:18] Root node type: source_file
-[2025-02-14 21:13:18] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:13:18] Node 1: kind=use, text="use"
-[2025-02-14 21:13:18] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:13:18] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:13:18] Node 4: kind=::, text="::"
-[2025-02-14 21:13:18] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:13:18] Node 6: kind={, text="{"
-[2025-02-14 21:13:18] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:13:18] Node 8: kind=identifier, text="event"
-[2025-02-14 21:13:18] Node 9: kind=::, text="::"
-[2025-02-14 21:13:18] Syntax tree generated successfully
-[2025-02-14 21:13:18] Root node type: source_file
-[2025-02-14 21:13:18] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:13:18] Node 1: kind=use, text="use"
-[2025-02-14 21:13:18] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:13:18] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:13:18] Node 4: kind=::, text="::"
-[2025-02-14 21:13:18] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:13:18] Node 6: kind={, text="{"
-[2025-02-14 21:13:18] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:13:18] Node 8: kind=identifier, text="event"
-[2025-02-14 21:13:18] Node 9: kind=::, text="::"
-[2025-02-14 21:13:18] Syntax tree generated successfully
-[2025-02-14 21:13:18] Root node type: source_file
-[2025-02-14 21:13:18] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:13:18] Node 1: kind=use, text="use"
-[2025-02-14 21:13:18] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:13:18] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:13:18] Node 4: kind=::, text="::"
-[2025-02-14 21:13:18] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:13:18] Node 6: kind={, text="{"
-[2025-02-14 21:13:18] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:13:18] Node 8: kind=identifier, text="event"
-[2025-02-14 21:13:18] Node 9: kind=::, text="::"
-[2025-02-14 21:13:19] Syntax tree generated successfully
-[2025-02-14 21:13:19] Root node type: source_file
-[2025-02-14 21:13:19] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:13:19] Node 1: kind=use, text="use"
-[2025-02-14 21:13:19] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:13:19] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:13:19] Node 4: kind=::, text="::"
-[2025-02-14 21:13:19] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:13:19] Node 6: kind={, text="{"
-[2025-02-14 21:13:19] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:13:19] Node 8: kind=identifier, text="event"
-[2025-02-14 21:13:19] Node 9: kind=::, text="::"
-[2025-02-14 21:13:19] Syntax tree generated successfully
-[2025-02-14 21:13:19] Root node type: source_file
-[2025-02-14 21:13:19] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:13:19] Node 1: kind=use, text="use"
-[2025-02-14 21:13:19] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:13:19] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:13:19] Node 4: kind=::, text="::"
-[2025-02-14 21:13:19] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:13:19] Node 6: kind={, text="{"
-[2025-02-14 21:13:19] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:13:19] Node 8: kind=identifier, text="event"
-[2025-02-14 21:13:19] Node 9: kind=::, text="::"
-[2025-02-14 21:13:19] Syntax tree generated successfully
-[2025-02-14 21:13:19] Root node type: source_file
-[2025-02-14 21:13:19] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:13:19] Node 1: kind=use, text="use"
-[2025-02-14 21:13:19] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:13:19] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:13:19] Node 4: kind=::, text="::"
-[2025-02-14 21:13:19] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:13:19] Node 6: kind={, text="{"
-[2025-02-14 21:13:19] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:13:19] Node 8: kind=identifier, text="event"
-[2025-02-14 21:13:19] Node 9: kind=::, text="::"
-[2025-02-14 21:13:19] Syntax tree generated successfully
-[2025-02-14 21:13:19] Root node type: source_file
-[2025-02-14 21:13:19] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:13:19] Node 1: kind=use, text="use"
-[2025-02-14 21:13:19] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:13:19] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:13:19] Node 4: kind=::, text="::"
-[2025-02-14 21:13:19] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:13:19] Node 6: kind={, text="{"
-[2025-02-14 21:13:19] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:13:19] Node 8: kind=identifier, text="event"
-[2025-02-14 21:13:19] Node 9: kind=::, text="::"
-[2025-02-14 21:13:19] Syntax tree generated successfully
-[2025-02-14 21:13:19] Root node type: source_file
-[2025-02-14 21:13:19] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:13:19] Node 1: kind=use, text="use"
-[2025-02-14 21:13:19] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:13:19] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:13:19] Node 4: kind=::, text="::"
-[2025-02-14 21:13:19] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:13:19] Node 6: kind={, text="{"
-[2025-02-14 21:13:19] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:13:19] Node 8: kind=identifier, text="event"
-[2025-02-14 21:13:19] Node 9: kind=::, text="::"
-[2025-02-14 21:13:19] Syntax tree generated successfully
-[2025-02-14 21:13:19] Root node type: source_file
-[2025-02-14 21:13:19] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:13:19] Node 1: kind=use, text="use"
-[2025-02-14 21:13:19] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:13:19] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:13:19] Node 4: kind=::, text="::"
-[2025-02-14 21:13:19] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:13:19] Node 6: kind={, text="{"
-[2025-02-14 21:13:19] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:13:19] Node 8: kind=identifier, text="event"
-[2025-02-14 21:13:19] Node 9: kind=::, text="::"
-[2025-02-14 21:13:20] Syntax tree generated successfully
-[2025-02-14 21:13:20] Root node type: source_file
-[2025-02-14 21:13:20] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:13:20] Node 1: kind=use, text="use"
-[2025-02-14 21:13:20] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:13:20] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:13:20] Node 4: kind=::, text="::"
-[2025-02-14 21:13:20] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:13:20] Node 6: kind={, text="{"
-[2025-02-14 21:13:20] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:13:20] Node 8: kind=identifier, text="event"
-[2025-02-14 21:13:20] Node 9: kind=::, text="::"
-[2025-02-14 21:13:20] Syntax tree generated successfully
-[2025-02-14 21:13:20] Root node type: source_file
-[2025-02-14 21:13:20] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:13:20] Node 1: kind=use, text="use"
-[2025-02-14 21:13:20] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:13:20] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:13:20] Node 4: kind=::, text="::"
-[2025-02-14 21:13:20] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:13:20] Node 6: kind={, text="{"
-[2025-02-14 21:13:20] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:13:20] Node 8: kind=identifier, text="event"
-[2025-02-14 21:13:20] Node 9: kind=::, text="::"
-[2025-02-14 21:13:21] Syntax tree generated successfully
-[2025-02-14 21:13:21] Root node type: source_file
-[2025-02-14 21:13:21] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:13:21] Node 1: kind=use, text="use"
-[2025-02-14 21:13:21] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:13:21] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:13:21] Node 4: kind=::, text="::"
-[2025-02-14 21:13:21] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:13:21] Node 6: kind={, text="{"
-[2025-02-14 21:13:21] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:13:21] Node 8: kind=identifier, text="event"
-[2025-02-14 21:13:21] Node 9: kind=::, text="::"
-[2025-02-14 21:13:21] Syntax tree generated successfully
-[2025-02-14 21:13:21] Root node type: source_file
-[2025-02-14 21:13:21] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:13:21] Node 1: kind=use, text="use"
-[2025-02-14 21:13:21] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:13:21] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:13:21] Node 4: kind=::, text="::"
-[2025-02-14 21:13:21] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:13:21] Node 6: kind={, text="{"
-[2025-02-14 21:13:21] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:13:21] Node 8: kind=identifier, text="event"
-[2025-02-14 21:13:21] Node 9: kind=::, text="::"
-[2025-02-14 21:13:21] Syntax tree generated successfully
-[2025-02-14 21:13:21] Root node type: source_file
-[2025-02-14 21:13:21] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:13:21] Node 1: kind=use, text="use"
-[2025-02-14 21:13:21] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:13:21] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:13:21] Node 4: kind=::, text="::"
-[2025-02-14 21:13:21] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:13:21] Node 6: kind={, text="{"
-[2025-02-14 21:13:21] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:13:21] Node 8: kind=identifier, text="event"
-[2025-02-14 21:13:21] Node 9: kind=::, text="::"
-[2025-02-14 21:13:22] Syntax tree generated successfully
-[2025-02-14 21:13:22] Root node type: source_file
-[2025-02-14 21:13:22] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:13:22] Node 1: kind=use, text="use"
-[2025-02-14 21:13:22] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:13:22] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:13:22] Node 4: kind=::, text="::"
-[2025-02-14 21:13:22] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:13:22] Node 6: kind={, text="{"
-[2025-02-14 21:13:22] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:13:22] Node 8: kind=identifier, text="event"
-[2025-02-14 21:13:22] Node 9: kind=::, text="::"
-[2025-02-14 21:13:28] Syntax tree generated successfully
-[2025-02-14 21:13:28] Root node type: source_file
-[2025-02-14 21:13:28] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:13:28] Node 1: kind=use, text="use"
-[2025-02-14 21:13:28] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:13:28] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:13:28] Node 4: kind=::, text="::"
-[2025-02-14 21:13:28] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:13:28] Node 6: kind={, text="{"
-[2025-02-14 21:13:28] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:13:28] Node 8: kind=identifier, text="event"
-[2025-02-14 21:13:28] Node 9: kind=::, text="::"
-[2025-02-14 21:13:28] Syntax tree generated successfully
-[2025-02-14 21:13:28] Root node type: source_file
-[2025-02-14 21:13:28] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:13:28] Node 1: kind=use, text="use"
-[2025-02-14 21:13:28] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:13:28] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:13:28] Node 4: kind=::, text="::"
-[2025-02-14 21:13:28] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:13:28] Node 6: kind={, text="{"
-[2025-02-14 21:13:28] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:13:28] Node 8: kind=identifier, text="event"
-[2025-02-14 21:13:28] Node 9: kind=::, text="::"
-[2025-02-14 21:13:28] Syntax tree generated successfully
-[2025-02-14 21:13:28] Root node type: source_file
-[2025-02-14 21:13:28] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:13:28] Node 1: kind=use, text="use"
-[2025-02-14 21:13:28] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:13:28] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:13:28] Node 4: kind=::, text="::"
-[2025-02-14 21:13:28] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:13:28] Node 6: kind={, text="{"
-[2025-02-14 21:13:28] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:13:28] Node 8: kind=identifier, text="event"
-[2025-02-14 21:13:28] Node 9: kind=::, text="::"
-[2025-02-14 21:13:28] Syntax tree generated successfully
-[2025-02-14 21:13:28] Root node type: source_file
-[2025-02-14 21:13:28] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:13:28] Node 1: kind=use, text="use"
-[2025-02-14 21:13:28] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:13:28] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:13:28] Node 4: kind=::, text="::"
-[2025-02-14 21:13:28] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:13:28] Node 6: kind={, text="{"
-[2025-02-14 21:13:28] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:13:28] Node 8: kind=identifier, text="event"
-[2025-02-14 21:13:28] Node 9: kind=::, text="::"
-[2025-02-14 21:13:28] Syntax tree generated successfully
-[2025-02-14 21:13:28] Root node type: source_file
-[2025-02-14 21:13:28] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:13:28] Node 1: kind=use, text="use"
-[2025-02-14 21:13:28] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:13:28] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:13:28] Node 4: kind=::, text="::"
-[2025-02-14 21:13:28] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:13:28] Node 6: kind={, text="{"
-[2025-02-14 21:13:28] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:13:28] Node 8: kind=identifier, text="event"
-[2025-02-14 21:13:28] Node 9: kind=::, text="::"
-[2025-02-14 21:13:28] Syntax tree generated successfully
-[2025-02-14 21:13:28] Root node type: source_file
-[2025-02-14 21:13:28] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:13:28] Node 1: kind=use, text="use"
-[2025-02-14 21:13:28] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:13:28] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:13:28] Node 4: kind=::, text="::"
-[2025-02-14 21:13:28] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:13:28] Node 6: kind={, text="{"
-[2025-02-14 21:13:28] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:13:28] Node 8: kind=identifier, text="event"
-[2025-02-14 21:13:28] Node 9: kind=::, text="::"
-[2025-02-14 21:13:28] Syntax tree generated successfully
-[2025-02-14 21:13:28] Root node type: source_file
-[2025-02-14 21:13:28] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:13:28] Node 1: kind=use, text="use"
-[2025-02-14 21:13:28] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:13:28] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:13:28] Node 4: kind=::, text="::"
-[2025-02-14 21:13:28] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:13:28] Node 6: kind={, text="{"
-[2025-02-14 21:13:28] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:13:28] Node 8: kind=identifier, text="event"
-[2025-02-14 21:13:28] Node 9: kind=::, text="::"
-[2025-02-14 21:13:29] Syntax tree generated successfully
-[2025-02-14 21:13:29] Root node type: source_file
-[2025-02-14 21:13:29] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:13:29] Node 1: kind=use, text="use"
-[2025-02-14 21:13:29] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:13:29] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:13:29] Node 4: kind=::, text="::"
-[2025-02-14 21:13:29] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:13:29] Node 6: kind={, text="{"
-[2025-02-14 21:13:29] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:13:29] Node 8: kind=identifier, text="event"
-[2025-02-14 21:13:29] Node 9: kind=::, text="::"
-[2025-02-14 21:13:29] Syntax tree generated successfully
-[2025-02-14 21:13:29] Root node type: source_file
-[2025-02-14 21:13:29] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:13:29] Node 1: kind=use, text="use"
-[2025-02-14 21:13:29] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:13:29] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:13:29] Node 4: kind=::, text="::"
-[2025-02-14 21:13:29] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:13:29] Node 6: kind={, text="{"
-[2025-02-14 21:13:29] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:13:29] Node 8: kind=identifier, text="event"
-[2025-02-14 21:13:29] Node 9: kind=::, text="::"
-[2025-02-14 21:13:29] Syntax tree generated successfully
-[2025-02-14 21:13:29] Root node type: source_file
-[2025-02-14 21:13:29] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:13:29] Node 1: kind=use, text="use"
-[2025-02-14 21:13:29] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:13:29] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:13:29] Node 4: kind=::, text="::"
-[2025-02-14 21:13:29] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:13:29] Node 6: kind={, text="{"
-[2025-02-14 21:13:29] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:13:29] Node 8: kind=identifier, text="event"
-[2025-02-14 21:13:29] Node 9: kind=::, text="::"
-[2025-02-14 21:13:29] Syntax tree generated successfully
-[2025-02-14 21:13:29] Root node type: source_file
-[2025-02-14 21:13:29] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:13:29] Node 1: kind=use, text="use"
-[2025-02-14 21:13:29] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:13:29] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:13:29] Node 4: kind=::, text="::"
-[2025-02-14 21:13:29] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:13:29] Node 6: kind={, text="{"
-[2025-02-14 21:13:29] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:13:29] Node 8: kind=identifier, text="event"
-[2025-02-14 21:13:29] Node 9: kind=::, text="::"
-[2025-02-14 21:13:29] Syntax tree generated successfully
-[2025-02-14 21:13:29] Root node type: source_file
-[2025-02-14 21:13:29] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:13:29] Node 1: kind=use, text="use"
-[2025-02-14 21:13:29] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:13:29] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:13:29] Node 4: kind=::, text="::"
-[2025-02-14 21:13:29] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:13:29] Node 6: kind={, text="{"
-[2025-02-14 21:13:29] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:13:29] Node 8: kind=identifier, text="event"
-[2025-02-14 21:13:29] Node 9: kind=::, text="::"
-[2025-02-14 21:13:29] Syntax tree generated successfully
-[2025-02-14 21:13:29] Root node type: source_file
-[2025-02-14 21:13:29] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:13:29] Node 1: kind=use, text="use"
-[2025-02-14 21:13:29] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:13:29] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:13:29] Node 4: kind=::, text="::"
-[2025-02-14 21:13:29] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:13:29] Node 6: kind={, text="{"
-[2025-02-14 21:13:29] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:13:29] Node 8: kind=identifier, text="event"
-[2025-02-14 21:13:29] Node 9: kind=::, text="::"
-[2025-02-14 21:13:30] Syntax tree generated successfully
-[2025-02-14 21:13:30] Root node type: source_file
-[2025-02-14 21:13:30] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:13:30] Node 1: kind=use, text="use"
-[2025-02-14 21:13:30] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:13:30] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:13:30] Node 4: kind=::, text="::"
-[2025-02-14 21:13:30] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:13:30] Node 6: kind={, text="{"
-[2025-02-14 21:13:30] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:13:30] Node 8: kind=identifier, text="event"
-[2025-02-14 21:13:30] Node 9: kind=::, text="::"
-[2025-02-14 21:13:30] Syntax tree generated successfully
-[2025-02-14 21:13:30] Root node type: source_file
-[2025-02-14 21:13:30] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:13:30] Node 1: kind=use, text="use"
-[2025-02-14 21:13:30] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:13:30] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:13:30] Node 4: kind=::, text="::"
-[2025-02-14 21:13:30] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:13:30] Node 6: kind={, text="{"
-[2025-02-14 21:13:30] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:13:30] Node 8: kind=identifier, text="event"
-[2025-02-14 21:13:30] Node 9: kind=::, text="::"
-[2025-02-14 21:13:30] Syntax tree generated successfully
-[2025-02-14 21:13:30] Root node type: source_file
-[2025-02-14 21:13:30] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:13:30] Node 1: kind=use, text="use"
-[2025-02-14 21:13:30] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:13:30] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:13:30] Node 4: kind=::, text="::"
-[2025-02-14 21:13:30] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:13:30] Node 6: kind={, text="{"
-[2025-02-14 21:13:30] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:13:30] Node 8: kind=identifier, text="event"
-[2025-02-14 21:13:30] Node 9: kind=::, text="::"
-[2025-02-14 21:13:30] Syntax tree generated successfully
-[2025-02-14 21:13:30] Root node type: source_file
-[2025-02-14 21:13:30] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:13:30] Node 1: kind=use, text="use"
-[2025-02-14 21:13:30] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:13:30] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:13:30] Node 4: kind=::, text="::"
-[2025-02-14 21:13:30] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:13:30] Node 6: kind={, text="{"
-[2025-02-14 21:13:30] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:13:30] Node 8: kind=identifier, text="event"
-[2025-02-14 21:13:30] Node 9: kind=::, text="::"
-[2025-02-14 21:13:30] Syntax tree generated successfully
-[2025-02-14 21:13:30] Root node type: source_file
-[2025-02-14 21:13:30] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:13:30] Node 1: kind=use, text="use"
-[2025-02-14 21:13:30] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:13:30] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:13:30] Node 4: kind=::, text="::"
-[2025-02-14 21:13:30] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:13:30] Node 6: kind={, text="{"
-[2025-02-14 21:13:30] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:13:30] Node 8: kind=identifier, text="event"
-[2025-02-14 21:13:30] Node 9: kind=::, text="::"
-[2025-02-14 21:13:30] Syntax tree generated successfully
-[2025-02-14 21:13:30] Root node type: source_file
-[2025-02-14 21:13:30] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:13:30] Node 1: kind=use, text="use"
-[2025-02-14 21:13:30] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:13:30] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:13:30] Node 4: kind=::, text="::"
-[2025-02-14 21:13:30] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:13:30] Node 6: kind={, text="{"
-[2025-02-14 21:13:30] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:13:30] Node 8: kind=identifier, text="event"
-[2025-02-14 21:13:30] Node 9: kind=::, text="::"
-[2025-02-14 21:13:31] Syntax tree generated successfully
-[2025-02-14 21:13:31] Root node type: source_file
-[2025-02-14 21:13:31] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:13:31] Node 1: kind=use, text="use"
-[2025-02-14 21:13:31] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:13:31] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:13:31] Node 4: kind=::, text="::"
-[2025-02-14 21:13:31] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:13:31] Node 6: kind={, text="{"
-[2025-02-14 21:13:31] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:13:31] Node 8: kind=identifier, text="event"
-[2025-02-14 21:13:31] Node 9: kind=::, text="::"
-[2025-02-14 21:13:35] Syntax tree generated successfully
-[2025-02-14 21:13:35] Root node type: source_file
-[2025-02-14 21:13:35] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:13:35] Node 1: kind=use, text="use"
-[2025-02-14 21:13:35] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:13:35] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:13:35] Node 4: kind=::, text="::"
-[2025-02-14 21:13:35] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:13:35] Node 6: kind={, text="{"
-[2025-02-14 21:13:35] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:13:35] Node 8: kind=identifier, text="event"
-[2025-02-14 21:13:35] Node 9: kind=::, text="::"
-[2025-02-14 21:15:17] Syntax tree generated successfully
-[2025-02-14 21:15:17] Root node type: source_file
-[2025-02-14 21:15:17] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:15:17] Node 1: kind=use, text="use"
-[2025-02-14 21:15:17] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:15:17] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:15:17] Node 4: kind=::, text="::"
-[2025-02-14 21:15:17] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:15:17] Node 6: kind={, text="{"
-[2025-02-14 21:15:17] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:15:17] Node 8: kind=identifier, text="event"
-[2025-02-14 21:15:17] Node 9: kind=::, text="::"
-[2025-02-14 21:15:25] Syntax tree generated successfully
-[2025-02-14 21:15:25] Root node type: source_file
-[2025-02-14 21:15:25] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:15:25] Node 1: kind=use, text="use"
-[2025-02-14 21:15:25] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:15:25] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:15:25] Node 4: kind=::, text="::"
-[2025-02-14 21:15:25] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:15:25] Node 6: kind={, text="{"
-[2025-02-14 21:15:25] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:15:25] Node 8: kind=identifier, text="event"
-[2025-02-14 21:15:25] Node 9: kind=::, text="::"
-[2025-02-14 21:15:26] Syntax tree generated successfully
-[2025-02-14 21:15:26] Root node type: source_file
-[2025-02-14 21:15:26] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:15:26] Node 1: kind=use, text="use"
-[2025-02-14 21:15:26] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:15:26] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:15:26] Node 4: kind=::, text="::"
-[2025-02-14 21:15:26] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:15:26] Node 6: kind={, text="{"
-[2025-02-14 21:15:26] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:15:26] Node 8: kind=identifier, text="event"
-[2025-02-14 21:15:26] Node 9: kind=::, text="::"
-[2025-02-14 21:17:19] Syntax tree generated successfully
-[2025-02-14 21:17:19] Root node type: source_file
-[2025-02-14 21:17:19] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:17:19] Node 1: kind=use, text="use"
-[2025-02-14 21:17:19] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:17:19] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:17:19] Node 4: kind=::, text="::"
-[2025-02-14 21:17:19] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:17:19] Node 6: kind={, text="{"
-[2025-02-14 21:17:19] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:17:19] Node 8: kind=identifier, text="event"
-[2025-02-14 21:17:19] Node 9: kind=::, text="::"
-[2025-02-14 21:18:45] Syntax tree generated successfully
-[2025-02-14 21:18:45] Root node type: source_file
-[2025-02-14 21:18:45] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:18:45] Node 1: kind=use, text="use"
-[2025-02-14 21:18:45] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:18:45] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:18:45] Node 4: kind=::, text="::"
-[2025-02-14 21:18:45] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:18:45] Node 6: kind={, text="{"
-[2025-02-14 21:18:45] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:18:45] Node 8: kind=identifier, text="event"
-[2025-02-14 21:18:45] Node 9: kind=::, text="::"
-[2025-02-14 21:19:30] Syntax tree generated successfully
-[2025-02-14 21:19:30] Root node type: source_file
-[2025-02-14 21:19:30] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:19:30] Node 1: kind=use, text="use"
-[2025-02-14 21:19:30] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:19:30] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:19:30] Node 4: kind=::, text="::"
-[2025-02-14 21:19:30] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:19:30] Node 6: kind={, text="{"
-[2025-02-14 21:19:30] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:19:30] Node 8: kind=identifier, text="event"
-[2025-02-14 21:19:30] Node 9: kind=::, text="::"
-[2025-02-14 21:19:30] Syntax tree generated successfully
-[2025-02-14 21:19:30] Root node type: source_file
-[2025-02-14 21:19:30] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:19:30] Node 1: kind=use, text="use"
-[2025-02-14 21:19:30] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:19:30] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:19:30] Node 4: kind=::, text="::"
-[2025-02-14 21:19:30] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:19:30] Node 6: kind={, text="{"
-[2025-02-14 21:19:30] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:19:30] Node 8: kind=identifier, text="event"
-[2025-02-14 21:19:30] Node 9: kind=::, text="::"
-[2025-02-14 21:19:30] Syntax tree generated successfully
-[2025-02-14 21:19:30] Root node type: source_file
-[2025-02-14 21:19:30] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:19:30] Node 1: kind=use, text="use"
-[2025-02-14 21:19:30] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:19:30] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:19:30] Node 4: kind=::, text="::"
-[2025-02-14 21:19:30] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:19:30] Node 6: kind={, text="{"
-[2025-02-14 21:19:30] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:19:30] Node 8: kind=identifier, text="event"
-[2025-02-14 21:19:30] Node 9: kind=::, text="::"
-[2025-02-14 21:19:31] Syntax tree generated successfully
-[2025-02-14 21:19:31] Root node type: source_file
-[2025-02-14 21:19:31] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:19:31] Node 1: kind=use, text="use"
-[2025-02-14 21:19:31] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:19:31] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:19:31] Node 4: kind=::, text="::"
-[2025-02-14 21:19:31] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:19:31] Node 6: kind={, text="{"
-[2025-02-14 21:19:31] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:19:31] Node 8: kind=identifier, text="event"
-[2025-02-14 21:19:31] Node 9: kind=::, text="::"
-[2025-02-14 21:19:31] Syntax tree generated successfully
-[2025-02-14 21:19:31] Root node type: source_file
-[2025-02-14 21:19:31] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:19:31] Node 1: kind=use, text="use"
-[2025-02-14 21:19:31] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:19:31] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:19:31] Node 4: kind=::, text="::"
-[2025-02-14 21:19:31] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:19:31] Node 6: kind={, text="{"
-[2025-02-14 21:19:31] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:19:31] Node 8: kind=identifier, text="event"
-[2025-02-14 21:19:31] Node 9: kind=::, text="::"
-[2025-02-14 21:19:31] Syntax tree generated successfully
-[2025-02-14 21:19:31] Root node type: source_file
-[2025-02-14 21:19:31] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:19:31] Node 1: kind=use, text="use"
-[2025-02-14 21:19:31] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:19:31] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:19:31] Node 4: kind=::, text="::"
-[2025-02-14 21:19:31] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:19:31] Node 6: kind={, text="{"
-[2025-02-14 21:19:31] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:19:31] Node 8: kind=identifier, text="event"
-[2025-02-14 21:19:31] Node 9: kind=::, text="::"
-[2025-02-14 21:19:31] Syntax tree generated successfully
-[2025-02-14 21:19:31] Root node type: source_file
-[2025-02-14 21:19:31] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:19:31] Node 1: kind=use, text="use"
-[2025-02-14 21:19:31] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:19:31] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:19:31] Node 4: kind=::, text="::"
-[2025-02-14 21:19:31] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:19:31] Node 6: kind={, text="{"
-[2025-02-14 21:19:31] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:19:31] Node 8: kind=identifier, text="event"
-[2025-02-14 21:19:31] Node 9: kind=::, text="::"
-[2025-02-14 21:19:31] Syntax tree generated successfully
-[2025-02-14 21:19:31] Root node type: source_file
-[2025-02-14 21:19:31] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:19:31] Node 1: kind=use, text="use"
-[2025-02-14 21:19:31] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:19:31] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:19:31] Node 4: kind=::, text="::"
-[2025-02-14 21:19:31] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:19:31] Node 6: kind={, text="{"
-[2025-02-14 21:19:31] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:19:31] Node 8: kind=identifier, text="event"
-[2025-02-14 21:19:31] Node 9: kind=::, text="::"
-[2025-02-14 21:19:31] Syntax tree generated successfully
-[2025-02-14 21:19:31] Root node type: source_file
-[2025-02-14 21:19:31] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:19:31] Node 1: kind=use, text="use"
-[2025-02-14 21:19:31] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:19:31] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:19:31] Node 4: kind=::, text="::"
-[2025-02-14 21:19:31] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:19:31] Node 6: kind={, text="{"
-[2025-02-14 21:19:31] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:19:31] Node 8: kind=identifier, text="event"
-[2025-02-14 21:19:31] Node 9: kind=::, text="::"
-[2025-02-14 21:19:31] Syntax tree generated successfully
-[2025-02-14 21:19:31] Root node type: source_file
-[2025-02-14 21:19:31] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:19:31] Node 1: kind=use, text="use"
-[2025-02-14 21:19:31] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:19:31] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:19:31] Node 4: kind=::, text="::"
-[2025-02-14 21:19:31] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:19:31] Node 6: kind={, text="{"
-[2025-02-14 21:19:31] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:19:31] Node 8: kind=identifier, text="event"
-[2025-02-14 21:19:31] Node 9: kind=::, text="::"
-[2025-02-14 21:19:32] Syntax tree generated successfully
-[2025-02-14 21:19:32] Root node type: source_file
-[2025-02-14 21:19:32] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:19:32] Node 1: kind=use, text="use"
-[2025-02-14 21:19:32] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:19:32] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:19:32] Node 4: kind=::, text="::"
-[2025-02-14 21:19:32] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:19:32] Node 6: kind={, text="{"
-[2025-02-14 21:19:32] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:19:32] Node 8: kind=identifier, text="event"
-[2025-02-14 21:19:32] Node 9: kind=::, text="::"
-[2025-02-14 21:19:32] Syntax tree generated successfully
-[2025-02-14 21:19:32] Root node type: source_file
-[2025-02-14 21:19:32] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:19:32] Node 1: kind=use, text="use"
-[2025-02-14 21:19:32] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:19:32] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:19:32] Node 4: kind=::, text="::"
-[2025-02-14 21:19:32] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:19:32] Node 6: kind={, text="{"
-[2025-02-14 21:19:32] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:19:32] Node 8: kind=identifier, text="event"
-[2025-02-14 21:19:32] Node 9: kind=::, text="::"
-[2025-02-14 21:19:32] Syntax tree generated successfully
-[2025-02-14 21:19:32] Root node type: source_file
-[2025-02-14 21:19:32] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:19:32] Node 1: kind=use, text="use"
-[2025-02-14 21:19:32] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:19:32] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:19:32] Node 4: kind=::, text="::"
-[2025-02-14 21:19:32] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:19:32] Node 6: kind={, text="{"
-[2025-02-14 21:19:32] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:19:32] Node 8: kind=identifier, text="event"
-[2025-02-14 21:19:32] Node 9: kind=::, text="::"
-[2025-02-14 21:19:32] Syntax tree generated successfully
-[2025-02-14 21:19:32] Root node type: source_file
-[2025-02-14 21:19:32] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:19:32] Node 1: kind=use, text="use"
-[2025-02-14 21:19:32] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:19:32] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:19:32] Node 4: kind=::, text="::"
-[2025-02-14 21:19:32] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:19:32] Node 6: kind={, text="{"
-[2025-02-14 21:19:32] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:19:32] Node 8: kind=identifier, text="event"
-[2025-02-14 21:19:32] Node 9: kind=::, text="::"
-[2025-02-14 21:19:32] Syntax tree generated successfully
-[2025-02-14 21:19:32] Root node type: source_file
-[2025-02-14 21:19:32] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:19:32] Node 1: kind=use, text="use"
-[2025-02-14 21:19:32] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:19:32] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:19:32] Node 4: kind=::, text="::"
-[2025-02-14 21:19:32] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:19:32] Node 6: kind={, text="{"
-[2025-02-14 21:19:32] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:19:32] Node 8: kind=identifier, text="event"
-[2025-02-14 21:19:32] Node 9: kind=::, text="::"
-[2025-02-14 21:19:35] Syntax tree generated successfully
-[2025-02-14 21:19:35] Root node type: source_file
-[2025-02-14 21:19:35] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:19:35] Node 1: kind=use, text="use"
-[2025-02-14 21:19:35] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:19:35] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:19:35] Node 4: kind=::, text="::"
-[2025-02-14 21:19:35] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:19:35] Node 6: kind={, text="{"
-[2025-02-14 21:19:35] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:19:35] Node 8: kind=identifier, text="event"
-[2025-02-14 21:19:35] Node 9: kind=::, text="::"
-[2025-02-14 21:19:36] Syntax tree generated successfully
-[2025-02-14 21:19:36] Root node type: source_file
-[2025-02-14 21:19:36] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:19:36] Node 1: kind=use, text="use"
-[2025-02-14 21:19:36] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:19:36] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:19:36] Node 4: kind=::, text="::"
-[2025-02-14 21:19:36] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:19:36] Node 6: kind={, text="{"
-[2025-02-14 21:19:36] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:19:36] Node 8: kind=identifier, text="event"
-[2025-02-14 21:19:36] Node 9: kind=::, text="::"
-[2025-02-14 21:19:37] Syntax tree generated successfully
-[2025-02-14 21:19:37] Root node type: source_file
-[2025-02-14 21:19:37] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:19:37] Node 1: kind=use, text="use"
-[2025-02-14 21:19:37] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:19:37] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:19:37] Node 4: kind=::, text="::"
-[2025-02-14 21:19:37] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:19:37] Node 6: kind={, text="{"
-[2025-02-14 21:19:37] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:19:37] Node 8: kind=identifier, text="event"
-[2025-02-14 21:19:37] Node 9: kind=::, text="::"
-[2025-02-14 21:19:37] Syntax tree generated successfully
-[2025-02-14 21:19:37] Root node type: source_file
-[2025-02-14 21:19:37] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:19:37] Node 1: kind=use, text="use"
-[2025-02-14 21:19:37] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:19:37] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:19:37] Node 4: kind=::, text="::"
-[2025-02-14 21:19:37] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:19:37] Node 6: kind={, text="{"
-[2025-02-14 21:19:37] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:19:37] Node 8: kind=identifier, text="event"
-[2025-02-14 21:19:37] Node 9: kind=::, text="::"
-[2025-02-14 21:19:38] Syntax tree generated successfully
-[2025-02-14 21:19:38] Root node type: source_file
-[2025-02-14 21:19:38] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:19:38] Node 1: kind=use, text="use"
-[2025-02-14 21:19:38] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:19:38] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:19:38] Node 4: kind=::, text="::"
-[2025-02-14 21:19:38] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:19:38] Node 6: kind={, text="{"
-[2025-02-14 21:19:38] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:19:38] Node 8: kind=identifier, text="event"
-[2025-02-14 21:19:38] Node 9: kind=::, text="::"
-[2025-02-14 21:19:38] Syntax tree generated successfully
-[2025-02-14 21:19:38] Root node type: source_file
-[2025-02-14 21:19:38] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:19:38] Node 1: kind=use, text="use"
-[2025-02-14 21:19:38] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:19:38] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:19:38] Node 4: kind=::, text="::"
-[2025-02-14 21:19:38] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:19:38] Node 6: kind={, text="{"
-[2025-02-14 21:19:38] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:19:38] Node 8: kind=identifier, text="event"
-[2025-02-14 21:19:38] Node 9: kind=::, text="::"
-[2025-02-14 21:19:38] Syntax tree generated successfully
-[2025-02-14 21:19:38] Root node type: source_file
-[2025-02-14 21:19:38] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:19:38] Node 1: kind=use, text="use"
-[2025-02-14 21:19:38] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:19:38] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:19:38] Node 4: kind=::, text="::"
-[2025-02-14 21:19:38] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:19:38] Node 6: kind={, text="{"
-[2025-02-14 21:19:38] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:19:38] Node 8: kind=identifier, text="event"
-[2025-02-14 21:19:38] Node 9: kind=::, text="::"
-[2025-02-14 21:19:38] Syntax tree generated successfully
-[2025-02-14 21:19:38] Root node type: source_file
-[2025-02-14 21:19:38] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:19:38] Node 1: kind=use, text="use"
-[2025-02-14 21:19:38] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:19:38] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:19:38] Node 4: kind=::, text="::"
-[2025-02-14 21:19:38] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:19:38] Node 6: kind={, text="{"
-[2025-02-14 21:19:38] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:19:38] Node 8: kind=identifier, text="event"
-[2025-02-14 21:19:38] Node 9: kind=::, text="::"
-[2025-02-14 21:19:38] Syntax tree generated successfully
-[2025-02-14 21:19:38] Root node type: source_file
-[2025-02-14 21:19:38] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:19:38] Node 1: kind=use, text="use"
-[2025-02-14 21:19:38] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:19:38] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:19:38] Node 4: kind=::, text="::"
-[2025-02-14 21:19:38] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:19:38] Node 6: kind={, text="{"
-[2025-02-14 21:19:38] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:19:38] Node 8: kind=identifier, text="event"
-[2025-02-14 21:19:38] Node 9: kind=::, text="::"
-[2025-02-14 21:19:38] Syntax tree generated successfully
-[2025-02-14 21:19:38] Root node type: source_file
-[2025-02-14 21:19:38] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:19:38] Node 1: kind=use, text="use"
-[2025-02-14 21:19:38] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:19:38] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:19:38] Node 4: kind=::, text="::"
-[2025-02-14 21:19:38] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:19:38] Node 6: kind={, text="{"
-[2025-02-14 21:19:38] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:19:38] Node 8: kind=identifier, text="event"
-[2025-02-14 21:19:38] Node 9: kind=::, text="::"
-[2025-02-14 21:19:38] Syntax tree generated successfully
-[2025-02-14 21:19:38] Root node type: source_file
-[2025-02-14 21:19:38] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:19:38] Node 1: kind=use, text="use"
-[2025-02-14 21:19:38] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:19:38] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:19:38] Node 4: kind=::, text="::"
-[2025-02-14 21:19:38] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:19:38] Node 6: kind={, text="{"
-[2025-02-14 21:19:38] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:19:38] Node 8: kind=identifier, text="event"
-[2025-02-14 21:19:38] Node 9: kind=::, text="::"
-[2025-02-14 21:19:38] Syntax tree generated successfully
-[2025-02-14 21:19:38] Root node type: source_file
-[2025-02-14 21:19:38] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:19:38] Node 1: kind=use, text="use"
-[2025-02-14 21:19:38] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:19:38] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:19:38] Node 4: kind=::, text="::"
-[2025-02-14 21:19:38] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:19:38] Node 6: kind={, text="{"
-[2025-02-14 21:19:38] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:19:38] Node 8: kind=identifier, text="event"
-[2025-02-14 21:19:38] Node 9: kind=::, text="::"
-[2025-02-14 21:19:38] Syntax tree generated successfully
-[2025-02-14 21:19:38] Root node type: source_file
-[2025-02-14 21:19:38] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:19:38] Node 1: kind=use, text="use"
-[2025-02-14 21:19:38] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:19:38] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:19:38] Node 4: kind=::, text="::"
-[2025-02-14 21:19:38] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:19:38] Node 6: kind={, text="{"
-[2025-02-14 21:19:38] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:19:38] Node 8: kind=identifier, text="event"
-[2025-02-14 21:19:38] Node 9: kind=::, text="::"
-[2025-02-14 21:19:39] Syntax tree generated successfully
-[2025-02-14 21:19:39] Root node type: source_file
-[2025-02-14 21:19:39] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:19:39] Node 1: kind=use, text="use"
-[2025-02-14 21:19:39] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:19:39] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:19:39] Node 4: kind=::, text="::"
-[2025-02-14 21:19:39] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:19:39] Node 6: kind={, text="{"
-[2025-02-14 21:19:39] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:19:39] Node 8: kind=identifier, text="event"
-[2025-02-14 21:19:39] Node 9: kind=::, text="::"
-[2025-02-14 21:19:39] Syntax tree generated successfully
-[2025-02-14 21:19:39] Root node type: source_file
-[2025-02-14 21:19:39] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:19:39] Node 1: kind=use, text="use"
-[2025-02-14 21:19:39] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:19:39] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:19:39] Node 4: kind=::, text="::"
-[2025-02-14 21:19:39] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:19:39] Node 6: kind={, text="{"
-[2025-02-14 21:19:39] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:19:39] Node 8: kind=identifier, text="event"
-[2025-02-14 21:19:39] Node 9: kind=::, text="::"
-[2025-02-14 21:19:39] Syntax tree generated successfully
-[2025-02-14 21:19:39] Root node type: source_file
-[2025-02-14 21:19:39] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:19:39] Node 1: kind=use, text="use"
-[2025-02-14 21:19:39] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:19:39] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:19:39] Node 4: kind=::, text="::"
-[2025-02-14 21:19:39] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:19:39] Node 6: kind={, text="{"
-[2025-02-14 21:19:39] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:19:39] Node 8: kind=identifier, text="event"
-[2025-02-14 21:19:39] Node 9: kind=::, text="::"
-[2025-02-14 21:19:39] Syntax tree generated successfully
-[2025-02-14 21:19:39] Root node type: source_file
-[2025-02-14 21:19:39] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:19:39] Node 1: kind=use, text="use"
-[2025-02-14 21:19:39] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:19:39] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:19:39] Node 4: kind=::, text="::"
-[2025-02-14 21:19:39] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:19:39] Node 6: kind={, text="{"
-[2025-02-14 21:19:39] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:19:39] Node 8: kind=identifier, text="event"
-[2025-02-14 21:19:39] Node 9: kind=::, text="::"
-[2025-02-14 21:19:52] Syntax tree generated successfully
-[2025-02-14 21:19:52] Root node type: source_file
-[2025-02-14 21:19:52] Node 0: kind=use_declaration, text="use crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n};"
-[2025-02-14 21:19:52] Node 1: kind=use, text="use"
-[2025-02-14 21:19:52] Node 2: kind=scoped_use_list, text="crossterm::{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:19:52] Node 3: kind=identifier, text="crossterm"
-[2025-02-14 21:19:52] Node 4: kind=::, text="::"
-[2025-02-14 21:19:52] Node 5: kind=use_list, text="{\n    event::{self, Event, KeyCode},\n    execute,\n    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},\n}"
-[2025-02-14 21:19:52] Node 6: kind={, text="{"
-[2025-02-14 21:19:52] Node 7: kind=scoped_use_list, text="event::{self, Event, KeyCode}"
-[2025-02-14 21:19:52] Node 8: kind=identifier, text="event"
-[2025-02-14 21:19:52] Node 9: kind=::, text="::"
+[2025-02-15 14:00:43] Syntax tree generated successfully
+[2025-02-15 14:00:43] Root node type: source_file
+[2025-02-15 14:00:43] Node 0: kind=mod_item, text="mod ollama;"
+[2025-02-15 14:00:43] Node 1: kind=mod, text="mod"
+[2025-02-15 14:00:43] Node 2: kind=identifier, text="ollama"
+[2025-02-15 14:00:43] Node 3: kind=;, text=";"
+[2025-02-15 14:01:08] Syntax tree generated successfully
+[2025-02-15 14:01:08] Root node type: source_file
+[2025-02-15 14:01:08] Node 0: kind=mod_item, text="mod ollama;"
+[2025-02-15 14:01:08] Node 1: kind=mod, text="mod"
+[2025-02-15 14:01:08] Node 2: kind=identifier, text="ollama"
+[2025-02-15 14:01:08] Node 3: kind=;, text=";"
+[2025-02-15 14:01:09] mod ollama;
+[2025-02-15 14:01:11] use futures_util::StreamExt;  // Add this import
+[2025-02-15 14:01:13] use anyhow::Result;
+[2025-02-15 14:01:14] use crossterm::{
+[2025-02-15 14:01:15]     event::{self, Event, KeyCode},
+[2025-02-15 14:02:44] Syntax tree generated successfully
+[2025-02-15 14:02:44] Root node type: source_file
+[2025-02-15 14:02:44] Node 0: kind=mod_item, text="mod ollama;"
+[2025-02-15 14:02:44] Node 1: kind=mod, text="mod"
+[2025-02-15 14:02:44] Node 2: kind=identifier, text="ollama"
+[2025-02-15 14:02:44] Node 3: kind=;, text=";"
+[2025-02-15 14:03:49] Syntax tree generated successfully
+[2025-02-15 14:03:49] Root node type: source_file
+[2025-02-15 14:03:49] Node 0: kind=ERROR, text="d"
+[2025-02-15 14:03:49] Node 1: kind=identifier, text="d"
+[2025-02-15 14:03:49] Syntax tree generated successfully
+[2025-02-15 14:03:49] Root node type: source_file
+[2025-02-15 14:03:49] Node 0: kind=ERROR, text="ds"
+[2025-02-15 14:03:49] Node 1: kind=identifier, text="d"
+[2025-02-15 14:03:49] Node 2: kind=identifier, text="s"
+[2025-02-15 14:03:49] Syntax tree generated successfully
+[2025-02-15 14:03:49] Root node type: source_file
+[2025-02-15 14:03:49] Node 0: kind=ERROR, text="dsa"
+[2025-02-15 14:03:49] Node 1: kind=identifier, text="d"
+[2025-02-15 14:03:49] Node 2: kind=identifier, text="sa"
+[2025-02-15 14:03:49] Syntax tree generated successfully
+[2025-02-15 14:03:49] Root node type: source_file
+[2025-02-15 14:03:49] Node 0: kind=ERROR, text="dsad"
+[2025-02-15 14:03:49] Node 1: kind=identifier, text="d"
+[2025-02-15 14:03:49] Node 2: kind=identifier, text="sad"
+[2025-02-15 14:03:50] Syntax tree generated successfully
+[2025-02-15 14:03:50] Root node type: source_file
+[2025-02-15 14:03:50] Node 0: kind=ERROR, text="dsads"
+[2025-02-15 14:03:50] Node 1: kind=identifier, text="d"
+[2025-02-15 14:03:50] Node 2: kind=identifier, text="sads"
+[2025-02-15 14:03:53] Syntax tree generated successfully
+[2025-02-15 14:03:53] Root node type: source_file
+[2025-02-15 14:03:53] Node 0: kind=mod_item, text="mod ollama;"
+[2025-02-15 14:03:53] Node 1: kind=mod, text="mod"
+[2025-02-15 14:03:53] Node 2: kind=identifier, text="ollama"
+[2025-02-15 14:03:53] Node 3: kind=;, text=";"
+[2025-02-15 14:03:55] Syntax tree generated successfully
+[2025-02-15 14:03:55] Root node type: source_file
+[2025-02-15 14:03:55] Node 0: kind=mod_item, text="mod ollama;"
+[2025-02-15 14:03:55] Node 1: kind=mod, text="mod"
+[2025-02-15 14:03:55] Node 2: kind=identifier, text="ollama"
+[2025-02-15 14:03:55] Node 3: kind=;, text=";"
+[2025-02-15 14:03:55] Syntax tree generated successfully
+[2025-02-15 14:03:55] Root node type: source_file
+[2025-02-15 14:03:55] Node 0: kind=mod_item, text="mod ollama;"
+[2025-02-15 14:03:55] Node 1: kind=mod, text="mod"
+[2025-02-15 14:03:55] Node 2: kind=identifier, text="ollama"
+[2025-02-15 14:03:55] Node 3: kind=;, text=";"
+[2025-02-15 14:03:58]     execute,
+[2025-02-15 14:04:01] mod ollama;
+[2025-02-15 14:04:01] use futures_util::StreamExt;  // Add this import
+[2025-02-15 14:04:02] use anyhow::Result;
+[2025-02-15 14:04:03] use crossterm::{
+[2025-02-15 14:04:03]     event::{self, Event, KeyCode},
+[2025-02-15 14:04:04]     execute,
+[2025-02-15 14:04:05]     terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},
+[2025-02-15 14:04:06] };
+[2025-02-15 14:04:07] use std::{env, error::Error, fs, io};
+[2025-02-15 14:04:08] use tree_sitter::{Language, Parser, Tree};
+[2025-02-15 14:04:08] use tui::{
+[2025-02-15 14:04:09]     backend::CrosstermBackend,
+[2025-02-15 14:04:10]     layout::{Constraint, Direction, Layout},
+[2025-02-15 14:04:11]     widgets::{Block, Borders, Paragraph},
+[2025-02-15 14:04:14]     filename: Option<String>,
+[2025-02-15 14:04:15]     parser: Parser,
+[2025-02-15 14:04:16]     scroll_offset: usize,
+[2025-02-15 14:04:16]     cursor_position: usize,
+[2025-02-15 14:04:16]     content: String,
+[2025-02-15 14:04:19] impl Editor {
+[2025-02-15 14:04:20]         parser.set_language(tree_sitter_rust())
+[2025-02-15 14:04:20]         Editor {
+[2025-02-15 14:04:21] 
+[2025-02-15 14:04:22]             .expect("Error loading Rust grammar");
+[2025-02-15 14:04:22]         parser.set_language(tree_sitter_rust())
+[2025-02-15 14:04:23]         let mut parser = Parser::new();
+[2025-02-15 14:04:23]     fn new() -> Self {
+[2025-02-15 14:04:27]         Editor {
+[2025-02-15 14:04:28]             content: String::new(),
+[2025-02-15 14:04:28]             cursor_position: 0,
+[2025-02-15 14:04:28]             scroll_offset: 0,
+[2025-02-15 14:04:37]     fn save_file(&self) -> Result<(), Box<dyn Error>> {
+[2025-02-15 14:04:38]         if let Some(path) = &self.filename {
+[2025-02-15 14:04:39]             Ok(())
+[2025-02-15 14:04:39]         } else {
+[2025-02-15 14:04:40]             Err("No filename specified".into())
+[2025-02-15 14:05:42]     fn save_file(&self) -> Result<(), Box<dyn Error>> {
+[2025-02-15 14:05:43]         if let Some(path) = &self.filename {
+[2025-02-15 14:05:44]             fs::write(path, &self.content)?;
+[2025-02-15 14:05:45]             Ok(())
+[2025-02-15 14:05:45]         } else {
+[2025-02-15 14:05:45]             Err("No filename specified".into())
+[2025-02-15 14:05:46]         }
+[2025-02-15 14:05:46]     }
+[2025-02-15 14:05:47]     fn load_file(&mut self, path: String) -> Result<()> {
+[2025-02-15 14:05:48]         self.content = fs::read_to_string(&path)?;
+[2025-02-15 14:05:48]         self.filename = Some(path);
+[2025-02-15 14:05:48]         self.cursor_position = 0;
+[2025-02-15 14:05:49]         self.scroll_offset = 0;
+[2025-02-15 14:05:49]         self.update_syntax_tree();
+[2025-02-15 14:05:50]         Ok(())
+[2025-02-15 14:05:50]     }
+[2025-02-15 14:05:51] 
+[2025-02-15 14:05:51]     fn get_current_line(&self) -> usize {
+[2025-02-15 14:05:52] 
+[2025-02-15 14:05:53] 
+[2025-02-15 14:05:54]         if current_line < self.scroll_offset {
+[2025-02-15 14:05:54] 
+[2025-02-15 14:05:55]         let current_line = self.get_current_line();
+[2025-02-15 14:05:56] 
+[2025-02-15 14:05:56]         // If cursor is above visible area, scroll up
+[2025-02-15 14:05:58]         if current_line < self.scroll_offset {
+[2025-02-15 14:05:59]             self.scroll_offset = current_line;
+[2025-02-15 14:05:59]         }
+[2025-02-15 14:06:00] 
+[2025-02-15 14:06:00]         // If cursor is below visible area, scroll down
+[2025-02-15 14:06:01]         if current_line >= self.scroll_offset + window_height {
+[2025-02-15 14:06:41]         // If cursor is below visible area, scroll down
+[2025-02-15 14:06:42]         if current_line >= self.scroll_offset + window_height {
+[2025-02-15 14:06:43]             self.scroll_offset = current_line - window_height + 1;
+[2025-02-15 14:06:44]         }
+[2025-02-15 14:06:44]     }
+[2025-02-15 14:06:45] 
+[2025-02-15 14:06:47]     fn get_current_line_content(&self) -> String {
+[2025-02-15 14:06:48]         let line_start = self.content[..self.cursor_position]
+[2025-02-15 14:06:48]             .rfind('\n')
+[2025-02-15 14:13:12] Syntax tree generated successfully
+[2025-02-15 14:13:12] Root node type: source_file
+[2025-02-15 14:13:12] Node 0: kind=mod_item, text="mod ollama;"
+[2025-02-15 14:13:12] Node 1: kind=mod, text="mod"
+[2025-02-15 14:13:12] Node 2: kind=identifier, text="ollama"
+[2025-02-15 14:13:12] Node 3: kind=;, text=";"
+[2025-02-15 14:13:14] use futures_util::StreamExt;  // Add this import
+[2025-02-15 14:13:15] use anyhow::Result;
+[2025-02-15 14:15:22] Syntax tree generated successfully
+[2025-02-15 14:15:22] Root node type: source_file
+[2025-02-15 14:15:22] Node 0: kind=mod_item, text="mod ollama;"
+[2025-02-15 14:15:22] Node 1: kind=mod, text="mod"
+[2025-02-15 14:15:22] Node 2: kind=identifier, text="ollama"
+[2025-02-15 14:15:22] Node 3: kind=;, text=";"
+[2025-02-15 14:15:23] use futures_util::StreamExt;  // Add this import
+[2025-02-15 14:15:27] use anyhow::Result;
+[2025-02-15 14:17:15] Syntax tree generated successfully
+[2025-02-15 14:17:15] Root node type: source_file
+[2025-02-15 14:17:15] Node 0: kind=mod_item, text="mod ollama;"
+[2025-02-15 14:17:15] Node 1: kind=mod, text="mod"
+[2025-02-15 14:17:15] Node 2: kind=identifier, text="ollama"
+[2025-02-15 14:17:15] Node 3: kind=;, text=";"
+[2025-02-15 14:17:21] use futures_util::StreamExt;  // Add this import
+[2025-02-15 14:17:27] use anyhow::Result;
+[2025-02-15 14:17:35] mod ollama;
+[2025-02-15 14:17:58] Syntax tree generated successfully
+[2025-02-15 14:17:58] Root node type: source_file
+[2025-02-15 14:17:58] Node 0: kind=mod_item, text="mod ollama;"
+[2025-02-15 14:17:58] Node 1: kind=mod, text="mod"
+[2025-02-15 14:17:58] Node 2: kind=identifier, text="ollama"
+[2025-02-15 14:17:58] Node 3: kind=;, text=";"
+[2025-02-15 14:18:02] Syntax tree generated successfully
+[2025-02-15 14:18:02] Root node type: source_file
+[2025-02-15 14:18:02] Node 0: kind=mod_item, text="mod ollama;"
+[2025-02-15 14:18:02] Node 1: kind=mod, text="mod"
+[2025-02-15 14:18:02] Node 2: kind=identifier, text="ollama"
+[2025-02-15 14:18:02] Node 3: kind=;, text=";"
+[2025-02-15 14:18:03] Syntax tree generated successfully
+[2025-02-15 14:18:03] Root node type: ERROR
+[2025-02-15 14:18:03] Node 0: kind=mod_item, text="mod ollama;"
+[2025-02-15 14:18:03] Node 1: kind=mod, text="mod"
+[2025-02-15 14:18:03] Node 2: kind=identifier, text="ollama"
+[2025-02-15 14:18:03] Node 3: kind=;, text=";"
+[2025-02-15 14:18:04] Syntax tree generated successfully
+[2025-02-15 14:18:04] Root node type: source_file
+[2025-02-15 14:18:04] Node 0: kind=mod_item, text="mod ollama;"
+[2025-02-15 14:18:04] Node 1: kind=mod, text="mod"
+[2025-02-15 14:18:04] Node 2: kind=identifier, text="ollama"
+[2025-02-15 14:18:04] Node 3: kind=;, text=";"
+[2025-02-15 14:18:04] Syntax tree generated successfully
+[2025-02-15 14:18:04] Root node type: source_file
+[2025-02-15 14:18:04] Node 0: kind=mod_item, text="mod ollama;"
+[2025-02-15 14:18:04] Node 1: kind=mod, text="mod"
+[2025-02-15 14:18:04] Node 2: kind=identifier, text="ollama"
+[2025-02-15 14:18:04] Node 3: kind=;, text=";"
+[2025-02-15 14:18:04] Syntax tree generated successfully
+[2025-02-15 14:18:04] Root node type: source_file
+[2025-02-15 14:18:04] Node 0: kind=mod_item, text="mod ollama;"
+[2025-02-15 14:18:04] Node 1: kind=mod, text="mod"
+[2025-02-15 14:18:04] Node 2: kind=identifier, text="ollama"
+[2025-02-15 14:18:04] Node 3: kind=;, text=";"
+[2025-02-15 14:18:04] Syntax tree generated successfully
+[2025-02-15 14:18:04] Root node type: source_file
+[2025-02-15 14:18:04] Node 0: kind=mod_item, text="mod ollama;"
+[2025-02-15 14:18:04] Node 1: kind=mod, text="mod"
+[2025-02-15 14:18:04] Node 2: kind=identifier, text="ollama"
+[2025-02-15 14:18:04] Node 3: kind=;, text=";"
+[2025-02-15 14:18:04] Syntax tree generated successfully
+[2025-02-15 14:18:04] Root node type: source_file
+[2025-02-15 14:18:04] Node 0: kind=mod_item, text="mod ollama;"
+[2025-02-15 14:18:04] Node 1: kind=mod, text="mod"
+[2025-02-15 14:18:04] Node 2: kind=identifier, text="ollama"
+[2025-02-15 14:18:04] Node 3: kind=;, text=";"
+[2025-02-15 14:18:04] Syntax tree generated successfully
+[2025-02-15 14:18:04] Root node type: source_file
+[2025-02-15 14:18:04] Node 0: kind=mod_item, text="mod ollama;"
+[2025-02-15 14:18:04] Node 1: kind=mod, text="mod"
+[2025-02-15 14:18:04] Node 2: kind=identifier, text="ollama"
+[2025-02-15 14:18:04] Node 3: kind=;, text=";"
+[2025-02-15 14:18:04] Syntax tree generated successfully
+[2025-02-15 14:18:04] Root node type: source_file
+[2025-02-15 14:18:04] Node 0: kind=mod_item, text="mod ollama;"
+[2025-02-15 14:18:04] Node 1: kind=mod, text="mod"
+[2025-02-15 14:18:04] Node 2: kind=identifier, text="ollama"
+[2025-02-15 14:18:04] Node 3: kind=;, text=";"
+[2025-02-15 14:18:05] Syntax tree generated successfully
+[2025-02-15 14:18:05] Root node type: source_file
+[2025-02-15 14:18:05] Node 0: kind=mod_item, text="mod ollama;"
+[2025-02-15 14:18:05] Node 1: kind=mod, text="mod"
+[2025-02-15 14:18:05] Node 2: kind=identifier, text="ollama"
+[2025-02-15 14:18:05] Node 3: kind=;, text=";"
+[2025-02-15 14:18:05] Syntax tree generated successfully
+[2025-02-15 14:18:05] Root node type: source_file
+[2025-02-15 14:18:05] Node 0: kind=mod_item, text="mod ollama;"
+[2025-02-15 14:18:05] Node 1: kind=mod, text="mod"
+[2025-02-15 14:18:05] Node 2: kind=identifier, text="ollama"
+[2025-02-15 14:18:05] Node 3: kind=;, text=";"
+[2025-02-15 14:18:05] Syntax tree generated successfully
+[2025-02-15 14:18:05] Root node type: source_file
+[2025-02-15 14:18:05] Node 0: kind=mod_item, text="mod ollama;"
+[2025-02-15 14:18:05] Node 1: kind=mod, text="mod"
+[2025-02-15 14:18:05] Node 2: kind=identifier, text="ollama"
+[2025-02-15 14:18:05] Node 3: kind=;, text=";"
+[2025-02-15 14:18:06] Syntax tree generated successfully
+[2025-02-15 14:18:06] Root node type: source_file
+[2025-02-15 14:18:06] Node 0: kind=mod_item, text="mod ollama;"
+[2025-02-15 14:18:06] Node 1: kind=mod, text="mod"
+[2025-02-15 14:18:06] Node 2: kind=identifier, text="ollama"
+[2025-02-15 14:18:06] Node 3: kind=;, text=";"
+[2025-02-15 14:18:06] Syntax tree generated successfully
+[2025-02-15 14:18:06] Root node type: source_file
+[2025-02-15 14:18:06] Node 0: kind=mod_item, text="mod ollama;"
+[2025-02-15 14:18:06] Node 1: kind=mod, text="mod"
+[2025-02-15 14:18:06] Node 2: kind=identifier, text="ollama"
+[2025-02-15 14:18:06] Node 3: kind=;, text=";"
+[2025-02-15 14:18:07] fn helloWorld
+[2025-02-15 14:18:08] ```
+[2025-02-15 14:20:00] Syntax tree generated successfully
+[2025-02-15 14:20:00] Root node type: source_file
+[2025-02-15 14:20:00] Node 0: kind=mod_item, text="mod ollama;"
+[2025-02-15 14:20:00] Node 1: kind=mod, text="mod"
+[2025-02-15 14:20:00] Node 2: kind=identifier, text="ollama"
+[2025-02-15 14:20:00] Node 3: kind=;, text=";"
+[2025-02-15 14:20:02] use futures_util::StreamExt;  // Add this import
+[2025-02-15 14:20:35] Syntax tree generated successfully
+[2025-02-15 14:20:35] Root node type: source_file
+[2025-02-15 14:20:35] Node 0: kind=mod_item, text="mod ollama;"
+[2025-02-15 14:20:35] Node 1: kind=mod, text="mod"
+[2025-02-15 14:20:35] Node 2: kind=identifier, text="ollama"
+[2025-02-15 14:20:35] Node 3: kind=;, text=";"
+[2025-02-15 14:20:37] use futures_util::StreamExt;  // Add this import
+[2025-02-15 14:20:38] ```rust
+use futures_util::StreamExt;
+```
+[2025-02-15 14:21:16] Syntax tree generated successfully
+[2025-02-15 14:21:16] Root node type: source_file
+[2025-02-15 14:21:16] Node 0: kind=mod_item, text="mod ollama;"
+[2025-02-15 14:21:16] Node 1: kind=mod, text="mod"
+[2025-02-15 14:21:16] Node 2: kind=identifier, text="ollama"
+[2025-02-15 14:21:16] Node 3: kind=;, text=";"
+[2025-02-15 14:21:17] use futures_util::StreamExt;  // Add this import
+[2025-02-15 14:21:19] ```rust
+use futures_util::StreamExt;
+```
+[2025-02-15 14:21:20] use anyhow::Result;
+[2025-02-15 14:21:21] ```rust
+use anyhow::{Result, Context};
+```
+[2025-02-15 14:22:00] Syntax tree generated successfully
+[2025-02-15 14:22:00] Root node type: source_file
+[2025-02-15 14:22:00] Node 0: kind=mod_item, text="mod ollama;"
+[2025-02-15 14:22:00] Node 1: kind=mod, text="mod"
+[2025-02-15 14:22:00] Node 2: kind=identifier, text="ollama"
+[2025-02-15 14:22:00] Node 3: kind=;, text=";"
+[2025-02-15 14:22:01] mod ollama;
+[2025-02-15 14:22:02] mod ollama {
+    // module content goes here
+}
+[2025-02-15 14:22:04] use futures_util::StreamExt;  // Add this import
+[2025-02-15 14:22:05] ```rust
+use futures_util::StreamExt;
+```
+[2025-02-15 14:22:06] use anyhow::Result;
+[2025-02-15 14:22:07] ```rust
+use anyhow::{Result, Context};
+```
+[2025-02-15 14:22:10] use crossterm::{
+[2025-02-15 14:22:10] ```rust
+use crossterm::{cursor, execute, terminal};
+```
+[2025-02-15 14:22:13] mod ollama;
+[2025-02-15 14:22:13] mod ollama;
+[2025-02-15 14:22:16] use std::{env, error::Error, fs, io};
+[2025-02-15 14:22:20] ```rust
+use std::{env, error::Error, fs, io};
+fn main() -> Result<(), Box<dyn Error>> {
+    let args: Vec<String> = env::args().collect();
+    if args.len() != 2 {
+        eprintln!("Usage: {} <file>", args[0]);
+        return Ok(());
+    }
+    let filename = &args[1];
+    let contents = fs::read_to_string(filename)?;
+    println!("File contents:\n{}", contents);
+    Ok(())
+}
+```
+[2025-02-15 14:27:54] Syntax tree generated successfully
+[2025-02-15 14:27:54] Root node type: source_file
+[2025-02-15 14:27:54] Node 0: kind=mod_item, text="mod ollama;"
+[2025-02-15 14:27:54] Node 1: kind=mod, text="mod"
+[2025-02-15 14:27:54] Node 2: kind=identifier, text="ollama"
+[2025-02-15 14:27:54] Node 3: kind=;, text=";"
+[2025-02-15 14:27:57] mod ollama;
+[2025-02-15 14:27:59] ```rust
+fn main() {
+    println!("Hello, world!");
+}
+```
+[2025-02-15 14:28:02] use futures_util::StreamExt;  // Add this import
+[2025-02-15 14:28:02] use futures_util::StreamExt;
+[2025-02-15 14:28:05] use anyhow::Result;
+[2025-02-15 14:28:06] ```rust
+fn main() -> anyhow::Result<()> {
+    // Your code here
+}
+```
+[2025-02-15 14:28:11] struct Editor {
+[2025-02-15 14:28:12] ```rust
+struct Editor {
+    buffer: String,
+    cursor_position: usize,
+}
+```
+[2025-02-15 14:36:33] Syntax tree generated successfully
+[2025-02-15 14:36:33] Root node type: source_file
+[2025-02-15 14:36:33] Node 0: kind=mod_item, text="mod ollama;"
+[2025-02-15 14:36:33] Node 1: kind=mod, text="mod"
+[2025-02-15 14:36:33] Node 2: kind=identifier, text="ollama"
+[2025-02-15 14:36:33] Node 3: kind=;, text=";"
+[2025-02-15 14:36:35] mod ollama;
+[2025-02-15 14:36:35] Complete the code on this line, returning only the raw code without any formatting, comments, or extra text. Example input: 'let x = '  Example output: 'let x = Some(42);'. Here is the code `mod ollama`;
+[2025-02-15 14:36:39] ```rust
+mod ollama;
+```
+[2025-02-15 14:45:39] Syntax tree generated successfully
+[2025-02-15 14:45:39] Root node type: source_file
+[2025-02-15 14:45:39] Node 0: kind=mod_item, text="mod ollama;"
+[2025-02-15 14:45:39] Node 1: kind=mod, text="mod"
+[2025-02-15 14:45:39] Node 2: kind=identifier, text="ollama"
+[2025-02-15 14:45:39] Node 3: kind=;, text=";"
+[2025-02-15 14:45:40] mod parser;
+[2025-02-15 14:45:40] Complete the code on this line, returning only the raw code without any formatting, comments, or extra text. Example input: 'let x = '  Example output: 'let x = Some(42);'. Here is the code mod parser;
+[2025-02-15 14:45:45] ```
+mod parser {
+    pub fn parse(input: &str) -> Result<(), String> {
+        if input.is_empty() {
+            return Err("Input string is empty".to_string());
+        }
+
+        // Your parsing logic here
+
+        Ok(())
+    }
+}
+```
+[2025-02-15 14:45:48] use anyhow::Result;
+[2025-02-15 14:45:48] Complete the code on this line, returning only the raw code without any formatting, comments, or extra text. Example input: 'let x = '  Example output: 'let x = Some(42);'. Here is the code use anyhow::Result;
+[2025-02-15 14:45:49] ```rust
+use anyhow::Result;
+```
+[2025-02-15 14:45:58] use anyhow::Result;
+[2025-02-15 14:45:58] Complete the code on this line, returning only the raw code without any formatting, comments, or extra text. Example input: 'let x = '  Example output: 'let x = Some(42);'. Here is the code use anyhow::Result;
+[2025-02-15 14:45:59] use anyhow::Result;
+[2025-02-15 14:46:01] Syntax tree generated successfully
+[2025-02-15 14:46:01] Root node type: source_file
+[2025-02-15 14:46:01] Node 0: kind=mod_item, text="mod ollama;"
+[2025-02-15 14:46:01] Node 1: kind=mod, text="mod"
+[2025-02-15 14:46:01] Node 2: kind=identifier, text="ollama"
+[2025-02-15 14:46:01] Node 3: kind=;, text=";"
+[2025-02-15 14:46:02] Syntax tree generated successfully
+[2025-02-15 14:46:02] Root node type: ERROR
+[2025-02-15 14:46:02] Node 0: kind=mod_item, text="mod ollama;"
+[2025-02-15 14:46:02] Node 1: kind=mod, text="mod"
+[2025-02-15 14:46:02] Node 2: kind=identifier, text="ollama"
+[2025-02-15 14:46:02] Node 3: kind=;, text=";"
+[2025-02-15 14:46:02] Syntax tree generated successfully
+[2025-02-15 14:46:02] Root node type: source_file
+[2025-02-15 14:46:02] Node 0: kind=mod_item, text="mod ollama;"
+[2025-02-15 14:46:02] Node 1: kind=mod, text="mod"
+[2025-02-15 14:46:02] Node 2: kind=identifier, text="ollama"
+[2025-02-15 14:46:02] Node 3: kind=;, text=";"
+[2025-02-15 14:46:03] Syntax tree generated successfully
+[2025-02-15 14:46:03] Root node type: source_file
+[2025-02-15 14:46:03] Node 0: kind=mod_item, text="mod ollama;"
+[2025-02-15 14:46:03] Node 1: kind=mod, text="mod"
+[2025-02-15 14:46:03] Node 2: kind=identifier, text="ollama"
+[2025-02-15 14:46:03] Node 3: kind=;, text=";"
+[2025-02-15 14:46:03] Syntax tree generated successfully
+[2025-02-15 14:46:03] Root node type: source_file
+[2025-02-15 14:46:03] Node 0: kind=mod_item, text="mod ollama;"
+[2025-02-15 14:46:03] Node 1: kind=mod, text="mod"
+[2025-02-15 14:46:03] Node 2: kind=identifier, text="ollama"
+[2025-02-15 14:46:03] Node 3: kind=;, text=";"
+[2025-02-15 14:46:03] Syntax tree generated successfully
+[2025-02-15 14:46:03] Root node type: source_file
+[2025-02-15 14:46:03] Node 0: kind=mod_item, text="mod ollama;"
+[2025-02-15 14:46:03] Node 1: kind=mod, text="mod"
+[2025-02-15 14:46:03] Node 2: kind=identifier, text="ollama"
+[2025-02-15 14:46:03] Node 3: kind=;, text=";"
+[2025-02-15 14:46:03] Syntax tree generated successfully
+[2025-02-15 14:46:03] Root node type: source_file
+[2025-02-15 14:46:03] Node 0: kind=mod_item, text="mod ollama;"
+[2025-02-15 14:46:03] Node 1: kind=mod, text="mod"
+[2025-02-15 14:46:03] Node 2: kind=identifier, text="ollama"
+[2025-02-15 14:46:03] Node 3: kind=;, text=";"
+[2025-02-15 14:46:03] Syntax tree generated successfully
+[2025-02-15 14:46:03] Root node type: source_file
+[2025-02-15 14:46:03] Node 0: kind=mod_item, text="mod ollama;"
+[2025-02-15 14:46:03] Node 1: kind=mod, text="mod"
+[2025-02-15 14:46:03] Node 2: kind=identifier, text="ollama"
+[2025-02-15 14:46:03] Node 3: kind=;, text=";"
+[2025-02-15 14:46:03] Syntax tree generated successfully
+[2025-02-15 14:46:03] Root node type: source_file
+[2025-02-15 14:46:03] Node 0: kind=mod_item, text="mod ollama;"
+[2025-02-15 14:46:03] Node 1: kind=mod, text="mod"
+[2025-02-15 14:46:03] Node 2: kind=identifier, text="ollama"
+[2025-02-15 14:46:03] Node 3: kind=;, text=";"
+[2025-02-15 14:46:03] Syntax tree generated successfully
+[2025-02-15 14:46:03] Root node type: source_file
+[2025-02-15 14:46:03] Node 0: kind=mod_item, text="mod ollama;"
+[2025-02-15 14:46:03] Node 1: kind=mod, text="mod"
+[2025-02-15 14:46:03] Node 2: kind=identifier, text="ollama"
+[2025-02-15 14:46:03] Node 3: kind=;, text=";"
+[2025-02-15 14:46:04] Syntax tree generated successfully
+[2025-02-15 14:46:04] Root node type: source_file
+[2025-02-15 14:46:04] Node 0: kind=mod_item, text="mod ollama;"
+[2025-02-15 14:46:04] Node 1: kind=mod, text="mod"
+[2025-02-15 14:46:04] Node 2: kind=identifier, text="ollama"
+[2025-02-15 14:46:04] Node 3: kind=;, text=";"
+[2025-02-15 14:46:05] fn hello
+[2025-02-15 14:46:05] Complete the code on this line, returning only the raw code without any formatting, comments, or extra text. Example input: 'let x = '  Example output: 'let x = Some(42);'. Here is the code fn hello
+[2025-02-15 14:46:06] fn hello() -> String {
+    "Hello, world!".to_string()
+}
+[2025-02-15 14:46:16] Syntax tree generated successfully
+[2025-02-15 14:46:16] Root node type: source_file
+[2025-02-15 14:46:16] Node 0: kind=mod_item, text="mod ollama;"
+[2025-02-15 14:46:16] Node 1: kind=mod, text="mod"
+[2025-02-15 14:46:16] Node 2: kind=identifier, text="ollama"
+[2025-02-15 14:46:16] Node 3: kind=;, text=";"
+[2025-02-15 14:46:16] Syntax tree generated successfully
+[2025-02-15 14:46:16] Root node type: source_file
+[2025-02-15 14:46:16] Node 0: kind=mod_item, text="mod ollama;"
+[2025-02-15 14:46:16] Node 1: kind=mod, text="mod"
+[2025-02-15 14:46:16] Node 2: kind=identifier, text="ollama"
+[2025-02-15 14:46:16] Node 3: kind=;, text=";"
+[2025-02-15 14:46:17] Syntax tree generated successfully
+[2025-02-15 14:46:17] Root node type: source_file
+[2025-02-15 14:46:17] Node 0: kind=mod_item, text="mod ollama;"
+[2025-02-15 14:46:17] Node 1: kind=mod, text="mod"
+[2025-02-15 14:46:17] Node 2: kind=identifier, text="ollama"
+[2025-02-15 14:46:17] Node 3: kind=;, text=";"
+[2025-02-15 14:46:17] Syntax tree generated successfully
+[2025-02-15 14:46:17] Root node type: source_file
+[2025-02-15 14:46:17] Node 0: kind=mod_item, text="mod ollama;"
+[2025-02-15 14:46:17] Node 1: kind=mod, text="mod"
+[2025-02-15 14:46:17] Node 2: kind=identifier, text="ollama"
+[2025-02-15 14:46:17] Node 3: kind=;, text=";"
+[2025-02-15 14:46:17] Syntax tree generated successfully
+[2025-02-15 14:46:17] Root node type: source_file
+[2025-02-15 14:46:17] Node 0: kind=mod_item, text="mod ollama;"
+[2025-02-15 14:46:17] Node 1: kind=mod, text="mod"
+[2025-02-15 14:46:17] Node 2: kind=identifier, text="ollama"
+[2025-02-15 14:46:17] Node 3: kind=;, text=";"
+[2025-02-15 14:46:17] Syntax tree generated successfully
+[2025-02-15 14:46:17] Root node type: source_file
+[2025-02-15 14:46:17] Node 0: kind=mod_item, text="mod ollama;"
+[2025-02-15 14:46:17] Node 1: kind=mod, text="mod"
+[2025-02-15 14:46:17] Node 2: kind=identifier, text="ollama"
+[2025-02-15 14:46:17] Node 3: kind=;, text=";"
+[2025-02-15 14:46:17] Syntax tree generated successfully
+[2025-02-15 14:46:17] Root node type: source_file
+[2025-02-15 14:46:17] Node 0: kind=mod_item, text="mod ollama;"
+[2025-02-15 14:46:17] Node 1: kind=mod, text="mod"
+[2025-02-15 14:46:17] Node 2: kind=identifier, text="ollama"
+[2025-02-15 14:46:17] Node 3: kind=;, text=";"
+[2025-02-15 14:46:18] fn helloWorld
+[2025-02-15 14:46:18] Complete the code on this line, returning only the raw code without any formatting, comments, or extra text. Example input: 'let x = '  Example output: 'let x = Some(42);'. Here is the code fn helloWorld
+[2025-02-15 14:46:19] fn hello_world() { println!("Hello, world!"); }
+[2025-02-15 14:46:28] Syntax tree generated successfully
+[2025-02-15 14:46:28] Root node type: source_file
+[2025-02-15 14:46:28] Node 0: kind=mod_item, text="mod ollama;"
+[2025-02-15 14:46:28] Node 1: kind=mod, text="mod"
+[2025-02-15 14:46:28] Node 2: kind=identifier, text="ollama"
+[2025-02-15 14:46:28] Node 3: kind=;, text=";"
+[2025-02-15 14:46:29] Syntax tree generated successfully
+[2025-02-15 14:46:29] Root node type: source_file
+[2025-02-15 14:46:29] Node 0: kind=mod_item, text="mod ollama;"
+[2025-02-15 14:46:29] Node 1: kind=mod, text="mod"
+[2025-02-15 14:46:29] Node 2: kind=identifier, text="ollama"
+[2025-02-15 14:46:29] Node 3: kind=;, text=";"
+[2025-02-15 14:46:29] Syntax tree generated successfully
+[2025-02-15 14:46:29] Root node type: source_file
+[2025-02-15 14:46:29] Node 0: kind=mod_item, text="mod ollama;"
+[2025-02-15 14:46:29] Node 1: kind=mod, text="mod"
+[2025-02-15 14:46:29] Node 2: kind=identifier, text="ollama"
+[2025-02-15 14:46:29] Node 3: kind=;, text=";"
+[2025-02-15 14:46:29] Syntax tree generated successfully
+[2025-02-15 14:46:29] Root node type: source_file
+[2025-02-15 14:46:29] Node 0: kind=mod_item, text="mod ollama;"
+[2025-02-15 14:46:29] Node 1: kind=mod, text="mod"
+[2025-02-15 14:46:29] Node 2: kind=identifier, text="ollama"
+[2025-02-15 14:46:29] Node 3: kind=;, text=";"
+[2025-02-15 14:46:29] Syntax tree generated successfully
+[2025-02-15 14:46:29] Root node type: source_file
+[2025-02-15 14:46:29] Node 0: kind=mod_item, text="mod ollama;"
+[2025-02-15 14:46:29] Node 1: kind=mod, text="mod"
+[2025-02-15 14:46:29] Node 2: kind=identifier, text="ollama"
+[2025-02-15 14:46:29] Node 3: kind=;, text=";"
+[2025-02-15 14:46:29] Syntax tree generated successfully
+[2025-02-15 14:46:29] Root node type: source_file
+[2025-02-15 14:46:29] Node 0: kind=mod_item, text="mod ollama;"
+[2025-02-15 14:46:29] Node 1: kind=mod, text="mod"
+[2025-02-15 14:46:29] Node 2: kind=identifier, text="ollama"
+[2025-02-15 14:46:29] Node 3: kind=;, text=";"
+[2025-02-15 14:46:29] Syntax tree generated successfully
+[2025-02-15 14:46:29] Root node type: source_file
+[2025-02-15 14:46:29] Node 0: kind=mod_item, text="mod ollama;"
+[2025-02-15 14:46:29] Node 1: kind=mod, text="mod"
+[2025-02-15 14:46:29] Node 2: kind=identifier, text="ollama"
+[2025-02-15 14:46:29] Node 3: kind=;, text=";"
+[2025-02-15 14:46:29] Syntax tree generated successfully
+[2025-02-15 14:46:29] Root node type: source_file
+[2025-02-15 14:46:29] Node 0: kind=mod_item, text="mod ollama;"
+[2025-02-15 14:46:29] Node 1: kind=mod, text="mod"
+[2025-02-15 14:46:29] Node 2: kind=identifier, text="ollama"
+[2025-02-15 14:46:29] Node 3: kind=;, text=";"
+[2025-02-15 14:46:30] Syntax tree generated successfully
+[2025-02-15 14:46:30] Root node type: source_file
+[2025-02-15 14:46:30] Node 0: kind=mod_item, text="mod ollama;"
+[2025-02-15 14:46:30] Node 1: kind=mod, text="mod"
+[2025-02-15 14:46:30] Node 2: kind=identifier, text="ollama"
+[2025-02-15 14:46:30] Node 3: kind=;, text=";"
+[2025-02-15 14:46:30] Syntax tree generated successfully
+[2025-02-15 14:46:30] Root node type: source_file
+[2025-02-15 14:46:30] Node 0: kind=mod_item, text="mod ollama;"
+[2025-02-15 14:46:30] Node 1: kind=mod, text="mod"
+[2025-02-15 14:46:30] Node 2: kind=identifier, text="ollama"
+[2025-02-15 14:46:30] Node 3: kind=;, text=";"
+[2025-02-15 14:46:30] Syntax tree generated successfully
+[2025-02-15 14:46:30] Root node type: source_file
+[2025-02-15 14:46:30] Node 0: kind=mod_item, text="mod ollama;"
+[2025-02-15 14:46:30] Node 1: kind=mod, text="mod"
+[2025-02-15 14:46:30] Node 2: kind=identifier, text="ollama"
+[2025-02-15 14:46:30] Node 3: kind=;, text=";"
+[2025-02-15 14:46:30] Syntax tree generated successfully
+[2025-02-15 14:46:30] Root node type: source_file
+[2025-02-15 14:46:30] Node 0: kind=mod_item, text="mod ollama;"
+[2025-02-15 14:46:30] Node 1: kind=mod, text="mod"
+[2025-02-15 14:46:30] Node 2: kind=identifier, text="ollama"
+[2025-02-15 14:46:30] Node 3: kind=;, text=";"
+[2025-02-15 14:46:30] Syntax tree generated successfully
+[2025-02-15 14:46:30] Root node type: source_file
+[2025-02-15 14:46:30] Node 0: kind=mod_item, text="mod ollama;"
+[2025-02-15 14:46:30] Node 1: kind=mod, text="mod"
+[2025-02-15 14:46:30] Node 2: kind=identifier, text="ollama"
+[2025-02-15 14:46:30] Node 3: kind=;, text=";"
+[2025-02-15 14:46:31] Syntax tree generated successfully
+[2025-02-15 14:46:31] Root node type: source_file
+[2025-02-15 14:46:31] Node 0: kind=mod_item, text="mod ollama;"
+[2025-02-15 14:46:31] Node 1: kind=mod, text="mod"
+[2025-02-15 14:46:31] Node 2: kind=identifier, text="ollama"
+[2025-02-15 14:46:31] Node 3: kind=;, text=";"
+[2025-02-15 14:46:37] impl Editor {
+[2025-02-15 14:46:37] Complete the code on this line, returning only the raw code without any formatting, comments, or extra text. Example input: 'let x = '  Example output: 'let x = Some(42);'. Here is the code impl Editor {
+[2025-02-15 14:46:38] ```rust
+impl Editor {
+    fn new() -> Self {
+        Editor {}
+    }
+}
+```
+[2025-02-15 14:46:43] Syntax tree generated successfully
+[2025-02-15 14:46:43] Root node type: source_file
+[2025-02-15 14:46:43] Node 0: kind=mod_item, text="mod ollama;"
+[2025-02-15 14:46:43] Node 1: kind=mod, text="mod"
+[2025-02-15 14:46:43] Node 2: kind=identifier, text="ollama"
+[2025-02-15 14:46:43] Node 3: kind=;, text=";"
