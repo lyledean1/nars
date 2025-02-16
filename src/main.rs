@@ -6,11 +6,7 @@ use tokio::sync::mpsc;
 use crate::ollama::OllamaClient;
 use crate::parser::{parse_code_output, ParsedCode};
 use anyhow::{anyhow, Result};
-use crossterm::{
-    event::{self, Event, KeyCode},
-    execute,
-    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},
-};
+use ratatui::crossterm::{event::{self, Event, KeyCode}, execute, terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen}};
 use futures_util::StreamExt; // Add this import
 use std::fs::OpenOptions;
 use std::io::{Stdout, Write};
@@ -110,8 +106,8 @@ impl Editor {
                 .unwrap_or(0);
             let cursor_column = start_pos - line_start;
 
-            // Get the current line's content up to the cursor
-            let current_line_prefix = &self.content[line_start..start_pos];
+            // Get the current line's content
+            let current_line = &self.content[line_start..start_pos];
 
             // Find where the current line ends
             let line_end = self.content[start_pos..].find('\n')
@@ -125,10 +121,17 @@ impl Editor {
                 ""
             };
 
-            // Create prediction by combining current line prefix with prediction
+            // Extract only the new part of the prediction (remove the original text)
+            let new_prediction = if pred.starts_with(current_line) {
+                &pred[current_line.len()..]
+            } else {
+                pred
+            };
+
+            // Create content with just the new prediction part
             let full_content = format!("{}{}{}",
-                                       current_line_prefix,
-                                       pred,
+                                       current_line,
+                                       new_prediction,
                                        post_content
             );
 
@@ -258,7 +261,7 @@ impl Editor {
                 let mut spans = Vec::new();
                 let mut current_pos = line_start;
 
-                // Add styled spans
+                // Add styled spans for the original content
                 for (start, end, style) in style_spans {
                     if start > current_pos {
                         spans.push(Span::raw(self.content[current_pos..start].to_string()));
@@ -277,33 +280,22 @@ impl Editor {
                     spans.push(Span::raw(self.content[current_pos..line_end].to_string()));
                 }
 
-                // Handle prediction overlay with cursor position awareness
-                if let (Some(pred_lines), Some(start_line), Some(cursor_col)) =
+                // Handle prediction overlay for current line
+                if let (Some(pred_lines), Some(start_line), Some(_)) =
                     (&prediction_lines, prediction_start_line, cursor_column)
                 {
                     if absolute_line_idx == start_line {
                         // This is the line where prediction starts
-                        let mut new_spans = Vec::new();
-
-                        // Keep the content up to cursor
-                        let line_content = line.to_string();
-                        if cursor_col > 0 {
-                            new_spans.push(Span::raw(line_content[..cursor_col].to_string()));
-                        }
-
                         if let Some(pred_line) = pred_lines.get(absolute_line_idx) {
-                            // Add prediction after cursor
-                            if cursor_col < pred_line.len() {
-                                new_spans.push(Span::styled(
-                                    pred_line[cursor_col..].to_string(),
-                                    Style::default()
-                                        .fg(Color::DarkGray)
-                                        .add_modifier(Modifier::ITALIC),
-                                ));
-                            }
+                            // Add only the prediction text as is
+                            let diff_string = find_difference(self.get_current_line_content().as_str(), pred_line.as_str());
+                            spans.push(Span::styled(
+                                diff_string,
+                                Style::default()
+                                    .fg(Color::DarkGray)
+                                    .add_modifier(Modifier::ITALIC),
+                            ));
                         }
-
-                        spans = new_spans;
                     } else if absolute_line_idx > start_line && absolute_line_idx < pred_lines.len() {
                         // These are additional prediction lines
                         spans = vec![Span::styled(
@@ -325,6 +317,7 @@ impl Editor {
                     if idx - self.scroll_offset >= window_height {
                         break;
                     }
+
                     result.push(Line::from(vec![
                         Span::styled(
                             pred_lines[idx].to_string(),
@@ -346,22 +339,18 @@ impl Editor {
             for line_idx in self.scroll_offset..max_lines.min(self.scroll_offset + window_height) {
                 let mut spans = Vec::new();
 
-                if let (Some(pred_lines), Some(start_line), Some(cursor_col)) =
-                    (&prediction_lines, prediction_start_line, cursor_column)
-                {
-                    if line_idx == start_line {
-                        // Line where prediction starts
-                        if line_idx < lines.len() {
-                            let line = lines[line_idx];
-                            if cursor_col > 0 {
-                                spans.push(Span::raw(line[..cursor_col.min(line.len())].to_string()));
-                            }
+                if line_idx < lines.len() {
+                    spans.push(Span::raw(lines[line_idx].to_string()));
 
-                            // Add prediction after cursor
+                    if let (Some(pred_lines), Some(start_line), _) =
+                        (&prediction_lines, prediction_start_line, cursor_column)
+                    {
+                        if line_idx == start_line {
+                            // Add prediction after existing content
                             if let Some(pred_line) = pred_lines.get(line_idx) {
-                                if cursor_col < pred_line.len() {
+                                if lines[line_idx].len() < pred_line.len() {
                                     spans.push(Span::styled(
-                                        pred_line[cursor_col..].to_string(),
+                                        pred_line[lines[line_idx].len()..].to_string(),
                                         Style::default()
                                             .fg(Color::DarkGray)
                                             .add_modifier(Modifier::ITALIC),
@@ -369,19 +358,18 @@ impl Editor {
                                 }
                             }
                         }
-                    } else if line_idx > start_line && line_idx < pred_lines.len() {
-                        // Additional prediction lines
+                    }
+                } else if let (Some(pred_lines), Some(start_line), _) =
+                    (&prediction_lines, prediction_start_line, cursor_column)
+                {
+                    if line_idx > start_line && line_idx < pred_lines.len() {
                         spans.push(Span::styled(
                             pred_lines[line_idx].to_string(),
                             Style::default()
                                 .fg(Color::DarkGray)
                                 .add_modifier(Modifier::ITALIC),
                         ));
-                    } else if line_idx < lines.len() {
-                        spans.push(Span::raw(lines[line_idx].to_string()));
                     }
-                } else if line_idx < lines.len() {
-                    spans.push(Span::raw(lines[line_idx].to_string()));
                 }
 
                 result.push(Line::from(spans));
@@ -395,6 +383,7 @@ impl Editor {
             self.current_prediction.take(),
             self.prediction_start_position.take(),
         ) {
+
             // Get the line start position
             let line_start = self.content[..start_pos]
                 .rfind('\n')
@@ -408,8 +397,11 @@ impl Editor {
                 .unwrap_or(self.content.len());
 
             // Replace the entire line content with the prediction
-            self.content.replace_range(line_start..line_end, &pred);
-
+            let original_line = &self.content[line_start..line_end];
+            if pred.len() > original_line.len() {
+                let new_content = format!("{}{}", original_line, &pred[original_line.len()..]);
+                self.content.replace_range(line_start..line_end, &new_content);
+            }
             // Move cursor to end of prediction
             self.cursor_position = line_start + pred.len();
 
@@ -424,6 +416,7 @@ impl Editor {
     // Modify get_latest_prediction to update the stored prediction
     fn get_latest_prediction(&mut self) -> bool {
         let mut got_any = false;
+        log_to_file("checking latest prediction");
         while let Ok(pred) = self.prediction_rx.try_recv() {
             log_to_file(format!("got prediction from channel {}", pred).as_str());
             self.current_prediction = Some(pred);
@@ -625,54 +618,65 @@ async fn run_editor(client: Arc<OllamaClient>, filename: Option<String>) -> Resu
     loop {
         let window_height = terminal.size()?.height as usize - 2; // Account for borders
         editor.ensure_cursor_visible(window_height);
+        editor.get_latest_prediction();
+
+        log_to_file(format!("editor needs redraw {}", editor.needs_redraw).as_str());
+        if editor.needs_redraw {
+            log_to_file("Should be redrawing with pred");
+            status_message = "updated pred".to_string();
+            terminal.clear()?;
+            terminal.flush()?;
+            editor.needs_redraw = false;
+        }
 
         redraw_editor(&mut terminal, &mut editor, &mut status_message, status_time)?;
-        if let Event::Key(key) = event::read()? {
-            editor.get_latest_prediction();
-            match key.code {
-                KeyCode::Char('s') if key.modifiers.contains(event::KeyModifiers::CONTROL) => {
-                    match editor.save_file() {
-                        Ok(_) => {
-                            status_message = String::from("File saved successfully!");
-                            status_time = std::time::Instant::now();
-                        }
-                        Err(e) => {
-                            status_message = format!("Error saving file: {}", e);
-                            status_time = std::time::Instant::now();
+        if event::poll(std::time::Duration::from_millis(10))? {
+            if let Event::Key(key) = event::read()? {
+                match key.code {
+                    KeyCode::Char('s') if key.modifiers.contains(event::KeyModifiers::CONTROL) => {
+                        match editor.save_file() {
+                            Ok(_) => {
+                                status_message = String::from("File saved successfully!");
+                                status_time = std::time::Instant::now();
+                            }
+                            Err(e) => {
+                                status_message = format!("Error saving file: {}", e);
+                                status_time = std::time::Instant::now();
+                            }
                         }
                     }
-                }
-                KeyCode::Tab => {
-                    if editor.current_prediction.is_some() {
-                        editor.accept_prediction();
-                    } else {
-                        let content = editor.get_current_line_content();
-                        stream_prediction_background(
-                            client.clone(),
-                            content,
-                            prediction_tx.clone(),
-                        )
-                        .await;
+                    KeyCode::Tab => {
+                        if editor.current_prediction.is_some() {
+                            editor.accept_prediction();
+                        } else {
+                            let content = editor.get_current_line_content();
+                            stream_prediction_background(
+                                client.clone(),
+                                content,
+                                prediction_tx.clone(),
+                            )
+                                .await;
+                        }
                     }
+                    KeyCode::Esc => {
+                        editor.current_prediction = None;
+                        editor.prediction_start_position = None;
+                        break;
+                    }
+                    KeyCode::Char(c) => {
+                        editor.current_prediction = None;
+                        editor.prediction_start_position = None;
+                        editor.insert_char(c, 1);
+                    }
+                    // KeyCode::Tab => editor.insert_char('\t', 4),
+                    KeyCode::Enter => editor.insert_char('\n', 1),
+                    KeyCode::Backspace => editor.delete_char(),
+                    KeyCode::Left => editor.move_cursor_left(),
+                    KeyCode::Right => editor.move_cursor_right(),
+                    KeyCode::Up => editor.move_cursor_up(),
+                    KeyCode::Down => editor.move_cursor_down(),
+                    _ => {}
                 }
-                KeyCode::Esc => {
-                    editor.current_prediction = None;
-                    editor.prediction_start_position = None;
-                    break;
-                }
-                KeyCode::Char(c) => {
-                    editor.current_prediction = None;
-                    editor.prediction_start_position = None;
-                    editor.insert_char(c, 1);
-                }
-                // KeyCode::Tab => editor.insert_char('\t', 4),
-                KeyCode::Enter => editor.insert_char('\n', 1),
-                KeyCode::Backspace => editor.delete_char(),
-                KeyCode::Left => editor.move_cursor_left(),
-                KeyCode::Right => editor.move_cursor_right(),
-                KeyCode::Up => editor.move_cursor_up(),
-                KeyCode::Down => editor.move_cursor_down(),
-                _ => {}
             }
         }
     }
@@ -684,7 +688,6 @@ async fn run_editor(client: Arc<OllamaClient>, filename: Option<String>) -> Resu
 
 fn redraw_editor(terminal: &mut Terminal<CrosstermBackend<Stdout>>, mut editor: &mut Editor, mut status_message: &mut String, mut status_time: Instant) -> Result<()> {
     terminal.draw(|f| {
-        editor.get_latest_prediction();
         log_to_file(format!("latest prediction {}", status_message).as_str());
         let chunks = Layout::default()
             .direction(Direction::Vertical)
@@ -698,6 +701,7 @@ fn redraw_editor(terminal: &mut Terminal<CrosstermBackend<Stdout>>, mut editor: 
             .unwrap_or_else(|| "edoc".to_string());
 
         let window_height = chunks[0].height as usize - 2; // Account for borders
+
         let mut styled_lines = editor.highlight_syntax(window_height);
 
         // Add cursor indicator
@@ -802,6 +806,14 @@ fn log_to_file(message: &str) {
             eprintln!("Failed to write to log file: {}", e);
         }
     }
+}
+
+fn find_difference(s1: &str, s2: &str) -> String {
+    if !s2.starts_with(s1) {
+        return String::new();  // Return empty string if they don't match
+    }
+
+    s2[s1.len()..].to_string()  // Return the remainder of s2 after s1's length
 }
 
 async fn stream_prediction(
