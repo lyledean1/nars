@@ -697,8 +697,8 @@ fn redraw_editor(terminal: &mut Terminal<CrosstermBackend<Stdout>>, mut editor: 
         let title = editor
             .filename
             .as_ref()
-            .map(|f| format!("edoc - {}", f))
-            .unwrap_or_else(|| "edoc".to_string());
+            .map(|f| format!("nars - {}", f))
+            .unwrap_or_else(|| "nars".to_string());
 
         let window_height = chunks[0].height as usize - 2; // Account for borders
 
@@ -742,7 +742,7 @@ fn redraw_editor(terminal: &mut Terminal<CrosstermBackend<Stdout>>, mut editor: 
                         new_spans.push(Span::styled(
                             "|".to_string(),
                             Style::default()
-                                .fg(Color::Rgb(169, 183, 198))
+                                .fg(Color::LightYellow)
                                 .add_modifier(Modifier::RAPID_BLINK),
                         ));
                         if cursor_rel_pos < span_len {

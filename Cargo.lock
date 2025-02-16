@@ -272,24 +272,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "edoc"
-version = "0.1.0"
-dependencies = [
- "anyhow",
- "cc",
- "chrono",
- "crossterm 0.25.0",
- "futures-util",
- "ratatui",
- "regex",
- "reqwest",
- "serde",
- "serde_json",
- "tokio",
- "tree-sitter",
-]
-
-[[package]]
 name = "either"
 version = "1.13.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -914,6 +896,24 @@ dependencies = [
  "log",
  "wasi 0.11.0+wasi-snapshot-preview1",
  "windows-sys 0.52.0",
+]
+
+[[package]]
+name = "nars"
+version = "0.1.0"
+dependencies = [
+ "anyhow",
+ "cc",
+ "chrono",
+ "crossterm 0.25.0",
+ "futures-util",
+ "ratatui",
+ "regex",
+ "reqwest",
+ "serde",
+ "serde_json",
+ "tokio",
+ "tree-sitter",
 ]
 
 [[package]]
