@@ -1,32 +1,50 @@
-use regex::Regex;
 use anyhow::{anyhow, Result};
+use regex::Regex;
 
 #[derive(Debug)]
 pub struct ParsedCode {
-    pub raw_code: String,
+    pub code: String,
     pub language: Option<String>,
+    pub is_complete: bool,
 }
 
 impl ParsedCode {
-    pub fn new(raw_code: String, language: Option<String>) -> Self {
-        Self { raw_code, language }
+    pub fn new(code: String, language: Option<String>) -> Self {
+        Self {
+            code,
+            language,
+            is_complete: true,
+        }
     }
 }
 
 pub fn parse_code_output(input: &str) -> Result<ParsedCode> {
-    // Match code blocks with optional language specifier
-    let code_block_regex = Regex::new(r"(?s)```(?:(\w+)\n)?(.*?)```")?;
+    // Match code blocks that might be incomplete
+    // This regex will match:
+    // 1. Complete code blocks: ```lang\ncode```
+    // 2. Incomplete blocks: ```lang\ncode
+    // 3. Raw code without markers
+    let code_block_regex = Regex::new(r"(?s)```(?:(\w+)\n)?(.*?)(?:```|$)")?;
 
     if let Some(captures) = code_block_regex.captures(input) {
         let language = captures.get(1).map(|m| m.as_str().to_string());
-        let code = captures.get(2)
+        let code = captures
+            .get(2)
             .map(|m| m.as_str().trim().to_string())
             .ok_or(anyhow!("No code content found"))?;
 
-        Ok(ParsedCode::new(code, language))
+        let is_complete = input.trim().ends_with("```");
+        Ok(ParsedCode {
+            code,
+            language,
+            is_complete,
+        })
     } else {
-        // If no code block is found, treat the entire input as raw code
-        Ok(ParsedCode::new(input.trim().to_string(), None))
+        Ok(ParsedCode {
+            code: input.trim().to_string(),
+            language: None,
+            is_complete: true,
+        })
     }
 }
 
@@ -44,9 +62,27 @@ mod tests {
 
         let result = parse_code_output(input).unwrap();
         assert_eq!(result.language, Some("rust".to_string()));
-        assert_eq!(result.raw_code.trim(), r#"fn main() {
+        assert_eq!(
+            result.code.trim(),
+            r#"fn main() {
             println!("Hello");
-        }"#);
+        }"#
+        );
+    }
+
+    #[test]
+    fn test_incomplete_code() {
+        let input = r#"```rust
+        fn main() {
+            println!("Hello");"#;
+
+        let result = parse_code_output(input).unwrap();
+        assert_eq!(result.language, Some("rust".to_string()));
+        assert_eq!(
+            result.code.trim(),
+            r#"fn main() {
+            println!("Hello");"#
+        );
     }
 
     #[test]
@@ -54,7 +90,7 @@ mod tests {
         let input = "fn main() { println!(\"Hello\"); }";
         let result = parse_code_output(input).unwrap();
         assert_eq!(result.language, None);
-        assert_eq!(result.raw_code, input);
+        assert_eq!(result.code, input);
     }
 
     #[test]
@@ -65,6 +101,6 @@ mod tests {
 
         let result = parse_code_output(input).unwrap();
         assert_eq!(result.language, None);
-        assert_eq!(result.raw_code.trim(), "let x = 42;");
+        assert_eq!(result.code.trim(), "let x = 42;");
     }
 }

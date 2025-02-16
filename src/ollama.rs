@@ -1,8 +1,8 @@
+use anyhow::Result;
+use futures_util::StreamExt;
+use futures_util::{Stream, TryStreamExt};
 use reqwest::Client;
 use serde::{Deserialize, Serialize};
-use anyhow::Result;
-use futures_util::{Stream, TryStreamExt};
-use futures_util::StreamExt;
 
 const OLLAMA_BASE_URL: &str = "http://localhost:11434/api";
 
@@ -39,7 +39,8 @@ impl OllamaClient {
             stream: false,
         };
 
-        let response = self.client
+        let response = self
+            .client
             .post(format!("{}/generate", OLLAMA_BASE_URL))
             .json(&request)
             .send()
@@ -49,14 +50,19 @@ impl OllamaClient {
         Ok(generation.response)
     }
 
-    pub async fn stream_generate(&self, model: &str, prompt: &str) -> Result<impl Stream<Item = Result<String>>> {
+    pub async fn stream_generate(
+        &self,
+        model: &str,
+        prompt: &str,
+    ) -> Result<impl Stream<Item = Result<String>>> {
         let request = GenerateRequest {
             model: model.to_string(),
             prompt: prompt.to_string(),
             stream: true,
         };
 
-        let response = self.client
+        let response = self
+            .client
             .post(format!("{}/generate", OLLAMA_BASE_URL))
             .json(&request)
             .send()
