@@ -1,5 +1,7 @@
 mod ollama;
 mod parser;
+use tokio::sync::mpsc;
+use std::sync::Arc;
 
 use futures_util::StreamExt;  // Add this import
 use anyhow::Result;
@@ -20,6 +22,7 @@ use tui::{
 };
 use std::fs::OpenOptions;
 use std::io::Write;
+use tokio::task;
 use crate::ollama::OllamaClient;
 use crate::parser::parse_code_output;
 
@@ -30,22 +33,29 @@ struct Editor {
     parser: Parser,
     tree: Option<Tree>,
     filename: Option<String>,
+    status_message: String,
+    status_time: std::time::Instant,
+    prediction_rx: mpsc::Receiver<String>,
 }
 
 impl Editor {
-    fn new() -> Self {
+    fn new() -> (Self, mpsc::Sender<String>) {
+        let (prediction_tx, prediction_rx) = mpsc::channel(32);
         let mut parser = Parser::new();
         parser.set_language(tree_sitter_rust())
             .expect("Error loading Rust grammar");
 
-        Editor {
+        (Editor {
             content: String::new(),
             cursor_position: 0,
             scroll_offset: 0,
             parser,
             tree: None,
             filename: None,
-        }
+            status_message: String::new(),
+            status_time: std::time::Instant::now(),
+            prediction_rx,
+        },  prediction_tx)
     }
 
     fn save_file(&self) -> Result<(), Box<dyn Error>> {
@@ -63,6 +73,14 @@ impl Editor {
         self.scroll_offset = 0;
         self.update_syntax_tree();
         Ok(())
+    }
+
+    async fn get_latest_prediction(&mut self) -> String {
+        // Check for new predictions
+        while let Ok(pred) = self.prediction_rx.try_recv() {
+            return pred;
+        }
+        "".to_string()
     }
 
     fn get_current_line(&self) -> usize {
@@ -382,14 +400,15 @@ fn tree_sitter_rust() -> Language {
     }
 }
 
-async fn run_editor(client: OllamaClient, filename: Option<String>) -> Result<()> {
+async fn run_editor(client: Arc<OllamaClient>, filename: Option<String>) -> Result<()> {
     enable_raw_mode()?;
     let mut stdout = io::stdout();
     execute!(stdout, EnterAlternateScreen)?;
     let backend = CrosstermBackend::new(stdout);
     let mut terminal = Terminal::new(backend)?;
 
-    let mut editor = Editor::new();
+    let (mut editor, prediction_tx) = Editor::new();
+
     let mut status_message = String::new();
     let mut status_time = std::time::Instant::now();
 
@@ -503,6 +522,15 @@ async fn run_editor(client: OllamaClient, filename: Option<String>) -> Result<()
             }
         })?;
 
+        // update status message
+
+        let pred = editor.get_latest_prediction().await;
+        if pred != "" && pred != status_message {
+            log_to_file(format!("pred - {}", pred).as_str());
+            status_message = pred;
+            status_time = std::time::Instant::now();
+        }
+
         if let Event::Key(key) = event::read()? {
             match key.code {
                 KeyCode::Char('s') if key.modifiers.contains(event::KeyModifiers::CONTROL) => {
@@ -519,9 +547,7 @@ async fn run_editor(client: OllamaClient, filename: Option<String>) -> Result<()
                 }
                 KeyCode::Tab => {
                     let content = editor.get_current_line_content();
-                    let pred = stream_prediction(client.clone(), content).await?;
-                    status_message = format!("{}", pred);
-                    status_time = std::time::Instant::now();
+                    stream_prediction_background(client.clone(), content, prediction_tx.clone()).await;
                 }
                 // KeyCode::Tab => editor.insert_char('\t', 4),
                 KeyCode::Char(c) => editor.insert_char(c, 1),
@@ -555,7 +581,7 @@ fn log_to_file(message: &str) {
     }
 }
 
-async fn stream_prediction(client: OllamaClient, line: String) -> Result<String> {
+async fn stream_prediction(client: Arc<OllamaClient>, line: String) -> Result<String> {
         let prompt = format!("Complete the code on this line, returning only the raw code without any formatting, comments, or extra text. Example input: 'let x = '  Example output: 'let x = Some(42);'. Here is the code {}", line);
         log_to_file(&prompt);
         let mut stream = client.stream_generate("qwen2.5-coder:7b", prompt.as_str()).await?;
@@ -573,33 +599,32 @@ async fn stream_prediction(client: OllamaClient, line: String) -> Result<String>
         Ok(output.raw_code)
 }
 
+async fn stream_prediction_background(
+    client: Arc<OllamaClient>,
+    content: String,
+    prediction_tx: mpsc::Sender<String>
+) {
+    task::spawn(async move {
+        match stream_prediction(client, content).await {
+            Ok(pred) => {
+                if let Err(e) = prediction_tx.send(format!("{}", pred)).await {
+                    eprintln!("Failed to send prediction: {}", e);
+                }
+            }
+            Err(e) => {
+                eprintln!("Prediction error: {}", e);
+            }
+        }
+    });
+}
+
+
+
 #[tokio::main]
 async fn main() -> Result<()>  {
-    let client = OllamaClient::new();
+    let client = Arc::new(OllamaClient::new());
     let args: Vec<String> = env::args().collect();
     let filename = args.get(1).cloned();
 
     run_editor(client, filename).await
 }
-
-
-
-//
-// #[tokio::main]
-// async fn main() -> Result<()> {
-//     let client = OllamaClient::new();
-//     //
-//     // // Single response generation
-//     // let response = client.generate("codellama:7b-code", "Tell me a joke").await?;
-//     // println!("Response: {}", response);
-//
-//     // Streaming response
-//     let mut stream = client.stream_generate("qwen2.5-coder:7b", "complete this code, show only the completed code, don't say anything else apart from the code def calculate_fibonacci(n):'''Calculate the nth number in the Fibonacci sequence").await?;
-//     while let Some(chunk) = stream.next().await {
-//         match chunk {
-//             Ok(text) => print!("{}", text),
-//             Err(e) => eprintln!("Error: {}", e),
-//         }
-//     }
-//     Ok(())
-// }
