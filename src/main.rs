@@ -775,11 +775,11 @@ fn redraw_editor(terminal: &mut Terminal<CrosstermBackend<Stdout>>, mut editor: 
             .block(
                 Block::default().borders(Borders::ALL).title(title).style(
                     Style::default()
-                        .bg(Color::Rgb(43, 43, 43))
-                        .fg(Color::Rgb(169, 183, 198)),
+                        .bg(Color::Black)
+                        .fg(Color::White),
                 ),
             )
-            .style(Style::default().bg(Color::Rgb(43, 43, 43)));
+            .style(Style::default().bg(Color::Black));
 
         f.render_widget(paragraph, chunks[0]);
 
