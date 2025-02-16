@@ -91,15 +91,27 @@ impl Editor {
         // Split current content into lines
         let lines: Vec<&str> = self.content.split('\n').collect();
 
+        // Get visible lines
+        let visible_lines = lines.iter()
+            .skip(self.scroll_offset)
+            .take(window_height)
+            .collect::<Vec<_>>();
+
         // Calculate prediction content if it exists
-        let (prediction_lines, prediction_start_line) = if let (Some(pred), Some(start_pos)) =
+        let (prediction_lines, prediction_start_line, cursor_column) = if let (Some(pred), Some(start_pos)) =
             (&self.current_prediction, self.prediction_start_position)
         {
             // Get the line where prediction starts
             let start_line = self.content[..start_pos].chars().filter(|&c| c == '\n').count();
 
-            // Get the content up to prediction start
-            let pre_content = &self.content[..start_pos];
+            // Calculate cursor column position within the line
+            let line_start = self.content[..start_pos].rfind('\n')
+                .map(|pos| pos + 1)
+                .unwrap_or(0);
+            let cursor_column = start_pos - line_start;
+
+            // Get the current line's content up to the cursor
+            let current_line_prefix = &self.content[line_start..start_pos];
 
             // Find where the current line ends
             let line_end = self.content[start_pos..].find('\n')
@@ -113,22 +125,20 @@ impl Editor {
                 ""
             };
 
-            // Combine everything to create the full predicted content
-            let full_content = format!("{}{}{}", pre_content, pred, post_content);
+            // Create prediction by combining current line prefix with prediction
+            let full_content = format!("{}{}{}",
+                                       current_line_prefix,
+                                       pred,
+                                       post_content
+            );
 
             // Split into lines
             let pred_lines = full_content.split('\n').map(|s| s.to_string()).collect::<Vec<_>>();
 
-            (Some(pred_lines), Some(start_line))
+            (Some(pred_lines), Some(start_line), Some(cursor_column))
         } else {
-            (None, None)
+            (None, None, None)
         };
-
-        // Get visible range of lines
-        let visible_lines = lines.iter()
-            .skip(self.scroll_offset)
-            .take(window_height)
-            .collect::<Vec<_>>();
 
         if let Some(tree) = &self.tree {
             let root = tree.root_node();
@@ -267,19 +277,41 @@ impl Editor {
                     spans.push(Span::raw(self.content[current_pos..line_end].to_string()));
                 }
 
-                // Handle prediction overlay
-                if let (Some(pred_lines), Some(start_line)) = (&prediction_lines, prediction_start_line) {
-                    if absolute_line_idx >= start_line && absolute_line_idx < pred_lines.len() {
-                        let pred_line = &pred_lines[absolute_line_idx];
-                        if pred_line != line {
-                            spans.clear();
-                            spans.push(Span::styled(
-                                pred_line.to_string(),
-                                Style::default()
-                                    .fg(Color::DarkGray)
-                                    .add_modifier(Modifier::ITALIC),
-                            ));
+                // Handle prediction overlay with cursor position awareness
+                if let (Some(pred_lines), Some(start_line), Some(cursor_col)) =
+                    (&prediction_lines, prediction_start_line, cursor_column)
+                {
+                    if absolute_line_idx == start_line {
+                        // This is the line where prediction starts
+                        let mut new_spans = Vec::new();
+
+                        // Keep the content up to cursor
+                        let line_content = line.to_string();
+                        if cursor_col > 0 {
+                            new_spans.push(Span::raw(line_content[..cursor_col].to_string()));
                         }
+
+                        if let Some(pred_line) = pred_lines.get(absolute_line_idx) {
+                            // Add prediction after cursor
+                            if cursor_col < pred_line.len() {
+                                new_spans.push(Span::styled(
+                                    pred_line[cursor_col..].to_string(),
+                                    Style::default()
+                                        .fg(Color::DarkGray)
+                                        .add_modifier(Modifier::ITALIC),
+                                ));
+                            }
+                        }
+
+                        spans = new_spans;
+                    } else if absolute_line_idx > start_line && absolute_line_idx < pred_lines.len() {
+                        // These are additional prediction lines
+                        spans = vec![Span::styled(
+                            pred_lines[absolute_line_idx].to_string(),
+                            Style::default()
+                                .fg(Color::DarkGray)
+                                .add_modifier(Modifier::ITALIC),
+                        )];
                     }
                 }
 
@@ -287,7 +319,7 @@ impl Editor {
             }
 
             // Add any additional prediction lines that extend beyond the current content
-            if let (Some(pred_lines), Some(start_line)) = (&prediction_lines, prediction_start_line) {
+            if let (Some(pred_lines), Some(start_line), _) = (&prediction_lines, prediction_start_line, cursor_column) {
                 let current_visible_end = self.scroll_offset + visible_lines.len();
                 for idx in current_visible_end..pred_lines.len() {
                     if idx - self.scroll_offset >= window_height {
@@ -304,7 +336,7 @@ impl Editor {
                 }
             }
         } else {
-            // No syntax tree available - render plain text with predictions
+            // No syntax tree - handle plain text with predictions
             let max_lines = if let Some(pred_lines) = &prediction_lines {
                 pred_lines.len().max(lines.len())
             } else {
@@ -314,9 +346,31 @@ impl Editor {
             for line_idx in self.scroll_offset..max_lines.min(self.scroll_offset + window_height) {
                 let mut spans = Vec::new();
 
-                if let (Some(pred_lines), Some(start_line)) = (&prediction_lines, prediction_start_line) {
-                    if line_idx >= start_line && line_idx < pred_lines.len() {
-                        // Show prediction line
+                if let (Some(pred_lines), Some(start_line), Some(cursor_col)) =
+                    (&prediction_lines, prediction_start_line, cursor_column)
+                {
+                    if line_idx == start_line {
+                        // Line where prediction starts
+                        if line_idx < lines.len() {
+                            let line = lines[line_idx];
+                            if cursor_col > 0 {
+                                spans.push(Span::raw(line[..cursor_col.min(line.len())].to_string()));
+                            }
+
+                            // Add prediction after cursor
+                            if let Some(pred_line) = pred_lines.get(line_idx) {
+                                if cursor_col < pred_line.len() {
+                                    spans.push(Span::styled(
+                                        pred_line[cursor_col..].to_string(),
+                                        Style::default()
+                                            .fg(Color::DarkGray)
+                                            .add_modifier(Modifier::ITALIC),
+                                    ));
+                                }
+                            }
+                        }
+                    } else if line_idx > start_line && line_idx < pred_lines.len() {
+                        // Additional prediction lines
                         spans.push(Span::styled(
                             pred_lines[line_idx].to_string(),
                             Style::default()
@@ -324,11 +378,9 @@ impl Editor {
                                 .add_modifier(Modifier::ITALIC),
                         ));
                     } else if line_idx < lines.len() {
-                        // Show original line
                         spans.push(Span::raw(lines[line_idx].to_string()));
                     }
                 } else if line_idx < lines.len() {
-                    // No prediction, show original line
                     spans.push(Span::raw(lines[line_idx].to_string()));
                 }
 
@@ -417,6 +469,10 @@ impl Editor {
     }
 
     fn insert_char(&mut self, c: char, cursor_position: usize) {
+        if c == '\n' {
+            self.current_prediction = None;
+            self.prediction_start_position = None;
+        }
         if c == '\t' {
             // Insert 4 spaces instead of a tab character
             for _ in 0..4 {
@@ -451,6 +507,8 @@ impl Editor {
     }
 
     fn move_cursor_up(&mut self) {
+        self.current_prediction = None;
+        self.prediction_start_position = None;
         // Get current line's start position
         let current_line_start = self.content[..self.cursor_position]
             .rfind('\n')
