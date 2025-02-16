@@ -6329,3 +6329,2089 @@ fn hello_world() {
 [2025-02-16 18:46:43] Node 6: kind=(, text="("
 [2025-02-16 18:46:43] Node 7: kind=), text=")"
 [2025-02-16 18:46:43] latest prediction 
+[2025-02-16 18:51:48] latest prediction 
+[2025-02-16 18:51:48] latest prediction 
+[2025-02-16 18:51:49] Syntax tree generated successfully
+[2025-02-16 18:51:49] Root node type: source_file
+[2025-02-16 18:51:49] Node 0: kind=ERROR, text="f"
+[2025-02-16 18:51:49] Node 1: kind=identifier, text="f"
+[2025-02-16 18:51:49] latest prediction 
+[2025-02-16 18:51:50] Syntax tree generated successfully
+[2025-02-16 18:51:50] Root node type: source_file
+[2025-02-16 18:51:50] Node 0: kind=ERROR, text="fn"
+[2025-02-16 18:51:50] Node 1: kind=identifier, text="f"
+[2025-02-16 18:51:50] Node 2: kind=identifier, text="n"
+[2025-02-16 18:51:50] latest prediction 
+[2025-02-16 18:51:50] Syntax tree generated successfully
+[2025-02-16 18:51:50] Root node type: source_file
+[2025-02-16 18:51:50] Node 0: kind=ERROR, text="fn"
+[2025-02-16 18:51:50] Node 1: kind=identifier, text="f"
+[2025-02-16 18:51:50] Node 2: kind=identifier, text="n"
+[2025-02-16 18:51:50] latest prediction 
+[2025-02-16 18:51:50] Syntax tree generated successfully
+[2025-02-16 18:51:50] Root node type: source_file
+[2025-02-16 18:51:50] Node 0: kind=ERROR, text="fn h"
+[2025-02-16 18:51:50] Node 1: kind=identifier, text="f"
+[2025-02-16 18:51:50] Node 2: kind=identifier, text="n"
+[2025-02-16 18:51:50] Node 3: kind=identifier, text="h"
+[2025-02-16 18:51:50] latest prediction 
+[2025-02-16 18:51:50] Syntax tree generated successfully
+[2025-02-16 18:51:50] Root node type: source_file
+[2025-02-16 18:51:50] Node 0: kind=ERROR, text="fn he"
+[2025-02-16 18:51:50] Node 1: kind=identifier, text="f"
+[2025-02-16 18:51:50] Node 2: kind=identifier, text="n"
+[2025-02-16 18:51:50] Node 3: kind=identifier, text="he"
+[2025-02-16 18:51:50] latest prediction 
+[2025-02-16 18:51:50] Syntax tree generated successfully
+[2025-02-16 18:51:50] Root node type: source_file
+[2025-02-16 18:51:50] Node 0: kind=ERROR, text="fn hel"
+[2025-02-16 18:51:50] Node 1: kind=identifier, text="f"
+[2025-02-16 18:51:50] Node 2: kind=identifier, text="n"
+[2025-02-16 18:51:50] Node 3: kind=identifier, text="hel"
+[2025-02-16 18:51:50] latest prediction 
+[2025-02-16 18:51:50] Syntax tree generated successfully
+[2025-02-16 18:51:50] Root node type: source_file
+[2025-02-16 18:51:50] Node 0: kind=ERROR, text="fn hell"
+[2025-02-16 18:51:50] Node 1: kind=identifier, text="f"
+[2025-02-16 18:51:50] Node 2: kind=identifier, text="n"
+[2025-02-16 18:51:50] Node 3: kind=identifier, text="hell"
+[2025-02-16 18:51:50] latest prediction 
+[2025-02-16 18:51:50] Syntax tree generated successfully
+[2025-02-16 18:51:50] Root node type: source_file
+[2025-02-16 18:51:50] Node 0: kind=ERROR, text="fn hello"
+[2025-02-16 18:51:50] Node 1: kind=identifier, text="f"
+[2025-02-16 18:51:50] Node 2: kind=identifier, text="n"
+[2025-02-16 18:51:50] Node 3: kind=identifier, text="hello"
+[2025-02-16 18:51:50] latest prediction 
+[[2025-02-16 18:51:51] 2025-02-16 18:51:51latest prediction ] 
+Complete the code on this line, returning only the raw code without any formatting, comments, or extra text. Example input: 'let x = '  Example output: 'let x = Some(42);'. Here is the code fn hello
+[2025-02-16 18:51:52] latest prediction 
+[2025-02-16 18:51:53] latest prediction 
+[2025-02-16 18:51:53] latest prediction 
+[2025-02-16 18:51:53] latest prediction 
+[2025-02-16 18:51:53] latest prediction 
+[2025-02-16 18:51:53] latest prediction 
+[2025-02-16 18:51:54] latest prediction 
+[2025-02-16 18:51:54] latest prediction 
+[2025-02-16 18:51:54] latest prediction 
+[2025-02-16 18:51:54] Next chunk fn
+[2025-02-16 18:51:54] Send pred to channel fn
+[2025-02-16 18:51:54] Next chunk fn hello
+[2025-02-16 18:51:54] Send pred to channel fn hello
+[2025-02-16 18:51:54] Next chunk fn hello()
+[2025-02-16 18:51:54] Send pred to channel fn hello()
+[2025-02-16 18:51:54] Next chunk fn hello() ->
+[2025-02-16 18:51:54] Send pred to channel fn hello() ->
+[2025-02-16 18:51:54] Next chunk fn hello() -> String
+[2025-02-16 18:51:54] Send pred to channel fn hello() -> String
+[2025-02-16 18:51:54] Next chunk fn hello() -> String {
+
+[2025-02-16 18:51:54] Send pred to channel fn hello() -> String {
+
+[2025-02-16 18:51:54] Next chunk fn hello() -> String {
+   
+[2025-02-16 18:51:54] Send pred to channel fn hello() -> String {
+   
+[2025-02-16 18:51:54] Next chunk fn hello() -> String {
+    "
+[2025-02-16 18:51:54] Send pred to channel fn hello() -> String {
+    "
+[2025-02-16 18:51:54] Next chunk fn hello() -> String {
+    "Hello
+[2025-02-16 18:51:54] Send pred to channel fn hello() -> String {
+    "Hello
+[2025-02-16 18:51:54] got prediction from channel fn
+[2025-02-16 18:51:54] got prediction from channel fn hello
+[2025-02-16 18:51:54] got prediction from channel fn hello()
+[2025-02-16 18:51:54] got prediction from channel fn hello() ->
+[2025-02-16 18:51:54] got prediction from channel fn hello() -> String
+[2025-02-16 18:51:54] got prediction from channel fn hello() -> String {
+
+[2025-02-16 18:51:54] got prediction from channel fn hello() -> String {
+   
+[2025-02-16 18:51:54] got prediction from channel fn hello() -> String {
+    "
+[2025-02-16 18:51:54] got prediction from channel fn hello() -> String {
+    "Hello
+[2025-02-16 18:51:54] Syntax tree generated successfully
+[2025-02-16 18:51:54] Root node type: source_file
+[2025-02-16 18:51:54] Node 0: kind=ERROR, text="fn hello_"
+[2025-02-16 18:51:54] Node 1: kind=identifier, text="f"
+[2025-02-16 18:51:54] Node 2: kind=identifier, text="n"
+[2025-02-16 18:51:54] Node 3: kind=identifier, text="hello_"
+[2025-02-16 18:51:54] latest prediction 
+[2025-02-16 18:51:54] Next chunk fn hello() -> String {
+    "Hello,
+[2025-02-16 18:51:54] Send pred to channel fn hello() -> String {
+    "Hello,
+[2025-02-16 18:51:54] Next chunk fn hello() -> String {
+    "Hello, world
+[2025-02-16 18:51:54] Send pred to channel fn hello() -> String {
+    "Hello, world
+[2025-02-16 18:51:54] Next chunk fn hello() -> String {
+    "Hello, world!".
+[2025-02-16 18:51:54] Send pred to channel fn hello() -> String {
+    "Hello, world!".
+[2025-02-16 18:51:54] Next chunk fn hello() -> String {
+    "Hello, world!".to
+[2025-02-16 18:51:54] Send pred to channel fn hello() -> String {
+    "Hello, world!".to
+[2025-02-16 18:51:54] Next chunk fn hello() -> String {
+    "Hello, world!".to_string
+[2025-02-16 18:51:54] Send pred to channel fn hello() -> String {
+    "Hello, world!".to_string
+[2025-02-16 18:51:54] Next chunk fn hello() -> String {
+    "Hello, world!".to_string()
+
+[2025-02-16 18:51:54] Send pred to channel fn hello() -> String {
+    "Hello, world!".to_string()
+
+[2025-02-16 18:51:54] got prediction from channel fn hello() -> String {
+    "Hello,
+[2025-02-16 18:51:54] got prediction from channel fn hello() -> String {
+    "Hello, world
+[2025-02-16 18:51:54] got prediction from channel fn hello() -> String {
+    "Hello, world!".
+[2025-02-16 18:51:54] got prediction from channel fn hello() -> String {
+    "Hello, world!".to
+[2025-02-16 18:51:54] got prediction from channel fn hello() -> String {
+    "Hello, world!".to_string
+[2025-02-16 18:51:54] got prediction from channel fn hello() -> String {
+    "Hello, world!".to_string()
+
+[2025-02-16 18:51:54] Syntax tree generated successfully
+[2025-02-16 18:51:54] Root node type: source_file
+[2025-02-16 18:51:54] Node 0: kind=ERROR, text="fn hello_w"
+[2025-02-16 18:51:54] Node 1: kind=identifier, text="f"
+[2025-02-16 18:51:54] Node 2: kind=identifier, text="n"
+[2025-02-16 18:51:54] Node 3: kind=identifier, text="hello_w"
+[2025-02-16 18:51:54] latest prediction 
+[2025-02-16 18:51:54] Next chunk fn hello() -> String {
+    "Hello, world!".to_string()
+}
+[2025-02-16 18:51:54] Send pred to channel fn hello() -> String {
+    "Hello, world!".to_string()
+}
+[2025-02-16 18:51:55] got prediction from channel fn hello() -> String {
+    "Hello, world!".to_string()
+}
+[2025-02-16 18:51:55] Syntax tree generated successfully
+[2025-02-16 18:51:55] Root node type: source_file
+[2025-02-16 18:51:55] Node 0: kind=ERROR, text="fn hello_wo"
+[2025-02-16 18:51:55] Node 1: kind=identifier, text="f"
+[2025-02-16 18:51:55] Node 2: kind=identifier, text="n"
+[2025-02-16 18:51:55] Node 3: kind=identifier, text="hello_wo"
+[2025-02-16 18:51:55] latest prediction 
+[2025-02-16 18:51:55] Next chunk fn hello() -> String {
+    "Hello, world!".to_string()
+}
+[2025-02-16 18:51:55] Send pred to channel fn hello() -> String {
+    "Hello, world!".to_string()
+}
+[2025-02-16 18:51:55] fn hello() -> String {
+    "Hello, world!".to_string()
+}
+[2025-02-16 18:51:55] got prediction from channel fn hello() -> String {
+    "Hello, world!".to_string()
+}
+[2025-02-16 18:51:55] Syntax tree generated successfully
+[2025-02-16 18:51:55] Root node type: source_file
+[2025-02-16 18:51:55] Node 0: kind=ERROR, text="fn hello_wol"
+[2025-02-16 18:51:55] Node 1: kind=identifier, text="f"
+[2025-02-16 18:51:55] Node 2: kind=identifier, text="n"
+[2025-02-16 18:51:55] Node 3: kind=identifier, text="hello_wol"
+[2025-02-16 18:51:55] latest prediction 
+[2025-02-16 18:51:55] Syntax tree generated successfully
+[2025-02-16 18:51:55] Root node type: source_file
+[2025-02-16 18:51:55] Node 0: kind=ERROR, text="fn hello_wolr"
+[2025-02-16 18:51:55] Node 1: kind=identifier, text="f"
+[2025-02-16 18:51:55] Node 2: kind=identifier, text="n"
+[2025-02-16 18:51:55] Node 3: kind=identifier, text="hello_wolr"
+[2025-02-16 18:51:55] latest prediction 
+[2025-02-16 18:51:55] Syntax tree generated successfully
+[2025-02-16 18:51:55] Root node type: source_file
+[2025-02-16 18:51:55] Node 0: kind=ERROR, text="fn hello_wol"
+[2025-02-16 18:51:55] Node 1: kind=identifier, text="f"
+[2025-02-16 18:51:55] Node 2: kind=identifier, text="n"
+[2025-02-16 18:51:55] Node 3: kind=identifier, text="hello_wol"
+[2025-02-16 18:51:55] latest prediction 
+[2025-02-16 18:51:55] Syntax tree generated successfully
+[2025-02-16 18:51:55] Root node type: source_file
+[2025-02-16 18:51:55] Node 0: kind=ERROR, text="fn hello_wo"
+[2025-02-16 18:51:55] Node 1: kind=identifier, text="f"
+[2025-02-16 18:51:55] Node 2: kind=identifier, text="n"
+[2025-02-16 18:51:55] Node 3: kind=identifier, text="hello_wo"
+[2025-02-16 18:51:55] latest prediction 
+[2025-02-16 18:51:55] Syntax tree generated successfully
+[2025-02-16 18:51:55] Root node type: source_file
+[2025-02-16 18:51:55] Node 0: kind=ERROR, text="fn hello_wor"
+[2025-02-16 18:51:55] Node 1: kind=identifier, text="f"
+[2025-02-16 18:51:55] Node 2: kind=identifier, text="n"
+[2025-02-16 18:51:55] Node 3: kind=identifier, text="hello_wor"
+[2025-02-16 18:51:55] latest prediction 
+[2025-02-16 18:51:56] Syntax tree generated successfully
+[2025-02-16 18:51:56] Root node type: source_file
+[2025-02-16 18:51:56] Node 0: kind=ERROR, text="fn hello_worl"
+[2025-02-16 18:51:56] Node 1: kind=identifier, text="f"
+[2025-02-16 18:51:56] Node 2: kind=identifier, text="n"
+[2025-02-16 18:51:56] Node 3: kind=identifier, text="hello_worl"
+[2025-02-16 18:51:56] latest prediction 
+[2025-02-16 18:51:56] Syntax tree generated successfully
+[2025-02-16 18:51:56] Root node type: source_file
+[2025-02-16 18:51:56] Node 0: kind=ERROR, text="fn hello_world"
+[2025-02-16 18:51:56] Node 1: kind=identifier, text="f"
+[2025-02-16 18:51:56] Node 2: kind=identifier, text="n"
+[2025-02-16 18:51:56] Node 3: kind=identifier, text="hello_world"
+[2025-02-16 18:51:56] latest prediction 
+[[2025-02-16 18:51:562025-02-16 18:51:56] ] Complete the code on this line, returning only the raw code without any formatting, comments, or extra text. Example input: 'let x = '  Example output: 'let x = Some(42);'. Here is the code fn hello_worldlatest prediction 
+
+[2025-02-16 18:51:56] Next chunk fn
+[2025-02-16 18:51:56] Send pred to channel fn
+[2025-02-16 18:51:56] Next chunk fn hello
+[2025-02-16 18:51:56] Send pred to channel fn hello
+[2025-02-16 18:51:56] got prediction from channel fn
+[2025-02-16 18:51:56] got prediction from channel fn hello
+[2025-02-16 18:51:56] latest prediction 
+[2025-02-16 18:51:56] Next chunk fn hello_world
+[2025-02-16 18:51:56] Send pred to channel fn hello_world
+[2025-02-16 18:51:56] Next chunk fn hello_world()
+[2025-02-16 18:51:56] Send pred to channel fn hello_world()
+[2025-02-16 18:51:56] Next chunk fn hello_world() {
+[2025-02-16 18:51:56] Send pred to channel fn hello_world() {
+[2025-02-16 18:51:56] Next chunk fn hello_world() { println
+[2025-02-16 18:51:56] Send pred to channel fn hello_world() { println
+[2025-02-16 18:51:56] Next chunk fn hello_world() { println!("
+[2025-02-16 18:51:56] Send pred to channel fn hello_world() { println!("
+[2025-02-16 18:51:56] got prediction from channel fn hello_world
+[2025-02-16 18:51:56] got prediction from channel fn hello_world()
+[2025-02-16 18:51:56] got prediction from channel fn hello_world() {
+[2025-02-16 18:51:56] got prediction from channel fn hello_world() { println
+[2025-02-16 18:51:56] got prediction from channel fn hello_world() { println!("
+[2025-02-16 18:51:56] latest prediction 
+[2025-02-16 18:51:56] Next chunk fn hello_world() { println!("Hello
+[2025-02-16 18:51:56] Send pred to channel fn hello_world() { println!("Hello
+[2025-02-16 18:51:56] Next chunk fn hello_world() { println!("Hello,
+[2025-02-16 18:51:56] Send pred to channel fn hello_world() { println!("Hello,
+[2025-02-16 18:51:57] Next chunk fn hello_world() { println!("Hello, world
+[2025-02-16 18:51:57] Send pred to channel fn hello_world() { println!("Hello, world
+[2025-02-16 18:51:57] got prediction from channel fn hello_world() { println!("Hello
+[2025-02-16 18:51:57] got prediction from channel fn hello_world() { println!("Hello,
+[2025-02-16 18:51:57] got prediction from channel fn hello_world() { println!("Hello, world
+[2025-02-16 18:51:57] latest prediction 
+[2025-02-16 18:51:57] Next chunk fn hello_world() { println!("Hello, world!");
+[2025-02-16 18:51:57] Send pred to channel fn hello_world() { println!("Hello, world!");
+[2025-02-16 18:51:57] Next chunk fn hello_world() { println!("Hello, world!"); }
+[2025-02-16 18:51:57] Send pred to channel fn hello_world() { println!("Hello, world!"); }
+[2025-02-16 18:51:57] Next chunk fn hello_world() { println!("Hello, world!"); }
+[2025-02-16 18:51:57] Send pred to channel fn hello_world() { println!("Hello, world!"); }
+[2025-02-16 18:51:57] fn hello_world() { println!("Hello, world!"); }
+[2025-02-16 18:51:57] got prediction from channel fn hello_world() { println!("Hello, world!");
+[2025-02-16 18:51:57] got prediction from channel fn hello_world() { println!("Hello, world!"); }
+[2025-02-16 18:51:57] got prediction from channel fn hello_world() { println!("Hello, world!"); }
+[2025-02-16 18:51:57] latest prediction 
+[2025-02-16 18:51:57] latest prediction 
+[2025-02-16 18:51:57] latest prediction 
+[2025-02-16 18:51:57] latest prediction 
+[2025-02-16 18:51:58] latest prediction 
+[2025-02-16 18:51:58] Syntax tree generated successfully
+[2025-02-16 18:51:58] Root node type: source_file
+[2025-02-16 18:51:58] Node 0: kind=ERROR, text="fn hello_world()"
+[2025-02-16 18:51:58] Node 1: kind=identifier, text="f"
+[2025-02-16 18:51:58] Node 2: kind=identifier, text="n"
+[2025-02-16 18:51:58] Node 3: kind=call_expression, text="hello_world()"
+[2025-02-16 18:51:58] Node 4: kind=identifier, text="hello_world"
+[2025-02-16 18:51:58] Node 5: kind=arguments, text="()"
+[2025-02-16 18:51:58] Node 6: kind=(, text="("
+[2025-02-16 18:51:58] Node 7: kind=), text=")"
+[2025-02-16 18:51:58] accepted prediction: fn hello_world() { println!("Hello, world!"); }
+[2025-02-16 18:51:58] latest prediction 
+[2025-02-16 18:51:59] Syntax tree generated successfully
+[2025-02-16 18:51:59] Root node type: source_file
+[2025-02-16 18:51:59] Node 0: kind=ERROR, text="fn hello_world()"
+[2025-02-16 18:51:59] Node 1: kind=identifier, text="f"
+[2025-02-16 18:51:59] Node 2: kind=identifier, text="n"
+[2025-02-16 18:51:59] Node 3: kind=call_expression, text="hello_world()"
+[2025-02-16 18:51:59] Node 4: kind=identifier, text="hello_world"
+[2025-02-16 18:51:59] Node 5: kind=arguments, text="()"
+[2025-02-16 18:51:59] Node 6: kind=(, text="("
+[2025-02-16 18:51:59] Node 7: kind=), text=")"
+[2025-02-16 18:51:59] latest prediction 
+[2025-02-16 18:52:00] Syntax tree generated successfully
+[2025-02-16 18:52:00] Root node type: source_file
+[2025-02-16 18:52:00] Node 0: kind=ERROR, text="fn hello_world()"
+[2025-02-16 18:52:00] Node 1: kind=identifier, text="f"
+[2025-02-16 18:52:00] Node 2: kind=identifier, text="n"
+[2025-02-16 18:52:00] Node 3: kind=call_expression, text="hello_world()"
+[2025-02-16 18:52:00] Node 4: kind=identifier, text="hello_world"
+[2025-02-16 18:52:00] Node 5: kind=arguments, text="()"
+[2025-02-16 18:52:00] Node 6: kind=(, text="("
+[2025-02-16 18:52:00] Node 7: kind=), text=")"
+[2025-02-16 18:52:00] latest prediction 
+[2025-02-16 18:52:00] Syntax tree generated successfully
+[2025-02-16 18:52:00] Root node type: source_file
+[2025-02-16 18:52:00] Node 0: kind=ERROR, text="fn hello_world()"
+[2025-02-16 18:52:00] Node 1: kind=identifier, text="f"
+[2025-02-16 18:52:00] Node 2: kind=identifier, text="n"
+[2025-02-16 18:52:00] Node 3: kind=call_expression, text="hello_world()"
+[2025-02-16 18:52:00] Node 4: kind=identifier, text="hello_world"
+[2025-02-16 18:52:00] Node 5: kind=arguments, text="()"
+[2025-02-16 18:52:00] Node 6: kind=(, text="("
+[2025-02-16 18:52:00] Node 7: kind=), text=")"
+[2025-02-16 18:52:00] latest prediction 
+[2025-02-16 18:52:00] Syntax tree generated successfully
+[2025-02-16 18:52:00] Root node type: source_file
+[2025-02-16 18:52:00] Node 0: kind=ERROR, text="fn hello_world()"
+[2025-02-16 18:52:00] Node 1: kind=identifier, text="f"
+[2025-02-16 18:52:00] Node 2: kind=identifier, text="n"
+[2025-02-16 18:52:00] Node 3: kind=call_expression, text="hello_world()"
+[2025-02-16 18:52:00] Node 4: kind=identifier, text="hello_world"
+[2025-02-16 18:52:00] Node 5: kind=arguments, text="()"
+[2025-02-16 18:52:00] Node 6: kind=(, text="("
+[2025-02-16 18:52:00] Node 7: kind=), text=")"
+[2025-02-16 18:52:00] latest prediction 
+[2025-02-16 18:52:00] Syntax tree generated successfully
+[2025-02-16 18:52:00] Root node type: source_file
+[2025-02-16 18:52:00] Node 0: kind=ERROR, text="fn hello_world()"
+[2025-02-16 18:52:00] Node 1: kind=identifier, text="f"
+[2025-02-16 18:52:00] Node 2: kind=identifier, text="n"
+[2025-02-16 18:52:00] Node 3: kind=call_expression, text="hello_world()"
+[2025-02-16 18:52:00] Node 4: kind=identifier, text="hello_world"
+[2025-02-16 18:52:00] Node 5: kind=arguments, text="()"
+[2025-02-16 18:52:00] Node 6: kind=(, text="("
+[2025-02-16 18:52:00] Node 7: kind=), text=")"
+[2025-02-16 18:52:00] latest prediction 
+[2025-02-16 18:52:00] Syntax tree generated successfully
+[2025-02-16 18:52:00] Root node type: source_file
+[2025-02-16 18:52:00] Node 0: kind=ERROR, text="fn hello_world()"
+[2025-02-16 18:52:00] Node 1: kind=identifier, text="f"
+[2025-02-16 18:52:00] Node 2: kind=identifier, text="n"
+[2025-02-16 18:52:00] Node 3: kind=call_expression, text="hello_world()"
+[2025-02-16 18:52:00] Node 4: kind=identifier, text="hello_world"
+[2025-02-16 18:52:00] Node 5: kind=arguments, text="()"
+[2025-02-16 18:52:00] Node 6: kind=(, text="("
+[2025-02-16 18:52:00] Node 7: kind=), text=")"
+[2025-02-16 18:52:00] latest prediction 
+[2025-02-16 18:52:00] Syntax tree generated successfully
+[2025-02-16 18:52:00] Root node type: source_file
+[2025-02-16 18:52:00] Node 0: kind=ERROR, text="fn hello_world()"
+[2025-02-16 18:52:00] Node 1: kind=identifier, text="f"
+[2025-02-16 18:52:00] Node 2: kind=identifier, text="n"
+[2025-02-16 18:52:00] Node 3: kind=call_expression, text="hello_world()"
+[2025-02-16 18:52:00] Node 4: kind=identifier, text="hello_world"
+[2025-02-16 18:52:00] Node 5: kind=arguments, text="()"
+[2025-02-16 18:52:00] Node 6: kind=(, text="("
+[2025-02-16 18:52:00] Node 7: kind=), text=")"
+[2025-02-16 18:52:00] latest prediction 
+[2025-02-16 18:52:00] Syntax tree generated successfully
+[2025-02-16 18:52:00] Root node type: source_file
+[2025-02-16 18:52:00] Node 0: kind=ERROR, text="fn hello_world()"
+[2025-02-16 18:52:00] Node 1: kind=identifier, text="f"
+[2025-02-16 18:52:00] Node 2: kind=identifier, text="n"
+[2025-02-16 18:52:00] Node 3: kind=call_expression, text="hello_world()"
+[2025-02-16 18:52:00] Node 4: kind=identifier, text="hello_world"
+[2025-02-16 18:52:00] Node 5: kind=arguments, text="()"
+[2025-02-16 18:52:00] Node 6: kind=(, text="("
+[2025-02-16 18:52:00] Node 7: kind=), text=")"
+[2025-02-16 18:52:00] latest prediction 
+[2025-02-16 18:52:01] [Complete the code on this line, returning only the raw code without any formatting, comments, or extra text. Example input: 'let x = '  Example output: 'let x = Some(42);'. Here is the code fn new2025-02-16 18:52:01
+] latest prediction 
+[2025-02-16 18:52:01] Next chunk fn
+[2025-02-16 18:52:01] Send pred to channel fn
+[2025-02-16 18:52:01] Next chunk fn new
+[2025-02-16 18:52:01] Send pred to channel fn new
+[2025-02-16 18:52:02] Next chunk fn new()
+[2025-02-16 18:52:02] got prediction from channel fn
+[2025-02-16 18:52:02] got prediction from channel fn new
+[2025-02-16 18:52:02] latest prediction 
+[2025-02-16 18:52:02] Send pred to channel fn new()
+[2025-02-16 18:52:02] Next chunk fn new() ->
+[2025-02-16 18:52:02] Send pred to channel fn new() ->
+[2025-02-16 18:52:02] Next chunk fn new() -> Self
+[2025-02-16 18:52:02] Send pred to channel fn new() -> Self
+[2025-02-16 18:52:02] Next chunk fn new() -> Self {
+[2025-02-16 18:52:02] Send pred to channel fn new() -> Self {
+[2025-02-16 18:52:02] Next chunk fn new() -> Self {
+[2025-02-16 18:52:02] Send pred to channel fn new() -> Self {
+[2025-02-16 18:52:02] fn new() -> Self {
+[2025-02-16 18:52:02] got prediction from channel fn new()
+[2025-02-16 18:52:02] got prediction from channel fn new() ->
+[2025-02-16 18:52:02] got prediction from channel fn new() -> Self
+[2025-02-16 18:52:02] got prediction from channel fn new() -> Self {
+[2025-02-16 18:52:02] got prediction from channel fn new() -> Self {
+[2025-02-16 18:52:02] latest prediction 
+[2025-02-16 18:52:02] latest prediction 
+[2025-02-16 18:52:02] latest prediction 
+[2025-02-16 18:52:02] latest prediction 
+[2025-02-16 18:52:02] latest prediction 
+[2025-02-16 18:52:02] latest prediction 
+[2025-02-16 18:52:03] latest prediction 
+[2025-02-16 18:52:03] latest prediction 
+[2025-02-16 18:52:03] Syntax tree generated successfully
+[2025-02-16 18:52:03] Root node type: source_file
+[2025-02-16 18:52:03] Node 0: kind=ERROR, text="fn hello_world()"
+[2025-02-16 18:52:03] Node 1: kind=identifier, text="f"
+[2025-02-16 18:52:03] Node 2: kind=identifier, text="n"
+[2025-02-16 18:52:03] Node 3: kind=call_expression, text="hello_world()"
+[2025-02-16 18:52:03] Node 4: kind=identifier, text="hello_world"
+[2025-02-16 18:52:03] Node 5: kind=arguments, text="()"
+[2025-02-16 18:52:03] Node 6: kind=(, text="("
+[2025-02-16 18:52:03] Node 7: kind=), text=")"
+[2025-02-16 18:52:03] accepted prediction: fn new() -> Self {
+[2025-02-16 18:52:03] latest prediction 
+[2025-02-16 18:52:03] latest prediction 
+[2025-02-16 18:52:04[] 2025-02-16 18:52:04Complete the code on this line, returning only the raw code without any formatting, comments, or extra text. Example input: 'let x = '  Example output: 'let x = Some(42);'. Here is the code fn new() -> Self {] 
+latest prediction 
+[2025-02-16 18:52:04] Next chunk ```
+[2025-02-16 18:52:04] Send pred to channel ```
+[2025-02-16 18:52:04] Next chunk ```rust
+[2025-02-16 18:52:04] Send pred to channel ```rust
+[2025-02-16 18:52:04] Next chunk ```rust
+
+[2025-02-16 18:52:04] Send pred to channel ```rust
+
+[2025-02-16 18:52:04] got prediction from channel ```
+[2025-02-16 18:52:04] got prediction from channel ```rust
+[2025-02-16 18:52:04] got prediction from channel ```rust
+
+[2025-02-16 18:52:04] Syntax tree generated successfully
+[2025-02-16 18:52:04] Root node type: source_file
+[2025-02-16 18:52:04] Node 0: kind=ERROR, text="fn hello_world()"
+[2025-02-16 18:52:04] Node 1: kind=identifier, text="f"
+[2025-02-16 18:52:04] Node 2: kind=identifier, text="n"
+[2025-02-16 18:52:04] Node 3: kind=call_expression, text="hello_world()"
+[2025-02-16 18:52:04] Node 4: kind=identifier, text="hello_world"
+[2025-02-16 18:52:04] Node 5: kind=arguments, text="()"
+[2025-02-16 18:52:04] Node 6: kind=(, text="("
+[2025-02-16 18:52:04] Node 7: kind=), text=")"
+[2025-02-16 18:52:04] accepted prediction: ```rust
+
+[2025-02-16 18:52:04] latest prediction 
+[2025-02-16 18:52:04] Next chunk ```rust
+fn
+[2025-02-16 18:52:04] Send pred to channel ```rust
+fn
+[2025-02-16 18:52:04] Next chunk ```rust
+fn new
+[2025-02-16 18:52:04] Send pred to channel ```rust
+fn new
+[2025-02-16 18:52:04] Next chunk ```rust
+fn new()
+[2025-02-16 18:52:04] Send pred to channel ```rust
+fn new()
+[2025-02-16 18:52:05] Next chunk ```rust
+fn new() ->
+[2025-02-16 18:52:05] Send pred to channel ```rust
+fn new() ->
+[2025-02-16 18:52:05] Next chunk ```rust
+fn new() -> Self
+[2025-02-16 18:52:05] Send pred to channel ```rust
+fn new() -> Self
+[2025-02-16 18:52:05] Next chunk ```rust
+fn new() -> Self {
+
+[2025-02-16 18:52:05] Send pred to channel ```rust
+fn new() -> Self {
+
+[2025-02-16 18:52:05] got prediction from channel ```rust
+fn
+[2025-02-16 18:52:05] got prediction from channel ```rust
+fn new
+[2025-02-16 18:52:05] got prediction from channel ```rust
+fn new()
+[2025-02-16 18:52:05] got prediction from channel ```rust
+fn new() ->
+[2025-02-16 18:52:05] got prediction from channel ```rust
+fn new() -> Self
+[2025-02-16 18:52:05] got prediction from channel ```rust
+fn new() -> Self {
+
+[2025-02-16 18:52:05] Syntax tree generated successfully
+[2025-02-16 18:52:05] Root node type: source_file
+[2025-02-16 18:52:05] Node 0: kind=ERROR, text="fn hello_world()"
+[2025-02-16 18:52:05] Node 1: kind=identifier, text="f"
+[2025-02-16 18:52:05] Node 2: kind=identifier, text="n"
+[2025-02-16 18:52:05] Node 3: kind=call_expression, text="hello_world()"
+[2025-02-16 18:52:05] Node 4: kind=identifier, text="hello_world"
+[2025-02-16 18:52:05] Node 5: kind=arguments, text="()"
+[2025-02-16 18:52:05] Node 6: kind=(, text="("
+[2025-02-16 18:52:05] Node 7: kind=), text=")"
+[2025-02-16 18:52:05] accepted prediction: ```rust
+fn new() -> Self {
+
+[2025-02-16 18:52:05] latest prediction 
+[2025-02-16 18:52:05] Next chunk ```rust
+fn new() -> Self {
+   
+[2025-02-16 18:52:05] Send pred to channel ```rust
+fn new() -> Self {
+   
+[2025-02-16 18:52:05] Next chunk ```rust
+fn new() -> Self {
+    Self
+[2025-02-16 18:52:05] Send pred to channel ```rust
+fn new() -> Self {
+    Self
+[2025-02-16 18:52:05] Next chunk ```rust
+fn new() -> Self {
+    Self::
+[2025-02-16 18:52:05] Send pred to channel ```rust
+fn new() -> Self {
+    Self::
+[2025-02-16 18:52:05] Next chunk ```rust
+fn new() -> Self {
+    Self::default
+[2025-02-16 18:52:05] Send pred to channel ```rust
+fn new() -> Self {
+    Self::default
+[2025-02-16 18:52:05] Next chunk ```rust
+fn new() -> Self {
+    Self::default()
+
+[2025-02-16 18:52:05] Send pred to channel ```rust
+fn new() -> Self {
+    Self::default()
+
+[2025-02-16 18:52:05] Next chunk ```rust
+fn new() -> Self {
+    Self::default()
+}
+
+[2025-02-16 18:52:05] Send pred to channel ```rust
+fn new() -> Self {
+    Self::default()
+}
+
+[2025-02-16 18:52:05] Next chunk ```rust
+fn new() -> Self {
+    Self::default()
+}
+```
+[2025-02-16 18:52:05] Send pred to channel ```rust
+fn new() -> Self {
+    Self::default()
+}
+```
+[2025-02-16 18:52:05] Next chunk ```rust
+fn new() -> Self {
+    Self::default()
+}
+```
+[2025-02-16 18:52:05] Send pred to channel ```rust
+fn new() -> Self {
+    Self::default()
+}
+```
+[2025-02-16 18:52:05] ```rust
+fn new() -> Self {
+    Self::default()
+}
+```
+[2025-02-16 18:52:05] got prediction from channel ```rust
+fn new() -> Self {
+   
+[2025-02-16 18:52:05] got prediction from channel ```rust
+fn new() -> Self {
+    Self
+[2025-02-16 18:52:05] got prediction from channel ```rust
+fn new() -> Self {
+    Self::
+[2025-02-16 18:52:05] got prediction from channel ```rust
+fn new() -> Self {
+    Self::default
+[2025-02-16 18:52:05] got prediction from channel ```rust
+fn new() -> Self {
+    Self::default()
+
+[2025-02-16 18:52:05] got prediction from channel ```rust
+fn new() -> Self {
+    Self::default()
+}
+
+[2025-02-16 18:52:05] got prediction from channel ```rust
+fn new() -> Self {
+    Self::default()
+}
+```
+[2025-02-16 18:52:05] got prediction from channel ```rust
+fn new() -> Self {
+    Self::default()
+}
+```
+[2025-02-16 18:52:05] Syntax tree generated successfully
+[2025-02-16 18:52:05] Root node type: source_file
+[2025-02-16 18:52:05] Node 0: kind=ERROR, text="fn hello_world()"
+[2025-02-16 18:52:05] Node 1: kind=identifier, text="f"
+[2025-02-16 18:52:05] Node 2: kind=identifier, text="n"
+[2025-02-16 18:52:05] Node 3: kind=call_expression, text="hello_world()"
+[2025-02-16 18:52:05] Node 4: kind=identifier, text="hello_world"
+[2025-02-16 18:52:05] Node 5: kind=arguments, text="()"
+[2025-02-16 18:52:05] Node 6: kind=(, text="("
+[2025-02-16 18:52:05] Node 7: kind=), text=")"
+[2025-02-16 18:52:05] accepted prediction: ```rust
+fn new() -> Self {
+    Self::default()
+}
+```
+[2025-02-16 18:52:05] latest prediction 
+[2025-02-16 18:52:06] latest prediction 
+[2025-02-16 18:52:06] latest prediction 
+[2025-02-16 18:52:07] latest prediction 
+[2025-02-16 18:52:07] Syntax tree generated successfully
+[2025-02-16 18:52:07] Root node type: source_file
+[2025-02-16 18:52:07] Node 0: kind=ERROR, text="fn hello_world()"
+[2025-02-16 18:52:07] Node 1: kind=identifier, text="f"
+[2025-02-16 18:52:07] Node 2: kind=identifier, text="n"
+[2025-02-16 18:52:07] Node 3: kind=call_expression, text="hello_world()"
+[2025-02-16 18:52:07] Node 4: kind=identifier, text="hello_world"
+[2025-02-16 18:52:07] Node 5: kind=arguments, text="()"
+[2025-02-16 18:52:07] Node 6: kind=(, text="("
+[2025-02-16 18:52:07] Node 7: kind=), text=")"
+[2025-02-16 18:52:07] latest prediction 
+[2025-02-16 18:52:10] latest prediction 
+[2025-02-16 18:52:10] latest prediction 
+[2025-02-16 18:52:11] Syntax tree generated successfully
+[2025-02-16 18:52:11] Root node type: source_file
+[2025-02-16 18:52:11] Node 0: kind=ERROR, text="f"
+[2025-02-16 18:52:11] Node 1: kind=identifier, text="f"
+[2025-02-16 18:52:11] latest prediction 
+[2025-02-16 18:52:11] Syntax tree generated successfully
+[2025-02-16 18:52:11] Root node type: source_file
+[2025-02-16 18:52:11] Node 0: kind=ERROR, text="fn"
+[2025-02-16 18:52:11] Node 1: kind=identifier, text="f"
+[2025-02-16 18:52:11] Node 2: kind=identifier, text="n"
+[2025-02-16 18:52:11] latest prediction 
+[2025-02-16 18:52:11] Syntax tree generated successfully
+[2025-02-16 18:52:11] Root node type: source_file
+[2025-02-16 18:52:11] Node 0: kind=ERROR, text="fn"
+[2025-02-16 18:52:11] Node 1: kind=identifier, text="f"
+[2025-02-16 18:52:11] Node 2: kind=identifier, text="n"
+[2025-02-16 18:52:11] latest prediction 
+[2025-02-16 18:52:11] Syntax tree generated successfully
+[2025-02-16 18:52:11] Root node type: source_file
+[2025-02-16 18:52:11] Node 0: kind=ERROR, text="fn f"
+[2025-02-16 18:52:11] Node 1: kind=identifier, text="f"
+[2025-02-16 18:52:11] Node 2: kind=identifier, text="n"
+[2025-02-16 18:52:11] Node 3: kind=identifier, text="f"
+[2025-02-16 18:52:11] latest prediction 
+[2025-02-16 18:52:11] Syntax tree generated successfully
+[2025-02-16 18:52:11] Root node type: source_file
+[2025-02-16 18:52:11] Node 0: kind=ERROR, text="fn fb"
+[2025-02-16 18:52:11] Node 1: kind=identifier, text="f"
+[2025-02-16 18:52:11] Node 2: kind=identifier, text="n"
+[2025-02-16 18:52:11] Node 3: kind=identifier, text="fb"
+[2025-02-16 18:52:11] latest prediction 
+[2025-02-16 18:52:11] Syntax tree generated successfully
+[2025-02-16 18:52:11] Root node type: source_file
+[2025-02-16 18:52:11] Node 0: kind=ERROR, text="fn f"
+[2025-02-16 18:52:11] Node 1: kind=identifier, text="f"
+[2025-02-16 18:52:11] Node 2: kind=identifier, text="n"
+[2025-02-16 18:52:11] Node 3: kind=identifier, text="f"
+[2025-02-16 18:52:11] latest prediction 
+[2025-02-16 18:52:12] Syntax tree generated successfully
+[2025-02-16 18:52:12] Root node type: source_file
+[2025-02-16 18:52:12] Node 0: kind=ERROR, text="fn fi"
+[2025-02-16 18:52:12] Node 1: kind=identifier, text="f"
+[2025-02-16 18:52:12] Node 2: kind=identifier, text="n"
+[2025-02-16 18:52:12] Node 3: kind=identifier, text="fi"
+[2025-02-16 18:52:12] latest prediction 
+[2025-02-16 18:52:12] Syntax tree generated successfully
+[2025-02-16 18:52:12] Root node type: source_file
+[2025-02-16 18:52:12] Node 0: kind=ERROR, text="fn fib"
+[2025-02-16 18:52:12] Node 1: kind=identifier, text="f"
+[2025-02-16 18:52:12] Node 2: kind=identifier, text="n"
+[2025-02-16 18:52:12] Node 3: kind=identifier, text="fib"
+[2025-02-16 18:52:12] latest prediction 
+[2025-02-16 18:52:13] latest prediction 
+[2025-02-16 18:52:13] Complete the code on this line, returning only the raw code without any formatting, comments, or extra text. Example input: 'let x = '  Example output: 'let x = Some(42);'. Here is the code fn fib
+[2025-02-16 18:52:13] latest prediction 
+[2025-02-16 18:52:14] Next chunk ```
+[2025-02-16 18:52:14] Send pred to channel ```
+[2025-02-16 18:52:14] Next chunk ```rust
+[2025-02-16 18:52:14] Send pred to channel ```rust
+[2025-02-16 18:52:14] Next chunk ```rust
+
+[2025-02-16 18:52:14] Send pred to channel ```rust
+
+[2025-02-16 18:52:14] Next chunk ```rust
+fn
+[2025-02-16 18:52:14] Send pred to channel ```rust
+fn
+[2025-02-16 18:52:14] Next chunk ```rust
+fn fib
+[2025-02-16 18:52:14] Send pred to channel ```rust
+fn fib
+[2025-02-16 18:52:14] Next chunk ```rust
+fn fib(n
+[2025-02-16 18:52:14] Send pred to channel ```rust
+fn fib(n
+[2025-02-16 18:52:14] got prediction from channel ```
+[2025-02-16 18:52:14] got prediction from channel ```rust
+[2025-02-16 18:52:14] got prediction from channel ```rust
+
+[2025-02-16 18:52:14] got prediction from channel ```rust
+fn
+[2025-02-16 18:52:14] got prediction from channel ```rust
+fn fib
+[2025-02-16 18:52:14] got prediction from channel ```rust
+fn fib(n
+[2025-02-16 18:52:14] latest prediction 
+[2025-02-16 18:52:14] Next chunk ```rust
+fn fib(n:
+[2025-02-16 18:52:14] Send pred to channel ```rust
+fn fib(n:
+[2025-02-16 18:52:14] Next chunk ```rust
+fn fib(n: u
+[2025-02-16 18:52:14] Send pred to channel ```rust
+fn fib(n: u
+[2025-02-16 18:52:14] Next chunk ```rust
+fn fib(n: u3
+[2025-02-16 18:52:14] Send pred to channel ```rust
+fn fib(n: u3
+[2025-02-16 18:52:14] Next chunk ```rust
+fn fib(n: u32
+[2025-02-16 18:52:14] Send pred to channel ```rust
+fn fib(n: u32
+[2025-02-16 18:52:14] Next chunk ```rust
+fn fib(n: u32)
+[2025-02-16 18:52:14] Send pred to channel ```rust
+fn fib(n: u32)
+[2025-02-16 18:52:14] Next chunk ```rust
+fn fib(n: u32) ->
+[2025-02-16 18:52:14] got prediction from channel ```rust
+fn fib(n:
+[2025-02-16 18:52:14] got prediction from channel ```rust
+fn fib(n: u
+[2025-02-16 18:52:14] got prediction from channel ```rust
+fn fib(n: u3
+[2025-02-16 18:52:14] got prediction from channel ```rust
+fn fib(n: u32
+[2025-02-16 18:52:14] got prediction from channel ```rust
+fn fib(n: u32)
+[2025-02-16 18:52:14] latest prediction 
+[2025-02-16 18:52:14] Send pred to channel ```rust
+fn fib(n: u32) ->
+[2025-02-16 18:52:14] Next chunk ```rust
+fn fib(n: u32) -> u
+[2025-02-16 18:52:14] Send pred to channel ```rust
+fn fib(n: u32) -> u
+[2025-02-16 18:52:14] Next chunk ```rust
+fn fib(n: u32) -> u3
+[2025-02-16 18:52:14] Send pred to channel ```rust
+fn fib(n: u32) -> u3
+[2025-02-16 18:52:14] Next chunk ```rust
+fn fib(n: u32) -> u32
+[2025-02-16 18:52:14] Send pred to channel ```rust
+fn fib(n: u32) -> u32
+[2025-02-16 18:52:14] Next chunk ```rust
+fn fib(n: u32) -> u32 {
+
+[2025-02-16 18:52:14] Send pred to channel ```rust
+fn fib(n: u32) -> u32 {
+
+[2025-02-16 18:52:14] Next chunk ```rust
+fn fib(n: u32) -> u32 {
+   
+[2025-02-16 18:52:14] Send pred to channel ```rust
+fn fib(n: u32) -> u32 {
+   
+[2025-02-16 18:52:14] Next chunk ```rust
+fn fib(n: u32) -> u32 {
+    match
+[2025-02-16 18:52:14] Send pred to channel ```rust
+fn fib(n: u32) -> u32 {
+    match
+[2025-02-16 18:52:14] Next chunk ```rust
+fn fib(n: u32) -> u32 {
+    match n
+[2025-02-16 18:52:14] Send pred to channel ```rust
+fn fib(n: u32) -> u32 {
+    match n
+[2025-02-16 18:52:15] Next chunk ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+
+[2025-02-16 18:52:15] Send pred to channel ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+
+[2025-02-16 18:52:15] Next chunk ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+       
+[2025-02-16 18:52:15] Send pred to channel ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+       
+[2025-02-16 18:52:15] got prediction from channel ```rust
+fn fib(n: u32) ->
+[2025-02-16 18:52:15] got prediction from channel ```rust
+fn fib(n: u32) -> u
+[2025-02-16 18:52:15] got prediction from channel ```rust
+fn fib(n: u32) -> u3
+[2025-02-16 18:52:15] got prediction from channel ```rust
+fn fib(n: u32) -> u32
+[2025-02-16 18:52:15] got prediction from channel ```rust
+fn fib(n: u32) -> u32 {
+
+[2025-02-16 18:52:15] got prediction from channel ```rust
+fn fib(n: u32) -> u32 {
+   
+[2025-02-16 18:52:15] got prediction from channel ```rust
+fn fib(n: u32) -> u32 {
+    match
+[2025-02-16 18:52:15] got prediction from channel ```rust
+fn fib(n: u32) -> u32 {
+    match n
+[2025-02-16 18:52:15] got prediction from channel ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+
+[2025-02-16 18:52:15] got prediction from channel ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+       
+[2025-02-16 18:52:15] latest prediction 
+[2025-02-16 18:52:15] Next chunk ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        
+[2025-02-16 18:52:15] Send pred to channel ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        
+[2025-02-16 18:52:15] Next chunk ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0
+[2025-02-16 18:52:15] Send pred to channel ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0
+[2025-02-16 18:52:15] Next chunk ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 =>
+[2025-02-16 18:52:15] Send pred to channel ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 =>
+[2025-02-16 18:52:15] Next chunk ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 
+[2025-02-16 18:52:15] Send pred to channel ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 
+[2025-02-16 18:52:15] Next chunk ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0
+[2025-02-16 18:52:15] Send pred to channel ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0
+[2025-02-16 18:52:15] Next chunk ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+
+[2025-02-16 18:52:15] Send pred to channel ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+
+[2025-02-16 18:52:15] Next chunk ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+       
+[2025-02-16 18:52:15] Send pred to channel ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+       
+[2025-02-16 18:52:15] Next chunk ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        
+[2025-02-16 18:52:15] Send pred to channel ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        
+[2025-02-16 18:52:15] got prediction from channel ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        
+[2025-02-16 18:52:15] got prediction from channel ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0
+[2025-02-16 18:52:15] got prediction from channel ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 =>
+[2025-02-16 18:52:15] got prediction from channel ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 
+[2025-02-16 18:52:15] got prediction from channel ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0
+[2025-02-16 18:52:15] got prediction from channel ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+
+[2025-02-16 18:52:15] got prediction from channel ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+       
+[2025-02-16 18:52:15] got prediction from channel ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        
+[2025-02-16 18:52:15] latest prediction 
+[2025-02-16 18:52:15] Next chunk ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1
+[2025-02-16 18:52:15] Send pred to channel ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1
+[2025-02-16 18:52:15] Next chunk ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 =>
+[2025-02-16 18:52:15] Send pred to channel ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 =>
+[2025-02-16 18:52:15] Next chunk ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 
+[2025-02-16 18:52:15] Send pred to channel ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 
+[2025-02-16 18:52:15] Next chunk ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1
+[2025-02-16 18:52:15] Send pred to channel ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1
+[2025-02-16 18:52:15] Next chunk ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+
+[2025-02-16 18:52:15] Send pred to channel ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+
+[2025-02-16 18:52:15] got prediction from channel ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1
+[2025-02-16 18:52:15] got prediction from channel ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 =>
+[2025-02-16 18:52:15] got prediction from channel ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 
+[2025-02-16 18:52:15] got prediction from channel ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1
+[2025-02-16 18:52:15] got prediction from channel ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+
+[2025-02-16 18:52:15] latest prediction 
+[2025-02-16 18:52:15] Next chunk ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+       
+[2025-02-16 18:52:15] Send pred to channel ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+       
+[2025-02-16 18:52:15] Next chunk ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _
+[2025-02-16 18:52:15] Send pred to channel ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _
+[2025-02-16 18:52:15] Next chunk ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ =>
+[2025-02-16 18:52:15] Send pred to channel ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ =>
+[2025-02-16 18:52:15] Next chunk ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib
+[2025-02-16 18:52:15] Send pred to channel ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib
+[2025-02-16 18:52:15] Next chunk ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n
+[2025-02-16 18:52:15] Send pred to channel ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n
+[2025-02-16 18:52:15] got prediction from channel ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+       
+[2025-02-16 18:52:15] got prediction from channel ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _
+[2025-02-16 18:52:15] got prediction from channel ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ =>
+[2025-02-16 18:52:15] got prediction from channel ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib
+[2025-02-16 18:52:15] got prediction from channel ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n
+[2025-02-16 18:52:15] latest prediction 
+[2025-02-16 18:52:15] Next chunk ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n -
+[2025-02-16 18:52:15] Send pred to channel ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n -
+[2025-02-16 18:52:15] Next chunk ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 
+[2025-02-16 18:52:15] Send pred to channel ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 
+[2025-02-16 18:52:15] Next chunk ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1
+[2025-02-16 18:52:15] Send pred to channel ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1
+[2025-02-16 18:52:15] Next chunk ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1)
+[2025-02-16 18:52:15] Send pred to channel ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1)
+[2025-02-16 18:52:15] got prediction from channel ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n -
+[2025-02-16 18:52:15] got prediction from channel ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 
+[2025-02-16 18:52:15] got prediction from channel ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1
+[2025-02-16 18:52:15] got prediction from channel ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1)
+[2025-02-16 18:52:15] latest prediction 
+[2025-02-16 18:52:15] Next chunk ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1) +
+[2025-02-16 18:52:15] Send pred to channel ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1) +
+[2025-02-16 18:52:15] Next chunk ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1) + fib
+[2025-02-16 18:52:15] Send pred to channel ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1) + fib
+[2025-02-16 18:52:15] Next chunk ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1) + fib(n
+[2025-02-16 18:52:15] Send pred to channel ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1) + fib(n
+[2025-02-16 18:52:15] Next chunk ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1) + fib(n -
+[2025-02-16 18:52:16] Send pred to channel ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1) + fib(n -
+[2025-02-16 18:52:16] got prediction from channel ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1) +
+[2025-02-16 18:52:16] got prediction from channel ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1) + fib
+[2025-02-16 18:52:16] got prediction from channel ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1) + fib(n
+[2025-02-16 18:52:16] got prediction from channel ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1) + fib(n -
+[2025-02-16 18:52:16] latest prediction 
+[2025-02-16 18:52:16] Next chunk ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1) + fib(n - 
+[2025-02-16 18:52:16] Send pred to channel ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1) + fib(n - 
+[2025-02-16 18:52:16] Next chunk ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1) + fib(n - 2
+[2025-02-16 18:52:16] Send pred to channel ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1) + fib(n - 2
+[2025-02-16 18:52:16] Next chunk ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1) + fib(n - 2),
+
+[2025-02-16 18:52:16] Send pred to channel ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1) + fib(n - 2),
+
+[2025-02-16 18:52:16] Next chunk ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1) + fib(n - 2),
+   
+[2025-02-16 18:52:16] Send pred to channel ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1) + fib(n - 2),
+   
+[2025-02-16 18:52:16] got prediction from channel ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1) + fib(n - 
+[2025-02-16 18:52:16] got prediction from channel ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1) + fib(n - 2
+[2025-02-16 18:52:16] got prediction from channel ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1) + fib(n - 2),
+
+[2025-02-16 18:52:16] got prediction from channel ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1) + fib(n - 2),
+   
+[2025-02-16 18:52:16] latest prediction 
+[2025-02-16 18:52:16] Next chunk ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1) + fib(n - 2),
+    }
+
+[2025-02-16 18:52:16] Send pred to channel ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1) + fib(n - 2),
+    }
+
+[2025-02-16 18:52:16] Next chunk ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1) + fib(n - 2),
+    }
+}
+
+[2025-02-16 18:52:16] Send pred to channel ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1) + fib(n - 2),
+    }
+}
+
+[2025-02-16 18:52:16] Next chunk ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1) + fib(n - 2),
+    }
+}
+```
+[2025-02-16 18:52:16] Send pred to channel ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1) + fib(n - 2),
+    }
+}
+```
+[[2025-02-16 18:52:162025-02-16 18:52:16] ] Next chunk ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1) + fib(n - 2),
+    }
+}
+```got prediction from channel ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1) + fib(n - 2),
+    }
+
+
+[2025-02-16 18:52:16] got prediction from channel ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1) + fib(n - 2),
+    }
+}
+
+[2025-02-16 18:52:16] got prediction from channel ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1) + fib(n - 2),
+    }
+}
+```
+[2025-02-16 18:52:16] latest prediction 
+[2025-02-16 18:52:16] Send pred to channel ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1) + fib(n - 2),
+    }
+}
+```
+[2025-02-16 18:52:16] ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1) + fib(n - 2),
+    }
+}
+```
+[2025-02-16 18:52:16] got prediction from channel ```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1) + fib(n - 2),
+    }
+}
+```
+[2025-02-16 18:52:16] latest prediction 
+[2025-02-16 18:52:16] latest prediction 
+[2025-02-16 18:52:17] latest prediction 
+[2025-02-16 18:52:19] latest prediction 
+[2025-02-16 18:52:20] latest prediction 
+[2025-02-16 18:52:20] Syntax tree generated successfully
+[2025-02-16 18:52:20] Root node type: source_file
+[2025-02-16 18:52:20] Node 0: kind=ERROR, text="f"
+[2025-02-16 18:52:20] Node 1: kind=identifier, text="f"
+[2025-02-16 18:52:20] latest prediction 
+[2025-02-16 18:52:20] Syntax tree generated successfully
+[2025-02-16 18:52:20] Root node type: source_file
+[2025-02-16 18:52:20] Node 0: kind=ERROR, text="fn"
+[2025-02-16 18:52:20] Node 1: kind=identifier, text="f"
+[2025-02-16 18:52:20] Node 2: kind=identifier, text="n"
+[2025-02-16 18:52:20] latest prediction 
+[2025-02-16 18:52:20] Syntax tree generated successfully
+[2025-02-16 18:52:20] Root node type: source_file
+[2025-02-16 18:52:20] Node 0: kind=ERROR, text="fn"
+[2025-02-16 18:52:20] Node 1: kind=identifier, text="f"
+[2025-02-16 18:52:20] Node 2: kind=identifier, text="n"
+[2025-02-16 18:52:20] latest prediction 
+[2025-02-16 18:52:21] Syntax tree generated successfully
+[2025-02-16 18:52:21] Root node type: source_file
+[2025-02-16 18:52:21] Node 0: kind=ERROR, text="fn f"
+[2025-02-16 18:52:21] Node 1: kind=identifier, text="f"
+[2025-02-16 18:52:21] Node 2: kind=identifier, text="n"
+[2025-02-16 18:52:21] Node 3: kind=identifier, text="f"
+[2025-02-16 18:52:21] latest prediction 
+[2025-02-16 18:52:21] Syntax tree generated successfully
+[2025-02-16 18:52:21] Root node type: source_file
+[2025-02-16 18:52:21] Node 0: kind=ERROR, text="fn fi"
+[2025-02-16 18:52:21] Node 1: kind=identifier, text="f"
+[2025-02-16 18:52:21] Node 2: kind=identifier, text="n"
+[2025-02-16 18:52:21] Node 3: kind=identifier, text="fi"
+[2025-02-16 18:52:21] latest prediction 
+[2025-02-16 18:52:21] Syntax tree generated successfully
+[2025-02-16 18:52:21] Root node type: source_file
+[2025-02-16 18:52:21] Node 0: kind=ERROR, text="fn fib"
+[2025-02-16 18:52:21] Node 1: kind=identifier, text="f"
+[2025-02-16 18:52:21] Node 2: kind=identifier, text="n"
+[2025-02-16 18:52:21] Node 3: kind=identifier, text="fib"
+[2025-02-16 18:52:21] latest prediction 
+[2025-02-16 18:52:22] latest prediction 
+[2025-02-16 18:52:22] Complete the code on this line, returning only the raw code without any formatting, comments, or extra text. Example input: 'let x = '  Example output: 'let x = Some(42);'. Here is the code fn fib
+[2025-02-16 18:52:22] Next chunk fn
+[2025-02-16 18:52:22] Send pred to channel fn
+[2025-02-16 18:52:22] Next chunk fn fib
+[2025-02-16 18:52:22] Send pred to channel fn fib
+[2025-02-16 18:52:22] Next chunk fn fib(n
+[2025-02-16 18:52:22] Send pred to channel fn fib(n
+[2025-02-16 18:52:22] Next chunk fn fib(n:
+[2025-02-16 18:52:22] Send pred to channel fn fib(n:
+[2025-02-16 18:52:22] got prediction from channel fn
+[2025-02-16 18:52:22] got prediction from channel fn fib
+[2025-02-16 18:52:22] got prediction from channel fn fib(n
+[2025-02-16 18:52:22] got prediction from channel fn fib(n:
+[2025-02-16 18:52:22] latest prediction 
+[2025-02-16 18:52:22] Next chunk fn fib(n: u
+[2025-02-16 18:52:22] Send pred to channel fn fib(n: u
+[2025-02-16 18:52:22] Next chunk fn fib(n: u3
+[2025-02-16 18:52:22] Send pred to channel fn fib(n: u3
+[2025-02-16 18:52:22] Next chunk fn fib(n: u32
+[2025-02-16 18:52:22] Send pred to channel fn fib(n: u32
+[2025-02-16 18:52:22] Next chunk fn fib(n: u32)
+[2025-02-16 18:52:22] Send pred to channel fn fib(n: u32)
+[2025-02-16 18:52:22] Next chunk fn fib(n: u32) ->
+[2025-02-16 18:52:22] Send pred to channel fn fib(n: u32) ->
+[2025-02-16 18:52:22] Next chunk fn fib(n: u32) -> u
+[2025-02-16 18:52:22] Send pred to channel fn fib(n: u32) -> u
+[2025-02-16 18:52:22] Next chunk fn fib(n: u32) -> u3
+[2025-02-16 18:52:22] Send pred to channel fn fib(n: u32) -> u3
+[2025-02-16 18:52:22] Next chunk fn fib(n: u32) -> u32
+[2025-02-16 18:52:22] Send pred to channel fn fib(n: u32) -> u32
+[2025-02-16 18:52:22] Next chunk fn fib(n: u32) -> u32 {
+
+[2025-02-16 18:52:22] Send pred to channel fn fib(n: u32) -> u32 {
+
+[2025-02-16 18:52:22] Next chunk fn fib(n: u32) -> u32 {
+   
+[2025-02-16 18:52:22] Send pred to channel fn fib(n: u32) -> u32 {
+   
+[2025-02-16 18:52:22] Next chunk fn fib(n: u32) -> u32 {
+    match
+[2025-02-16 18:52:22] Send pred to channel fn fib(n: u32) -> u32 {
+    match
+[2025-02-16 18:52:22] Next chunk fn fib(n: u32) -> u32 {
+    match n
+[2025-02-16 18:52:22] Send pred to channel fn fib(n: u32) -> u32 {
+    match n
+[2025-02-16 18:52:22] Next chunk fn fib(n: u32) -> u32 {
+    match n {
+
+[2025-02-16 18:52:22] Send pred to channel fn fib(n: u32) -> u32 {
+    match n {
+
+[2025-02-16 18:52:22] Next chunk fn fib(n: u32) -> u32 {
+    match n {
+       
+[2025-02-16 18:52:22] Send pred to channel fn fib(n: u32) -> u32 {
+    match n {
+       
+[2025-02-16 18:52:22] Next chunk fn fib(n: u32) -> u32 {
+    match n {
+        
+[2025-02-16 18:52:22] Send pred to channel fn fib(n: u32) -> u32 {
+    match n {
+        
+[2025-02-16 18:52:22] Next chunk fn fib(n: u32) -> u32 {
+    match n {
+        0
+[2025-02-16 18:52:22] Send pred to channel fn fib(n: u32) -> u32 {
+    match n {
+        0
+[2025-02-16 18:52:22] Next chunk fn fib(n: u32) -> u32 {
+    match n {
+        0 =>
+[2025-02-16 18:52:22] Send pred to channel fn fib(n: u32) -> u32 {
+    match n {
+        0 =>
+[2025-02-16 18:52:23] Next chunk fn fib(n: u32) -> u32 {
+    match n {
+        0 => 
+[2025-02-16 18:52:23] Send pred to channel fn fib(n: u32) -> u32 {
+    match n {
+        0 => 
+[2025-02-16 18:52:23] Next chunk fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0
+[2025-02-16 18:52:23] Send pred to channel fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0
+[2025-02-16 18:52:23] Next chunk fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+
+[2025-02-16 18:52:23] Send pred to channel fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+
+[2025-02-16 18:52:23] Next chunk fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+       
+[2025-02-16 18:52:23] Send pred to channel fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+       
+[2025-02-16 18:52:23] Next chunk fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        
+[2025-02-16 18:52:23] Send pred to channel fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        
+[2025-02-16 18:52:23] Next chunk fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1
+[2025-02-16 18:52:23] Send pred to channel fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1
+[2025-02-16 18:52:23] Next chunk fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 =>
+[2025-02-16 18:52:23] Send pred to channel fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 =>
+[2025-02-16 18:52:23] Next chunk fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 
+[2025-02-16 18:52:23] Send pred to channel fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 
+[2025-02-16 18:52:23] Next chunk fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1
+[2025-02-16 18:52:23] Send pred to channel fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1
+[2025-02-16 18:52:23] got prediction from channel fn fib(n: u
+[2025-02-16 18:52:23] got prediction from channel fn fib(n: u3
+[2025-02-16 18:52:23] got prediction from channel fn fib(n: u32
+[2025-02-16 18:52:23] got prediction from channel fn fib(n: u32)
+[2025-02-16 18:52:23] got prediction from channel fn fib(n: u32) ->
+[2025-02-16 18:52:23] got prediction from channel fn fib(n: u32) -> u
+[2025-02-16 18:52:23] got prediction from channel fn fib(n: u32) -> u3
+[2025-02-16 18:52:23] got prediction from channel fn fib(n: u32) -> u32
+[2025-02-16 18:52:23] got prediction from channel fn fib(n: u32) -> u32 {
+
+[2025-02-16 18:52:23] got prediction from channel fn fib(n: u32) -> u32 {
+   
+[2025-02-16 18:52:23] got prediction from channel fn fib(n: u32) -> u32 {
+    match
+[2025-02-16 18:52:23] got prediction from channel fn fib(n: u32) -> u32 {
+    match n
+[2025-02-16 18:52:23] got prediction from channel fn fib(n: u32) -> u32 {
+    match n {
+
+[2025-02-16 18:52:23] got prediction from channel fn fib(n: u32) -> u32 {
+    match n {
+       
+[2025-02-16 18:52:23] got prediction from channel fn fib(n: u32) -> u32 {
+    match n {
+        
+[2025-02-16 18:52:23] got prediction from channel fn fib(n: u32) -> u32 {
+    match n {
+        0
+[2025-02-16 18:52:23] got prediction from channel fn fib(n: u32) -> u32 {
+    match n {
+        0 =>
+[2025-02-16 18:52:23] got prediction from channel fn fib(n: u32) -> u32 {
+    match n {
+        0 => 
+[2025-02-16 18:52:23] got prediction from channel fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0
+[2025-02-16 18:52:23] got prediction from channel fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+
+[2025-02-16 18:52:23] got prediction from channel fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+       
+[2025-02-16 18:52:23] got prediction from channel fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        
+[2025-02-16 18:52:23] got prediction from channel fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1
+[2025-02-16 18:52:23] got prediction from channel fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 =>
+[2025-02-16 18:52:23] got prediction from channel fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 
+[2025-02-16 18:52:23] got prediction from channel fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1
+[2025-02-16 18:52:23] latest prediction 
+[2025-02-16 18:52:23] Next chunk fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+
+[2025-02-16 18:52:23] Send pred to channel fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+
+[2025-02-16 18:52:23] Next chunk fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+       
+[2025-02-16 18:52:23] Send pred to channel fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+       
+[2025-02-16 18:52:23] Next chunk fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _
+[2025-02-16 18:52:23] Send pred to channel fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _
+[2025-02-16 18:52:23] Next chunk fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ =>
+[2025-02-16 18:52:23] Send pred to channel fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ =>
+[2025-02-16 18:52:23] Next chunk fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib
+[2025-02-16 18:52:23] Send pred to channel fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib
+[2025-02-16 18:52:23] got prediction from channel fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+
+[2025-02-16 18:52:23] got prediction from channel fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+       
+[2025-02-16 18:52:23] got prediction from channel fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _
+[2025-02-16 18:52:23] got prediction from channel fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ =>
+[2025-02-16 18:52:23] got prediction from channel fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib
+[2025-02-16 18:52:23] latest prediction 
+[2025-02-16 18:52:23] Next chunk fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n
+[2025-02-16 18:52:23] Send pred to channel fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n
+[2025-02-16 18:52:23] Next chunk fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n -
+[2025-02-16 18:52:23] Send pred to channel fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n -
+[2025-02-16 18:52:23] Next chunk fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 
+[2025-02-16 18:52:23] Send pred to channel fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 
+[2025-02-16 18:52:23] Next chunk fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1
+[2025-02-16 18:52:23] Send pred to channel fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1
+[2025-02-16 18:52:23] got prediction from channel fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n
+[2025-02-16 18:52:23] got prediction from channel fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n -
+[2025-02-16 18:52:23] got prediction from channel fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 
+[2025-02-16 18:52:23] got prediction from channel fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1
+[2025-02-16 18:52:23] latest prediction 
+[2025-02-16 18:52:23] Next chunk fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1)
+[2025-02-16 18:52:23] Send pred to channel fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1)
+[2025-02-16 18:52:23] Next chunk fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1) +
+[2025-02-16 18:52:23] Send pred to channel fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1) +
+[2025-02-16 18:52:23] Next chunk fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1) + fib
+[2025-02-16 18:52:23] Send pred to channel fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1) + fib
+[2025-02-16 18:52:23] Next chunk fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1) + fib(n
+[2025-02-16 18:52:23] Send pred to channel fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1) + fib(n
+[2025-02-16 18:52:23] Next chunk fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1) + fib(n -
+[2025-02-16 18:52:23] got prediction from channel fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1)
+[2025-02-16 18:52:23] got prediction from channel fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1) +
+[2025-02-16 18:52:23] got prediction from channel fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1) + fib
+[2025-02-16 18:52:23] got prediction from channel fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1) + fib(n
+[2025-02-16 18:52:23] latest prediction 
+[2025-02-16 18:52:23] Send pred to channel fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1) + fib(n -
+[2025-02-16 18:52:23] Next chunk fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1) + fib(n - 
+[2025-02-16 18:52:23] Send pred to channel fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1) + fib(n - 
+[2025-02-16 18:52:23] Next chunk fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1) + fib(n - 2
+[2025-02-16 18:52:23] Send pred to channel fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1) + fib(n - 2
+[2025-02-16 18:52:23] Next chunk fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1) + fib(n - 2),
+
+[2025-02-16 18:52:23] Send pred to channel fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1) + fib(n - 2),
+
+[2025-02-16 18:52:23] Next chunk fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1) + fib(n - 2),
+   
+[2025-02-16 18:52:23] Send pred to channel fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1) + fib(n - 2),
+   
+[2025-02-16 18:52:23] got prediction from channel fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1) + fib(n -
+[2025-02-16 18:52:23] got prediction from channel fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1) + fib(n - 
+[2025-02-16 18:52:23] got prediction from channel fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1) + fib(n - 2
+[2025-02-16 18:52:23] got prediction from channel fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1) + fib(n - 2),
+
+[2025-02-16 18:52:23] got prediction from channel fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1) + fib(n - 2),
+   
+[2025-02-16 18:52:23] latest prediction 
+[2025-02-16 18:52:23] Next chunk fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1) + fib(n - 2),
+    }
+
+[2025-02-16 18:52:23] Send pred to channel fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1) + fib(n - 2),
+    }
+
+[2025-02-16 18:52:24] Next chunk fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1) + fib(n - 2),
+    }
+}
+[2025-02-16 18:52:24] Send pred to channel fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1) + fib(n - 2),
+    }
+}
+[2025-02-16 18:52:24] Next chunk fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1) + fib(n - 2),
+    }
+}
+[2025-02-16 18:52:24] Send pred to channel fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1) + fib(n - 2),
+    }
+}
+[2025-02-16 18:52:24] fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1) + fib(n - 2),
+    }
+}
+[2025-02-16 18:52:24] got prediction from channel fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1) + fib(n - 2),
+    }
+
+[2025-02-16 18:52:24] got prediction from channel fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1) + fib(n - 2),
+    }
+}
+[2025-02-16 18:52:24] got prediction from channel fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1) + fib(n - 2),
+    }
+}
+[2025-02-16 18:52:24] latest prediction 
+[2025-02-16 18:52:24] latest prediction 
+[2025-02-16 18:52:24] latest prediction 
+[2025-02-16 18:52:24] latest prediction 
+[2025-02-16 18:52:25] Syntax tree generated successfully
+[2025-02-16 18:52:25] Root node type: source_file
+[2025-02-16 18:52:25] Node 0: kind=ERROR, text="fn fib(n: u32) -> u32 {\n    match n {\n        0 => 0,\n        1 => 1,\n        _ => fib(n - 1) + fib(n - 2),\n    }\n}"
+[2025-02-16 18:52:25] Node 1: kind=identifier, text="f"
+[2025-02-16 18:52:25] Node 2: kind=identifier, text="n"
+[2025-02-16 18:52:25] Node 3: kind=binary_expression, text="fib(n: u32) -> u32 {\n    match n {\n        0 => 0,\n        1 => 1,\n        _ => fib(n - 1) + fib(n - 2),\n    }\n}"
+[2025-02-16 18:52:25] Node 4: kind=call_expression, text="fib(n: u32)"
+[2025-02-16 18:52:25] Node 5: kind=identifier, text="fib"
+[2025-02-16 18:52:25] Node 6: kind=arguments, text="(n: u32)"
+[2025-02-16 18:52:25] Node 7: kind=(, text="("
+[2025-02-16 18:52:25] Node 8: kind=ERROR, text="n:"
+[2025-02-16 18:52:25] Node 9: kind=identifier, text="n"
+[2025-02-16 18:52:25] accepted prediction: fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1) + fib(n - 2),
+    }
+}
+[2025-02-16 18:52:25] latest prediction 

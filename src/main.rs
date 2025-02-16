@@ -18,11 +18,11 @@ use std::{env, error::Error, fs, io};
 use std::time::Instant;
 use tokio::task;
 use tree_sitter::{Language, Parser, Tree};
-use tui::{
+use ratatui::{
     backend::CrosstermBackend,
     layout::{Constraint, Direction, Layout},
     style::{Color, Modifier, Style},
-    text::{Span, Spans},
+    text::{Span, Line},
     widgets::{Block, Borders, Paragraph},
     Terminal,
 };
@@ -85,7 +85,7 @@ impl Editor {
         Ok(())
     }
 
-    fn highlight_syntax(&self, window_height: usize) -> Vec<Spans> {
+    fn highlight_syntax(&self, window_height: usize) -> Vec<Line> {
         let mut result = Vec::new();
 
         // Split current content into lines
@@ -315,7 +315,7 @@ impl Editor {
                     }
                 }
 
-                result.push(Spans::from(spans));
+                result.push(Line::from(spans));
             }
 
             // Add any additional prediction lines that extend beyond the current content
@@ -325,7 +325,7 @@ impl Editor {
                     if idx - self.scroll_offset >= window_height {
                         break;
                     }
-                    result.push(Spans::from(vec![
+                    result.push(Line::from(vec![
                         Span::styled(
                             pred_lines[idx].to_string(),
                             Style::default()
@@ -384,7 +384,7 @@ impl Editor {
                     spans.push(Span::raw(lines[line_idx].to_string()));
                 }
 
-                result.push(Spans::from(spans));
+                result.push(Line::from(spans));
             }
         }
 
@@ -723,7 +723,7 @@ fn redraw_editor(terminal: &mut Terminal<CrosstermBackend<Stdout>>, mut editor: 
                 let mut new_spans = Vec::new();
                 let mut current_pos = 0;
 
-                for span in line.0.iter() {
+                for span in line.spans.iter() {
                     let span_len = span.content.len();
                     if current_pos + span_len > cursor_offset && current_pos <= cursor_offset {
                         // Split this span to insert the cursor
@@ -763,7 +763,7 @@ fn redraw_editor(terminal: &mut Terminal<CrosstermBackend<Stdout>>, mut editor: 
                     ));
                 }
 
-                *line = Spans(new_spans);
+                *line = Line::from(new_spans);
             }
         }
 
@@ -783,7 +783,7 @@ fn redraw_editor(terminal: &mut Terminal<CrosstermBackend<Stdout>>, mut editor: 
         if !status_message.is_empty()
             && status_time.elapsed() < std::time::Duration::from_secs(5)
         {
-            let status_bar = Paragraph::new(status_message.as_str())
+            let status_bar = Paragraph::new(Line::from(status_message.as_str()))
                 .style(Style::default().fg(Color::White).bg(Color::Black));
             f.render_widget(status_bar, chunks[1]);
         }
