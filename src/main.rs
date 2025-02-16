@@ -6,22 +6,26 @@ use tokio::sync::mpsc;
 use crate::ollama::OllamaClient;
 use crate::parser::{parse_code_output, ParsedCode};
 use anyhow::{anyhow, Result};
-use ratatui::crossterm::{event::{self, Event, KeyCode}, execute, terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen}};
 use futures_util::StreamExt; // Add this import
-use std::fs::OpenOptions;
-use std::io::{Stdout, Write};
-use std::{env, error::Error, fs, io};
-use std::time::Instant;
-use tokio::task;
-use tree_sitter::{Language, Parser, Tree};
+use ratatui::crossterm::{
+    event::{self, Event, KeyCode},
+    execute,
+    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},
+};
 use ratatui::{
     backend::CrosstermBackend,
     layout::{Constraint, Direction, Layout},
     style::{Color, Modifier, Style},
-    text::{Span, Line},
+    text::{Line, Span},
     widgets::{Block, Borders, Paragraph},
     Terminal,
 };
+use std::fs::OpenOptions;
+use std::io::{Stdout, Write};
+use std::time::Instant;
+use std::{env, error::Error, fs, io};
+use tokio::task;
+use tree_sitter::{Language, Parser, Tree};
 
 struct Editor {
     content: String,
@@ -88,60 +92,66 @@ impl Editor {
         let lines: Vec<&str> = self.content.split('\n').collect();
 
         // Get visible lines
-        let visible_lines = lines.iter()
+        let visible_lines = lines
+            .iter()
             .skip(self.scroll_offset)
             .take(window_height)
             .collect::<Vec<_>>();
 
         // Calculate prediction content if it exists
-        let (prediction_lines, prediction_start_line, cursor_column) = if let (Some(pred), Some(start_pos)) =
-            (&self.current_prediction, self.prediction_start_position)
-        {
-            // Get the line where prediction starts
-            let start_line = self.content[..start_pos].chars().filter(|&c| c == '\n').count();
+        let (prediction_lines, prediction_start_line, cursor_column) =
+            if let (Some(pred), Some(start_pos)) =
+                (&self.current_prediction, self.prediction_start_position)
+            {
+                // Get the line where prediction starts
+                let start_line = self.content[..start_pos]
+                    .chars()
+                    .filter(|&c| c == '\n')
+                    .count();
 
-            // Calculate cursor column position within the line
-            let line_start = self.content[..start_pos].rfind('\n')
-                .map(|pos| pos + 1)
-                .unwrap_or(0);
-            let cursor_column = start_pos - line_start;
+                // Calculate cursor column position within the line
+                let line_start = self.content[..start_pos]
+                    .rfind('\n')
+                    .map(|pos| pos + 1)
+                    .unwrap_or(0);
+                let cursor_column = start_pos - line_start;
 
-            // Get the current line's content
-            let current_line = &self.content[line_start..start_pos];
+                // Get the current line's content
+                let current_line = &self.content[line_start..start_pos];
 
-            // Find where the current line ends
-            let line_end = self.content[start_pos..].find('\n')
-                .map(|pos| start_pos + pos)
-                .unwrap_or(self.content.len());
+                // Find where the current line ends
+                let line_end = self.content[start_pos..]
+                    .find('\n')
+                    .map(|pos| start_pos + pos)
+                    .unwrap_or(self.content.len());
 
-            // Get content after the current line
-            let post_content = if line_end < self.content.len() {
-                &self.content[line_end..]
+                // Get content after the current line
+                let post_content = if line_end < self.content.len() {
+                    &self.content[line_end..]
+                } else {
+                    ""
+                };
+
+                // Extract only the new part of the prediction (remove the original text)
+                let new_prediction = if pred.starts_with(current_line) {
+                    &pred[current_line.len()..]
+                } else {
+                    pred
+                };
+
+                // Create content with just the new prediction part
+                let full_content = format!("{}{}{}", current_line, new_prediction, post_content);
+
+                // Split into lines
+                let pred_lines = full_content
+                    .split('\n')
+                    .map(|s| s.to_string())
+                    .collect::<Vec<_>>();
+
+                (Some(pred_lines), Some(start_line), Some(cursor_column))
             } else {
-                ""
+                (None, None, None)
             };
-
-            // Extract only the new part of the prediction (remove the original text)
-            let new_prediction = if pred.starts_with(current_line) {
-                &pred[current_line.len()..]
-            } else {
-                pred
-            };
-
-            // Create content with just the new prediction part
-            let full_content = format!("{}{}{}",
-                                       current_line,
-                                       new_prediction,
-                                       post_content
-            );
-
-            // Split into lines
-            let pred_lines = full_content.split('\n').map(|s| s.to_string()).collect::<Vec<_>>();
-
-            (Some(pred_lines), Some(start_line), Some(cursor_column))
-        } else {
-            (None, None, None)
-        };
 
         if let Some(tree) = &self.tree {
             let root = tree.root_node();
@@ -193,10 +203,14 @@ impl Editor {
                             "function_item" => {
                                 let name_node = node.child_by_field_name("name");
                                 if let Some(name) = name_node {
-                                    if start_byte == name.start_byte() && end_byte == name.end_byte() {
-                                        Some(Style::default()
-                                            .fg(Color::Blue)
-                                            .add_modifier(Modifier::BOLD))
+                                    if start_byte == name.start_byte()
+                                        && end_byte == name.end_byte()
+                                    {
+                                        Some(
+                                            Style::default()
+                                                .fg(Color::Blue)
+                                                .add_modifier(Modifier::BOLD),
+                                        )
                                     } else {
                                         None
                                     }
@@ -267,10 +281,7 @@ impl Editor {
                         spans.push(Span::raw(self.content[current_pos..start].to_string()));
                     }
                     if start >= current_pos {
-                        spans.push(Span::styled(
-                            self.content[start..end].to_string(),
-                            style
-                        ));
+                        spans.push(Span::styled(self.content[start..end].to_string(), style));
                         current_pos = end;
                     }
                 }
@@ -288,7 +299,10 @@ impl Editor {
                         // This is the line where prediction starts
                         if let Some(pred_line) = pred_lines.get(absolute_line_idx) {
                             // Add only the prediction text as is
-                            let diff_string = find_difference(self.get_current_line_content().as_str(), pred_line.as_str());
+                            let diff_string = find_difference(
+                                self.get_current_line_content().as_str(),
+                                pred_line.as_str(),
+                            );
                             spans.push(Span::styled(
                                 diff_string,
                                 Style::default()
@@ -296,7 +310,8 @@ impl Editor {
                                     .add_modifier(Modifier::ITALIC),
                             ));
                         }
-                    } else if absolute_line_idx > start_line && absolute_line_idx < pred_lines.len() {
+                    } else if absolute_line_idx > start_line && absolute_line_idx < pred_lines.len()
+                    {
                         // These are additional prediction lines
                         spans = vec![Span::styled(
                             pred_lines[absolute_line_idx].to_string(),
@@ -311,21 +326,21 @@ impl Editor {
             }
 
             // Add any additional prediction lines that extend beyond the current content
-            if let (Some(pred_lines), Some(start_line), _) = (&prediction_lines, prediction_start_line, cursor_column) {
+            if let (Some(pred_lines), Some(start_line), _) =
+                (&prediction_lines, prediction_start_line, cursor_column)
+            {
                 let current_visible_end = self.scroll_offset + visible_lines.len();
                 for idx in current_visible_end..pred_lines.len() {
                     if idx - self.scroll_offset >= window_height {
                         break;
                     }
 
-                    result.push(Line::from(vec![
-                        Span::styled(
-                            pred_lines[idx].to_string(),
-                            Style::default()
-                                .fg(Color::DarkGray)
-                                .add_modifier(Modifier::ITALIC),
-                        )
-                    ]));
+                    result.push(Line::from(vec![Span::styled(
+                        pred_lines[idx].to_string(),
+                        Style::default()
+                            .fg(Color::DarkGray)
+                            .add_modifier(Modifier::ITALIC),
+                    )]));
                 }
             }
         } else {
@@ -383,7 +398,6 @@ impl Editor {
             self.current_prediction.take(),
             self.prediction_start_position.take(),
         ) {
-
             // Get the line start position
             let line_start = self.content[..start_pos]
                 .rfind('\n')
@@ -400,7 +414,8 @@ impl Editor {
             let original_line = &self.content[line_start..line_end];
             if pred.len() > original_line.len() {
                 let new_content = format!("{}{}", original_line, &pred[original_line.len()..]);
-                self.content.replace_range(line_start..line_end, &new_content);
+                self.content
+                    .replace_range(line_start..line_end, &new_content);
             }
             // Move cursor to end of prediction
             self.cursor_position = line_start + pred.len();
@@ -459,6 +474,21 @@ impl Editor {
             .unwrap_or(self.content.len());
 
         self.content[line_start..line_end].to_string()
+    }
+
+    fn clear_current_line(&mut self) {
+        let line_start = self.content[..self.cursor_position]
+            .rfind('\n')
+            .map(|pos| pos + 1)
+            .unwrap_or(0);
+
+        let line_end = self.content[self.cursor_position..]
+            .find('\n')
+            .map(|pos| self.cursor_position + pos + 1)
+            .unwrap_or(self.content.len());
+
+        // todo fix: updating position to avoid overflow when rmeoving lines
+        self.content.replace_range(line_start..line_end, "");
     }
 
     fn insert_char(&mut self, c: char, cursor_position: usize) {
@@ -645,6 +675,9 @@ async fn run_editor(client: Arc<OllamaClient>, filename: Option<String>) -> Resu
                             }
                         }
                     }
+                    KeyCode::Char('k') if key.modifiers.contains(event::KeyModifiers::CONTROL) => {
+                        editor.clear_current_line()
+                    }
                     KeyCode::Tab => {
                         if editor.current_prediction.is_some() {
                             editor.accept_prediction();
@@ -655,7 +688,7 @@ async fn run_editor(client: Arc<OllamaClient>, filename: Option<String>) -> Resu
                                 content,
                                 prediction_tx.clone(),
                             )
-                                .await;
+                            .await;
                         }
                     }
                     KeyCode::Esc => {
@@ -686,7 +719,12 @@ async fn run_editor(client: Arc<OllamaClient>, filename: Option<String>) -> Resu
     Ok(())
 }
 
-fn redraw_editor(terminal: &mut Terminal<CrosstermBackend<Stdout>>, mut editor: &mut Editor, mut status_message: &mut String, mut status_time: Instant) -> Result<()> {
+fn redraw_editor(
+    terminal: &mut Terminal<CrosstermBackend<Stdout>>,
+    mut editor: &mut Editor,
+    mut status_message: &mut String,
+    mut status_time: Instant,
+) -> Result<()> {
     terminal.draw(|f| {
         log_to_file(format!("latest prediction {}", status_message).as_str());
         let chunks = Layout::default()
@@ -714,8 +752,7 @@ fn redraw_editor(terminal: &mut Terminal<CrosstermBackend<Stdout>>, mut editor: 
         if current_line_number >= editor.scroll_offset
             && current_line_number < editor.scroll_offset + window_height
         {
-            if let Some(line) = styled_lines.get_mut(current_line_number - editor.scroll_offset)
-            {
+            if let Some(line) = styled_lines.get_mut(current_line_number - editor.scroll_offset) {
                 // Calculate cursor position within the line
                 let line_start = editor.content[..editor.cursor_position]
                     .rfind('\n')
@@ -773,20 +810,17 @@ fn redraw_editor(terminal: &mut Terminal<CrosstermBackend<Stdout>>, mut editor: 
 
         let paragraph = Paragraph::new(styled_lines)
             .block(
-                Block::default().borders(Borders::ALL).title(title).style(
-                    Style::default()
-                        .bg(Color::Black)
-                        .fg(Color::White),
-                ),
+                Block::default()
+                    .borders(Borders::ALL)
+                    .title(title)
+                    .style(Style::default().bg(Color::Black).fg(Color::White)),
             )
             .style(Style::default().bg(Color::Black));
 
         f.render_widget(paragraph, chunks[0]);
 
         // Add status bar
-        if !status_message.is_empty()
-            && status_time.elapsed() < std::time::Duration::from_secs(5)
-        {
+        if !status_message.is_empty() && status_time.elapsed() < std::time::Duration::from_secs(5) {
             let status_bar = Paragraph::new(Line::from(status_message.as_str()))
                 .style(Style::default().fg(Color::White).bg(Color::Black));
             f.render_widget(status_bar, chunks[1]);
@@ -810,10 +844,10 @@ fn log_to_file(message: &str) {
 
 fn find_difference(s1: &str, s2: &str) -> String {
     if !s2.starts_with(s1) {
-        return String::new();  // Return empty string if they don't match
+        return String::new(); // Return empty string if they don't match
     }
 
-    s2[s1.len()..].to_string()  // Return the remainder of s2 after s1's length
+    s2[s1.len()..].to_string() // Return the remainder of s2 after s1's length
 }
 
 async fn stream_prediction(
@@ -827,7 +861,7 @@ async fn stream_prediction(
         .stream_generate("qwen2.5-coder:7b", prompt.as_str())
         .await?;
     let mut pred = "".to_string();
-    let mut output = ParsedCode{
+    let mut output = ParsedCode {
         code: "".to_string(),
         language: None,
         is_complete: false,
@@ -843,7 +877,6 @@ async fn stream_prediction(
                 match prediction_tx.send(format!("{}", pred)).await {
                     Ok(_) => {
                         log_to_file(format!("Send pred to channel {}", pred).as_str());
-
                     }
                     Err(e) => {
                         eprintln!("Failed to send prediction: {}", e);
@@ -867,8 +900,7 @@ async fn stream_prediction_background(
             Err(e) => {
                 log_to_file(format!("Prediction error: {}", e.to_string().as_str()).as_str());
             }
-            _ => {
-            }
+            _ => {}
         }
     });
 }
