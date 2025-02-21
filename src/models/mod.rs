@@ -54,7 +54,7 @@ pub async fn stream_prediction_background(
 ) {
     task::spawn(async move {
         if let Err(e) = stream_prediction(client, prediction_tx, content).await {
-            log_to_file(format!("Prediction error: {}", e.to_string().as_str()).as_str());
+            log_to_file(format!("Prediction error: {}", e).as_str());
         }
     });
 }

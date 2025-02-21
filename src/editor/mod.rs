@@ -736,7 +736,7 @@ fn redraw_editor(
 
         // Calculate the maximum line number width
         let total_lines = editor.content.matches('\n').count() + 1;
-        let line_num_width = total_lines.to_string().len() + 1; // +1 for spacing
+        let line_num_width = total_lines.to_string().len() + 2; // calculate this based off number of total lines
 
         // Create a horizontal split for line numbers and content
         let horizontal_chunks = Layout::default()
@@ -750,10 +750,8 @@ fn redraw_editor(
         let mut styled_lines = editor.highlight_syntax(window_height);
         let mut line_numbers = Vec::new();
 
-        // Generate line numbers for visible lines, skipping the first line
         for i in 0..styled_lines.len() + 1 {
             if i == 0 {
-                // For the first line, just push empty space matching the width
                 line_numbers.push(Line::from(vec![
                     Span::styled(
                         " ".repeat(line_num_width),
