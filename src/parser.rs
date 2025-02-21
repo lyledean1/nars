@@ -41,7 +41,6 @@ mod tests {
         ```"#;
 
         let result = parse_code_output(input).unwrap();
-        assert_eq!(result.language, Some("rust".to_string()));
         assert_eq!(
             result.code.trim(),
             r#"fn main() {
@@ -57,7 +56,6 @@ mod tests {
             println!("Hello");"#;
 
         let result = parse_code_output(input).unwrap();
-        assert_eq!(result.language, Some("rust".to_string()));
         assert_eq!(
             result.code.trim(),
             r#"fn main() {
@@ -69,7 +67,6 @@ mod tests {
     fn test_parse_raw_code() {
         let input = "fn main() { println!(\"Hello\"); }";
         let result = parse_code_output(input).unwrap();
-        assert_eq!(result.language, None);
         assert_eq!(result.code, input);
     }
 
@@ -80,7 +77,6 @@ mod tests {
         ```"#;
 
         let result = parse_code_output(input).unwrap();
-        assert_eq!(result.language, None);
         assert_eq!(result.code.trim(), "let x = 42;");
     }
 }

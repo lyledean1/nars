@@ -23,7 +23,7 @@ use ratatui::{
 use std::fs::OpenOptions;
 use std::io::{Stdout, Write};
 use std::time::Instant;
-use std::{env, error::Error, fs, io};
+use std::{env, fs, io};
 use tokio::task;
 use tree_sitter::{Language, Parser, Tree};
 
@@ -573,7 +573,7 @@ impl Editor {
         if let Some(next_line_end) = self.content[current_line_end + 1..]
             .find('\n')
             .map(|pos| current_line_end + 1 + pos)
-            .or_else(|| {
+            .or({
                 if current_line_end < self.content.len() {
                     Some(self.content.len())
                 } else {
@@ -717,7 +717,7 @@ async fn run_editor(client: Arc<OllamaClient>, filename: Option<String>) -> Resu
 
 fn redraw_editor(
     terminal: &mut Terminal<CrosstermBackend<Stdout>>,
-    mut editor: &mut Editor,
+    editor: &mut Editor,
     status_message: &mut String,
     status_time: Instant,
 ) -> Result<()> {
@@ -910,7 +910,7 @@ async fn stream_prediction(
                 log_to_file(format!("Next chunk {}", pred).as_str());
                 // refactor as this is not needed or return this?
                 output = parse_code_output(&pred)?;
-                match prediction_tx.send(format!("{}", pred)).await {
+                match prediction_tx.send(pred.to_string()).await {
                     Ok(_) => {
                         log_to_file(format!("Send pred to channel {}", pred).as_str());
                     }
@@ -932,11 +932,8 @@ async fn stream_prediction_background(
     prediction_tx: mpsc::Sender<String>,
 ) {
     task::spawn(async move {
-        match stream_prediction(client, prediction_tx, content).await {
-            Err(e) => {
-                log_to_file(format!("Prediction error: {}", e.to_string().as_str()).as_str());
-            }
-            _ => {}
+        if let Err(e) = stream_prediction(client, prediction_tx, content).await {
+            log_to_file(format!("Prediction error: {}", e.to_string().as_str()).as_str());
         }
     });
 }
