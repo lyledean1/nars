@@ -1,3 +1,5 @@
+mod languages;
+
 use std::sync::Arc;
 use tokio::sync::mpsc;
 
@@ -19,7 +21,8 @@ use ratatui::{
 use std::io::{Stdout};
 use std::time::Instant;
 use std::{fs, io};
-use tree_sitter::{Language, Parser, Tree};
+use tree_sitter::{Parser, Tree};
+use crate::editor::languages::rust::tree_sitter_rust;
 use crate::logger::log_to_file;
 use crate::models::stream_prediction_background;
 
@@ -604,15 +607,6 @@ impl Editor {
         } else {
             log_to_file("Failed to generate syntax tree");
         }
-    }
-}
-
-fn tree_sitter_rust() -> Language {
-    unsafe {
-        extern "C" {
-            fn tree_sitter_rust() -> Language;
-        }
-        tree_sitter_rust()
     }
 }
 
