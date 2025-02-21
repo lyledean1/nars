@@ -15,9 +15,7 @@ struct GenerateRequest {
 
 #[derive(Deserialize)]
 struct GenerateResponse {
-    model: String,
     response: String,
-    done: bool,
 }
 
 #[derive(Clone)]
@@ -31,25 +29,6 @@ impl OllamaClient {
             client: Client::new(),
         }
     }
-
-    pub async fn generate(&self, model: &str, prompt: &str) -> Result<String> {
-        let request = GenerateRequest {
-            model: model.to_string(),
-            prompt: prompt.to_string(),
-            stream: false,
-        };
-
-        let response = self
-            .client
-            .post(format!("{}/generate", OLLAMA_BASE_URL))
-            .json(&request)
-            .send()
-            .await?;
-
-        let generation: GenerateResponse = response.json().await?;
-        Ok(generation.response)
-    }
-
     pub async fn stream_generate(
         &self,
         model: &str,

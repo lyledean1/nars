@@ -4,20 +4,7 @@ use regex::Regex;
 #[derive(Debug)]
 pub struct ParsedCode {
     pub code: String,
-    pub language: Option<String>,
-    pub is_complete: bool,
 }
-
-impl ParsedCode {
-    pub fn new(code: String, language: Option<String>) -> Self {
-        Self {
-            code,
-            language,
-            is_complete: true,
-        }
-    }
-}
-
 pub fn parse_code_output(input: &str) -> Result<ParsedCode> {
     // Match code blocks that might be incomplete
     // This regex will match:
@@ -27,23 +14,16 @@ pub fn parse_code_output(input: &str) -> Result<ParsedCode> {
     let code_block_regex = Regex::new(r"(?s)```(?:(\w+)\n)?(.*?)(?:```|$)")?;
 
     if let Some(captures) = code_block_regex.captures(input) {
-        let language = captures.get(1).map(|m| m.as_str().to_string());
         let code = captures
             .get(2)
             .map(|m| m.as_str().trim().to_string())
             .ok_or(anyhow!("No code content found"))?;
-
-        let is_complete = input.trim().ends_with("```");
         Ok(ParsedCode {
             code,
-            language,
-            is_complete,
         })
     } else {
         Ok(ParsedCode {
             code: input.trim().to_string(),
-            language: None,
-            is_complete: true,
         })
     }
 }

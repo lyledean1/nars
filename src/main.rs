@@ -34,8 +34,6 @@ struct Editor {
     parser: Parser,
     tree: Option<Tree>,
     filename: Option<String>,
-    status_message: String,
-    status_time: std::time::Instant,
     prediction_rx: mpsc::Receiver<String>,
     current_prediction: Option<String>,
     prediction_start_position: Option<usize>,
@@ -58,8 +56,6 @@ impl Editor {
                 parser,
                 tree: None,
                 filename: None,
-                status_message: String::new(),
-                status_time: std::time::Instant::now(),
                 current_prediction: None,
                 prediction_start_position: None,
                 prediction_rx,
@@ -722,15 +718,15 @@ async fn run_editor(client: Arc<OllamaClient>, filename: Option<String>) -> Resu
 fn redraw_editor(
     terminal: &mut Terminal<CrosstermBackend<Stdout>>,
     mut editor: &mut Editor,
-    mut status_message: &mut String,
-    mut status_time: Instant,
+    status_message: &mut String,
+    status_time: Instant,
 ) -> Result<()> {
     terminal.draw(|f| {
         log_to_file(format!("latest prediction {}", status_message).as_str());
         let chunks = Layout::default()
             .direction(Direction::Vertical)
             .constraints([Constraint::Min(1), Constraint::Length(1)].as_ref())
-            .split(f.size());
+            .split(f.area());
 
         let title = editor
             .filename
@@ -740,7 +736,42 @@ fn redraw_editor(
 
         let window_height = chunks[0].height as usize - 2; // Account for borders
 
+        // Calculate the maximum line number width
+        let total_lines = editor.content.matches('\n').count() + 1;
+        let line_num_width = total_lines.to_string().len() + 1; // +1 for spacing
+
+        // Create a horizontal split for line numbers and content
+        let horizontal_chunks = Layout::default()
+            .direction(Direction::Horizontal)
+            .constraints([
+                Constraint::Length(line_num_width as u16),
+                Constraint::Min(1),
+            ])
+            .split(chunks[0]);
+
         let mut styled_lines = editor.highlight_syntax(window_height);
+        let mut line_numbers = Vec::new();
+
+        // Generate line numbers for visible lines, skipping the first line
+        for i in 0..styled_lines.len() + 1 {
+            if i == 0 {
+                // For the first line, just push empty space matching the width
+                line_numbers.push(Line::from(vec![
+                    Span::styled(
+                        " ".repeat(line_num_width),
+                        Style::default().fg(Color::DarkGray),
+                    ),
+                ]));
+            } else {
+                let line_num = editor.scroll_offset + i;
+                line_numbers.push(Line::from(vec![
+                    Span::styled(
+                        format!("{:>width$} ", line_num, width = line_num_width - 1),
+                        Style::default().fg(Color::DarkGray),
+                    ),
+                ]));
+            }
+        }
 
         // Add cursor indicator
         let current_line_number = editor.content[..editor.cursor_position]
@@ -808,6 +839,12 @@ fn redraw_editor(
             }
         }
 
+        // Render line numbers
+        let line_numbers_widget = Paragraph::new(line_numbers)
+            .block(Block::default().borders(Borders::RIGHT))
+            .style(Style::default().bg(Color::Black));
+
+        // Render main content
         let paragraph = Paragraph::new(styled_lines)
             .block(
                 Block::default()
@@ -817,7 +854,8 @@ fn redraw_editor(
             )
             .style(Style::default().bg(Color::Black));
 
-        f.render_widget(paragraph, chunks[0]);
+        f.render_widget(line_numbers_widget, horizontal_chunks[0]);
+        f.render_widget(paragraph, horizontal_chunks[1]);
 
         // Add status bar
         if !status_message.is_empty() && status_time.elapsed() < std::time::Duration::from_secs(5) {
@@ -863,8 +901,6 @@ async fn stream_prediction(
     let mut pred = "".to_string();
     let mut output = ParsedCode {
         code: "".to_string(),
-        language: None,
-        is_complete: false,
     };
 
     while let Some(chunk) = stream.next().await {
