@@ -23,6 +23,7 @@ use std::time::Instant;
 use std::{fs, io};
 use tree_sitter::{Parser, Tree};
 use crate::editor::languages::rust::tree_sitter_rust;
+use crate::editor::languages::zig::tree_sitter_zig;
 use crate::logger::log_to_file;
 use crate::models::stream_prediction_background;
 
@@ -40,13 +41,24 @@ struct Editor {
 }
 
 impl Editor {
-    fn new() -> (Self, mpsc::Sender<String>) {
+    fn new(path: String) -> (Self, mpsc::Sender<String>) {
         let (prediction_tx, prediction_rx) = mpsc::channel(32);
         let mut parser = Parser::new();
-        parser
-            .set_language(tree_sitter_rust())
-            .expect("Error loading Rust grammar");
-
+        let filename = path.split(".").last().unwrap_or("rs");
+        match filename {
+            "zig" => {
+                log_to_file("Loading Zig LSP");
+                parser
+                    .set_language(tree_sitter_zig())
+                    .expect("Error loading Zig grammar");
+            },
+            _ => {
+                log_to_file("Defaulting to Rust LSP");
+                parser
+                    .set_language(tree_sitter_rust())
+                    .expect("Error loading Rust grammar");
+            }
+        }
         (
             Editor {
                 content: String::new(),
@@ -617,10 +629,10 @@ pub async fn run_editor(client: Arc<OllamaClient>, filename: Option<String>) -> 
     let backend = CrosstermBackend::new(stdout);
     let mut terminal = Terminal::new(backend)?;
 
-    let (mut editor, prediction_tx) = Editor::new();
+    let (mut editor, prediction_tx) = Editor::new(filename.clone().unwrap_or(".rs".to_string()));
 
     let mut status_message = String::new();
-    let mut status_time = std::time::Instant::now();
+    let mut status_time = Instant::now();
 
     // Load file if specified
     if let Some(path) = filename {
