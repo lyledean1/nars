@@ -128,17 +128,15 @@ impl Editor {
                     ""
                 };
 
-                // Extract only the new part of the prediction (remove the original text)
-                let new_prediction = if pred.starts_with(current_line) {
-                    &pred[current_line.len()..]
+                let new_prediction = if let Some(stripped) = pred.strip_prefix(current_line) {
+                    stripped
                 } else {
                     pred
                 };
 
-                // Create content with just the new prediction part
+
                 let full_content = format!("{}{}{}", current_line, new_prediction, post_content);
 
-                // Split into lines
                 let pred_lines = full_content
                     .split('\n')
                     .map(|s| s.to_string())
@@ -247,13 +245,11 @@ impl Editor {
                         }
                     }
 
-                    if !did_visit {
-                        if cursor.goto_first_child() {
+                    if !did_visit && cursor.goto_first_child() {
                             did_visit = false;
                             continue;
-                        }
-                        did_visit = true;
                     }
+
 
                     if cursor.goto_next_sibling() {
                         did_visit = false;
@@ -322,11 +318,11 @@ impl Editor {
             }
 
             // Add any additional prediction lines that extend beyond the current content
-            if let (Some(pred_lines), Some(start_line), _) =
+            if let (Some(pred_lines), _, _) =
                 (&prediction_lines, prediction_start_line, cursor_column)
             {
                 let current_visible_end = self.scroll_offset + visible_lines.len();
-                for idx in current_visible_end..pred_lines.len() {
+                for (idx, _) in pred_lines.iter().enumerate().skip(current_visible_end) {
                     if idx - self.scroll_offset >= window_height {
                         break;
                     }
