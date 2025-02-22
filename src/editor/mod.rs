@@ -6,7 +6,6 @@ use tokio::sync::mpsc;
 use crate::editor::languages::rust::tree_sitter_rust;
 use crate::editor::languages::zig::tree_sitter_zig;
 use crate::logger::log_to_file;
-use crate::models::ollama::OllamaClient;
 use crate::models::{Predictor};
 use anyhow::{anyhow, Result};
 use ratatui::crossterm::{
@@ -23,7 +22,6 @@ use ratatui::{
     Terminal,
 };
 use std::io::Stdout;
-use std::time::Instant;
 use std::{fs, io};
 use tree_sitter::{Parser, Tree};
 
@@ -36,8 +34,7 @@ pub struct Editor {
     filename: Option<String>,
     prediction_rx: mpsc::Receiver<String>,
     current_prediction: Option<String>,
-    prediction_start_position: Option<usize>,
-    needs_redraw: bool,
+    prediction_start_position: Option<usize>
 }
 
 impl Editor {
@@ -70,7 +67,6 @@ impl Editor {
                 current_prediction: None,
                 prediction_start_position: None,
                 prediction_rx,
-                needs_redraw: false,
             },
             prediction_tx,
         )
@@ -327,7 +323,6 @@ impl Editor {
                 result.push(Line::from(spans));
             }
 
-            // Add any additional prediction lines that extend beyond the current content
             if let (Some(pred_lines), _, _) =
                 (&prediction_lines, prediction_start_line, cursor_column)
             {
@@ -346,7 +341,6 @@ impl Editor {
                 }
             }
         } else {
-            // No syntax tree - handle plain text with predictions
             let max_lines = if let Some(pred_lines) = &prediction_lines {
                 pred_lines.len().max(lines.len())
             } else {
@@ -400,48 +394,36 @@ impl Editor {
             self.current_prediction.take(),
             self.prediction_start_position.take(),
         ) {
-            // Get the line start position
             let line_start = self.content[..start_pos]
                 .rfind('\n')
                 .map(|pos| pos + 1)
                 .unwrap_or(0);
 
-            // Get the line end position
             let line_end = self.content[line_start..]
                 .find('\n')
                 .map(|pos| line_start + pos)
                 .unwrap_or(self.content.len());
 
-            // Replace the entire line content with the prediction
             let original_line = &self.content[line_start..line_end];
             if pred.len() > original_line.len() {
                 let new_content = format!("{}{}", original_line, &pred[original_line.len()..]);
                 self.content
                     .replace_range(line_start..line_end, &new_content);
             }
-            // Move cursor to end of prediction
             self.cursor_position = line_start + pred.len();
-
-            // Update syntax highlighting
             self.update_syntax_tree();
             self.current_prediction = None;
-
             log_to_file(&format!("accepted prediction: {}", pred));
         }
     }
 
-    // Modify get_latest_prediction to update the stored prediction
-    fn get_latest_prediction(&mut self) -> bool {
-        let mut got_any = false;
+    fn get_latest_prediction(&mut self) {
         log_to_file("checking latest prediction");
         while let Ok(pred) = self.prediction_rx.try_recv() {
             log_to_file(format!("got prediction from channel {}", pred).as_str());
             self.current_prediction = Some(pred);
             self.prediction_start_position = Some(self.cursor_position);
-            self.needs_redraw = true;
-            got_any = true;
         }
-        got_any
     }
     fn get_current_line(&self) -> usize {
         self.content[..self.cursor_position]
@@ -452,13 +434,9 @@ impl Editor {
 
     fn ensure_cursor_visible(&mut self, window_height: usize) {
         let current_line = self.get_current_line();
-
-        // If cursor is above visible area, scroll up
         if current_line < self.scroll_offset {
             self.scroll_offset = current_line;
         }
-
-        // If cursor is below visible area, scroll down
         if current_line >= self.scroll_offset + window_height {
             self.scroll_offset = current_line - window_height + 1;
         }
@@ -628,72 +606,21 @@ pub async fn run(mut editor: Editor, mut predictor: Arc<Predictor>) -> Result<()
     let backend = CrosstermBackend::new(stdout);
     let mut terminal = Terminal::new(backend)?;
 
-    let mut status_message = String::new();
-    let mut status_time = Instant::now();
-
-    // Load file if specified
-
     loop {
-        let window_height = terminal.size()?.height as usize - 2; // Account for borders
+        let window_height = terminal.size()?.height as usize - 2;
         editor.ensure_cursor_visible(window_height);
         editor.get_latest_prediction();
-
-        log_to_file(format!("editor needs redraw {}", editor.needs_redraw).as_str());
-        if editor.needs_redraw {
-            log_to_file("Should be redrawing with pred");
-            status_message = "updated pred".to_string();
-            terminal.clear()?;
-            terminal.flush()?;
-            editor.needs_redraw = false;
-        }
-
-        redraw_editor(&mut terminal, &mut editor, &mut status_message, status_time)?;
+        redraw_editor(&mut terminal, &mut editor)?;
         if event::poll(std::time::Duration::from_millis(10))? {
-            if let Event::Key(key) = event::read()? {
-                match key.code {
-                    KeyCode::Char('s') if key.modifiers.contains(event::KeyModifiers::CONTROL) => {
-                        match editor.save_file() {
-                            Ok(_) => {
-                                status_message = String::from("File saved successfully!");
-                                status_time = Instant::now();
-                            }
-                            Err(e) => {
-                                status_message = format!("Error saving file: {}", e);
-                                status_time = Instant::now();
-                            }
-                        }
-                    }
-                    KeyCode::Char('k') if key.modifiers.contains(event::KeyModifiers::CONTROL) => {
-                        editor.clear_current_line()
-                    }
-                    KeyCode::Tab => {
-                        if editor.current_prediction.is_some() {
-                            editor.accept_prediction();
-                        } else {
-                            let content = editor.get_current_line_content();
-                            predictor.clone().stream_prediction_background(content);
-                        }
-                    }
-                    KeyCode::Esc => {
-                        editor.current_prediction = None;
-                        editor.prediction_start_position = None;
-                        break;
-                    }
-                    KeyCode::Char(c) => {
-                        editor.current_prediction = None;
-                        editor.prediction_start_position = None;
-                        editor.insert_char(c, 1);
-                    }
-                    // KeyCode::Tab => editor.insert_char('\t', 4),
-                    KeyCode::Enter => editor.insert_char('\n', 1),
-                    KeyCode::Backspace => editor.delete_char(),
-                    KeyCode::Left => editor.move_cursor_left(),
-                    KeyCode::Right => editor.move_cursor_right(),
-                    KeyCode::Up => editor.move_cursor_up(),
-                    KeyCode::Down => editor.move_cursor_down(),
-                    _ => {}
+            // return true to exit, else continue
+            match handle_key_bindings(&mut editor, &mut predictor) {
+                Ok(true) => {
+                    break;
                 }
-            }
+                _ => {
+
+                }
+            };
         }
     }
 
@@ -702,14 +629,51 @@ pub async fn run(mut editor: Editor, mut predictor: Arc<Predictor>) -> Result<()
     Ok(())
 }
 
+fn handle_key_bindings(editor: &mut Editor, predictor: &mut Arc<Predictor>) -> Result<bool> {
+    if let Event::Key(key) = event::read()? {
+        match key.code {
+            KeyCode::Char('s') if key.modifiers.contains(event::KeyModifiers::CONTROL) => {
+                editor.save_file()?;
+            }
+            KeyCode::Char('k') if key.modifiers.contains(event::KeyModifiers::CONTROL) => {
+                editor.clear_current_line();
+            }
+            KeyCode::Tab => {
+                if editor.current_prediction.is_some() {
+                    editor.accept_prediction();
+                } else {
+                    let content = editor.get_current_line_content();
+                    predictor.clone().stream_prediction_background(content);
+                }
+            }
+            KeyCode::Esc => {
+                editor.current_prediction = None;
+                editor.prediction_start_position = None;
+                return Ok(true);
+            }
+            KeyCode::Char(c) => {
+                editor.current_prediction = None;
+                editor.prediction_start_position = None;
+                editor.insert_char(c, 1);
+            }
+            // KeyCode::Tab => editor.insert_char('\t', 4),
+            KeyCode::Enter => editor.insert_char('\n', 1),
+            KeyCode::Backspace => editor.delete_char(),
+            KeyCode::Left => editor.move_cursor_left(),
+            KeyCode::Right => editor.move_cursor_right(),
+            KeyCode::Up => editor.move_cursor_up(),
+            KeyCode::Down => editor.move_cursor_down(),
+            _ => {}
+        }
+    }
+    Ok(false)
+}
+
 fn redraw_editor(
     terminal: &mut Terminal<CrosstermBackend<Stdout>>,
-    editor: &mut Editor,
-    status_message: &mut String,
-    status_time: Instant,
+    editor: &mut Editor
 ) -> Result<()> {
     terminal.draw(|f| {
-        log_to_file(format!("latest prediction {}", status_message).as_str());
         let chunks = Layout::default()
             .direction(Direction::Vertical)
             .constraints([Constraint::Min(1), Constraint::Length(1)].as_ref())
@@ -837,13 +801,6 @@ fn redraw_editor(
 
         f.render_widget(line_numbers_widget, horizontal_chunks[0]);
         f.render_widget(paragraph, horizontal_chunks[1]);
-
-        // Add status bar
-        if !status_message.is_empty() && status_time.elapsed() < std::time::Duration::from_secs(5) {
-            let status_bar = Paragraph::new(Line::from(status_message.as_str()))
-                .style(Style::default().fg(Color::White).bg(Color::Black));
-            f.render_widget(status_bar, chunks[1]);
-        }
     })?;
     Ok(())
 }
