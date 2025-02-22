@@ -1,12 +1,12 @@
-use std::sync::Arc;
-use anyhow::Result;
-use crate::models::ollama::OllamaClient;
-use std::{env};
 use crate::editor::run_editor;
+use crate::models::ollama::OllamaClient;
+use anyhow::Result;
+use std::env;
+use std::sync::Arc;
 
-mod models;
-mod logger;
 mod editor;
+mod logger;
+mod models;
 
 #[tokio::main]
 async fn main() -> Result<()> {

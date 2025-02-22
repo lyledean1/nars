@@ -3,7 +3,11 @@ mod languages;
 use std::sync::Arc;
 use tokio::sync::mpsc;
 
+use crate::editor::languages::rust::tree_sitter_rust;
+use crate::editor::languages::zig::tree_sitter_zig;
+use crate::logger::log_to_file;
 use crate::models::ollama::OllamaClient;
+use crate::models::{Predictor};
 use anyhow::{anyhow, Result};
 use ratatui::crossterm::{
     event::{self, Event, KeyCode},
@@ -18,14 +22,10 @@ use ratatui::{
     widgets::{Block, Borders, Paragraph},
     Terminal,
 };
-use std::io::{Stdout};
+use std::io::Stdout;
 use std::time::Instant;
 use std::{fs, io};
 use tree_sitter::{Parser, Tree};
-use crate::editor::languages::rust::tree_sitter_rust;
-use crate::editor::languages::zig::tree_sitter_zig;
-use crate::logger::log_to_file;
-use crate::models::stream_prediction_background;
 
 struct Editor {
     content: String,
@@ -51,7 +51,7 @@ impl Editor {
                 parser
                     .set_language(tree_sitter_zig())
                     .expect("Error loading Zig grammar");
-            },
+            }
             _ => {
                 log_to_file("Defaulting to Rust LSP");
                 parser
@@ -145,7 +145,6 @@ impl Editor {
                     pred
                 };
 
-
                 let full_content = format!("{}{}{}", current_line, new_prediction, post_content);
 
                 let pred_lines = full_content
@@ -190,7 +189,8 @@ impl Editor {
                             "use" | "struct" | "enum" | "impl" | "fn" | "pub" | "mod" | "let"
                             | "mut" | "self" | "match" | "if" | "else" | "for" | "while"
                             | "loop" | "return" | "break" | "continue" | "const" | "static"
-                            | "type" | "where" | "unsafe" | "async" | "await" | "move" | "ref" => {
+                            | "type" | "where" | "unsafe" | "async" | "await" | "move" | "ref"
+                            | "defer" | "try" | "var" => {
                                 Some(Style::default().fg(Color::Red).add_modifier(Modifier::BOLD))
                             }
 
@@ -260,7 +260,6 @@ impl Editor {
                         did_visit = false;
                         continue;
                     }
-
 
                     if cursor.goto_next_sibling() {
                         did_visit = false;
@@ -630,7 +629,7 @@ pub async fn run_editor(client: Arc<OllamaClient>, filename: Option<String>) -> 
     let mut terminal = Terminal::new(backend)?;
 
     let (mut editor, prediction_tx) = Editor::new(filename.clone().unwrap_or(".rs".to_string()));
-
+    let predictor = Arc::new(Predictor::new(client, prediction_tx));
     let mut status_message = String::new();
     let mut status_time = Instant::now();
 
@@ -661,11 +660,11 @@ pub async fn run_editor(client: Arc<OllamaClient>, filename: Option<String>) -> 
                         match editor.save_file() {
                             Ok(_) => {
                                 status_message = String::from("File saved successfully!");
-                                status_time = std::time::Instant::now();
+                                status_time = Instant::now();
                             }
                             Err(e) => {
                                 status_message = format!("Error saving file: {}", e);
-                                status_time = std::time::Instant::now();
+                                status_time = Instant::now();
                             }
                         }
                     }
@@ -677,12 +676,7 @@ pub async fn run_editor(client: Arc<OllamaClient>, filename: Option<String>) -> 
                             editor.accept_prediction();
                         } else {
                             let content = editor.get_current_line_content();
-                            stream_prediction_background(
-                                client.clone(),
-                                content,
-                                prediction_tx.clone(),
-                            )
-                                .await;
+                            predictor.clone().stream_prediction_background(content);
                         }
                     }
                     KeyCode::Esc => {
@@ -752,20 +746,16 @@ fn redraw_editor(
 
         for i in 0..styled_lines.len() + 1 {
             if i == 0 {
-                line_numbers.push(Line::from(vec![
-                    Span::styled(
-                        " ".repeat(line_num_width),
-                        Style::default().fg(Color::DarkGray),
-                    ),
-                ]));
+                line_numbers.push(Line::from(vec![Span::styled(
+                    " ".repeat(line_num_width),
+                    Style::default().fg(Color::DarkGray),
+                )]));
             } else {
                 let line_num = editor.scroll_offset + i;
-                line_numbers.push(Line::from(vec![
-                    Span::styled(
-                        format!("{:>width$} ", line_num, width = line_num_width - 1),
-                        Style::default().fg(Color::DarkGray),
-                    ),
-                ]));
+                line_numbers.push(Line::from(vec![Span::styled(
+                    format!("{:>width$} ", line_num, width = line_num_width - 1),
+                    Style::default().fg(Color::DarkGray),
+                )]));
             }
         }
 
@@ -862,8 +852,6 @@ fn redraw_editor(
     })?;
     Ok(())
 }
-
-
 
 fn find_difference(s1: &str, s2: &str) -> String {
     if !s2.starts_with(s1) {

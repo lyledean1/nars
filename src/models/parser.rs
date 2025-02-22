@@ -18,9 +18,7 @@ pub fn parse_code_output(input: &str) -> Result<ParsedCode> {
             .get(2)
             .map(|m| m.as_str().trim().to_string())
             .ok_or(anyhow!("No code content found"))?;
-        Ok(ParsedCode {
-            code,
-        })
+        Ok(ParsedCode { code })
     } else {
         Ok(ParsedCode {
             code: input.trim().to_string(),

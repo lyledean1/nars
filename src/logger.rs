@@ -1,5 +1,5 @@
 use std::fs::OpenOptions;
-use std::io::{Write};
+use std::io::Write;
 
 pub fn log_to_file(message: &str) {
     if let Ok(mut file) = OpenOptions::new()
