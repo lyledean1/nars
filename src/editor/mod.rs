@@ -90,68 +90,15 @@ impl Editor {
 
     fn highlight_syntax(&self, window_height: usize) -> Vec<Line> {
         let mut result = Vec::new();
-
-        // Split current content into lines
         let lines: Vec<&str> = self.content.split('\n').collect();
-
-        // Get visible lines
         let visible_lines = lines
             .iter()
             .skip(self.scroll_offset)
             .take(window_height)
             .collect::<Vec<_>>();
 
-        // Calculate prediction content if it exists
         let (prediction_lines, prediction_start_line, cursor_column) =
-            if let (Some(pred), Some(start_pos)) =
-                (&self.current_prediction, self.prediction_start_position)
-            {
-                // Get the line where prediction starts
-                let start_line = self.content[..start_pos]
-                    .chars()
-                    .filter(|&c| c == '\n')
-                    .count();
-
-                // Calculate cursor column position within the line
-                let line_start = self.content[..start_pos]
-                    .rfind('\n')
-                    .map(|pos| pos + 1)
-                    .unwrap_or(0);
-                let cursor_column = start_pos - line_start;
-
-                // Get the current line's content
-                let current_line = &self.content[line_start..start_pos];
-
-                // Find where the current line ends
-                let line_end = self.content[start_pos..]
-                    .find('\n')
-                    .map(|pos| start_pos + pos)
-                    .unwrap_or(self.content.len());
-
-                // Get content after the current line
-                let post_content = if line_end < self.content.len() {
-                    &self.content[line_end..]
-                } else {
-                    ""
-                };
-
-                let new_prediction = if let Some(stripped) = pred.strip_prefix(current_line) {
-                    stripped
-                } else {
-                    pred
-                };
-
-                let full_content = format!("{}{}{}", current_line, new_prediction, post_content);
-
-                let pred_lines = full_content
-                    .split('\n')
-                    .map(|s| s.to_string())
-                    .collect::<Vec<_>>();
-
-                (Some(pred_lines), Some(start_line), Some(cursor_column))
-            } else {
-                (None, None, None)
-            };
+            self.get_updated_line_with_prediction();
 
         if let Some(tree) = &self.tree {
             let root = tree.root_node();
@@ -340,7 +287,9 @@ impl Editor {
                     )]));
                 }
             }
-        } else {
+        } else
+        {
+            // high light syntax without tree
             let max_lines = if let Some(pred_lines) = &prediction_lines {
                 pred_lines.len().max(lines.len())
             } else {
@@ -389,6 +338,59 @@ impl Editor {
 
         result
     }
+
+    fn get_updated_line_with_prediction(&self) -> (Option<Vec<String>>, Option<usize>, Option<usize>) {
+        if let (Some(pred), Some(start_pos)) =
+            (&self.current_prediction, self.prediction_start_position)
+        {
+            // Get the line where prediction starts
+            let start_line = self.content[..start_pos]
+                .chars()
+                .filter(|&c| c == '\n')
+                .count();
+
+            // Calculate cursor column position within the line
+            let line_start = self.content[..start_pos]
+                .rfind('\n')
+                .map(|pos| pos + 1)
+                .unwrap_or(0);
+            let cursor_column = start_pos - line_start;
+
+            // Get the current line's content
+            let current_line = &self.content[line_start..start_pos];
+
+            // Find where the current line ends
+            let line_end = self.content[start_pos..]
+                .find('\n')
+                .map(|pos| start_pos + pos)
+                .unwrap_or(self.content.len());
+
+            // Get content after the current line
+            let post_content = if line_end < self.content.len() {
+                &self.content[line_end..]
+            } else {
+                ""
+            };
+
+            let new_prediction = if let Some(stripped) = pred.strip_prefix(current_line) {
+                stripped
+            } else {
+                pred
+            };
+
+            let full_content = format!("{}{}{}", current_line, new_prediction, post_content);
+
+            let pred_lines = full_content
+                .split('\n')
+                .map(|s| s.to_string())
+                .collect::<Vec<_>>();
+
+            (Some(pred_lines), Some(start_line), Some(cursor_column))
+        } else {
+            (None, None, None)
+        }
+    }
+
     fn accept_prediction(&mut self) {
         if let (Some(pred), Some(start_pos)) = (
             self.current_prediction.take(),
