@@ -27,7 +27,7 @@ use std::time::Instant;
 use std::{fs, io};
 use tree_sitter::{Parser, Tree};
 
-struct Editor {
+pub struct Editor {
     content: String,
     cursor_position: usize,
     scroll_offset: usize,
@@ -41,7 +41,7 @@ struct Editor {
 }
 
 impl Editor {
-    fn new(path: String) -> (Self, mpsc::Sender<String>) {
+    pub fn new(path: String) -> (Self, mpsc::Sender<String>) {
         let (prediction_tx, prediction_rx) = mpsc::channel(32);
         let mut parser = Parser::new();
         let filename = path.split(".").last().unwrap_or("rs");
@@ -83,7 +83,7 @@ impl Editor {
         }
         Err(anyhow!("No filename specified"))
     }
-    fn load_file(&mut self, path: String) -> Result<()> {
+    pub fn load_file(&mut self, path: String) -> Result<()> {
         self.content = fs::read_to_string(&path)?;
         self.filename = Some(path);
         self.cursor_position = 0;
@@ -621,22 +621,17 @@ impl Editor {
     }
 }
 
-pub async fn run_editor(client: Arc<OllamaClient>, filename: Option<String>) -> Result<()> {
+pub async fn run(mut editor: Editor, mut predictor: Arc<Predictor>) -> Result<()> {
     enable_raw_mode()?;
     let mut stdout = io::stdout();
     execute!(stdout, EnterAlternateScreen)?;
     let backend = CrosstermBackend::new(stdout);
     let mut terminal = Terminal::new(backend)?;
 
-    let (mut editor, prediction_tx) = Editor::new(filename.clone().unwrap_or(".rs".to_string()));
-    let predictor = Arc::new(Predictor::new(client, prediction_tx));
     let mut status_message = String::new();
     let mut status_time = Instant::now();
 
     // Load file if specified
-    if let Some(path) = filename {
-        editor.load_file(path)?;
-    }
 
     loop {
         let window_height = terminal.size()?.height as usize - 2; // Account for borders
