@@ -1,9 +1,9 @@
 use crate::editor::{run, Editor};
 use crate::models::ollama::OllamaClient;
+use crate::models::Predictor;
 use anyhow::Result;
 use std::env;
 use std::sync::Arc;
-use crate::models::Predictor;
 
 mod editor;
 mod logger;

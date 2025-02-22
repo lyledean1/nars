@@ -6,7 +6,7 @@ use tokio::sync::mpsc;
 use crate::editor::languages::rust::tree_sitter_rust;
 use crate::editor::languages::zig::tree_sitter_zig;
 use crate::logger::log_to_file;
-use crate::models::{Predictor};
+use crate::models::Predictor;
 use anyhow::{anyhow, Result};
 use ratatui::crossterm::{
     event::{self, Event, KeyCode},
@@ -34,7 +34,7 @@ pub struct Editor {
     filename: Option<String>,
     prediction_rx: mpsc::Receiver<String>,
     current_prediction: Option<String>,
-    prediction_start_position: Option<usize>
+    prediction_start_position: Option<usize>,
 }
 
 impl Editor {
@@ -613,13 +613,8 @@ pub async fn run(mut editor: Editor, mut predictor: Arc<Predictor>) -> Result<()
         redraw_editor(&mut terminal, &mut editor)?;
         if event::poll(std::time::Duration::from_millis(10))? {
             // return true to exit, else continue
-            match handle_key_bindings(&mut editor, &mut predictor) {
-                Ok(true) => {
-                    break;
-                }
-                _ => {
-
-                }
+            if let Ok(true) = handle_key_bindings(&mut editor, &mut predictor) {
+                break;
             };
         }
     }
@@ -671,7 +666,7 @@ fn handle_key_bindings(editor: &mut Editor, predictor: &mut Arc<Predictor>) -> R
 
 fn redraw_editor(
     terminal: &mut Terminal<CrosstermBackend<Stdout>>,
-    editor: &mut Editor
+    editor: &mut Editor,
 ) -> Result<()> {
     terminal.draw(|f| {
         let chunks = Layout::default()
