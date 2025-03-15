@@ -686,19 +686,13 @@ fn redraw_editor(
         let mut styled_lines = editor.highlight_syntax(window_height);
         let mut line_numbers = Vec::new();
 
-        for i in 0..styled_lines.len() + 1 {
-            if i == 0 {
-                line_numbers.push(Line::from(vec![Span::styled(
-                    " ".repeat(line_num_width),
-                    Style::default().fg(Color::DarkGray),
-                )]));
-            } else {
-                let line_num = editor.scroll_offset + i;
-                line_numbers.push(Line::from(vec![Span::styled(
-                    format!("{:>width$} ", line_num, width = line_num_width - 1),
-                    Style::default().fg(Color::DarkGray),
-                )]));
-            }
+        // Generate line numbers
+        for i in 0..styled_lines.len() {
+            let line_num = editor.scroll_offset + i + 1; // +1 because line numbers are 1-indexed
+            line_numbers.push(Line::from(vec![Span::styled(
+                format!("{:>width$} ", line_num, width = line_num_width - 1),
+                Style::default().fg(Color::DarkGray),
+            )]));
         }
 
         // Add cursor indicator
