@@ -23,7 +23,7 @@ use ratatui::{
 };
 use std::io::Stdout;
 use std::{fs, io};
-use tree_sitter::{Parser, Tree};
+use tree_sitter::{Parser, Tree, TreeCursor};
 
 pub struct Editor {
     content: String,
@@ -90,7 +90,7 @@ impl Editor {
 
     fn highlight_syntax(&self, window_height: usize) -> Vec<Line> {
         let mut result = Vec::new();
-        let lines: Vec<&str> = self.content.split('\n').collect();
+        let mut lines: Vec<&str> = self.content.split('\n').collect();
         let visible_lines = lines
             .iter()
             .skip(self.scroll_offset)
@@ -114,113 +114,17 @@ impl Editor {
                 };
                 let line_end = line_start + line.len();
 
-                // Create spans for syntax highlighting
                 let mut style_spans = Vec::new();
                 let mut cursor = root.walk();
                 let mut did_visit = false;
                 cursor.reset(root);
 
-                // Walk the syntax tree to find nodes that intersect with this line
-                loop {
-                    let node = cursor.node();
-                    let start_byte = node.start_byte();
-                    let end_byte = node.end_byte();
+                did_visit = Self::visit_tree_syntax(line_start, line_end, &mut style_spans, &mut cursor);
 
-                    if start_byte < line_end && end_byte > line_start {
-                        let style = match node.kind() {
-                            // Keywords
-                            "use" | "struct" | "enum" | "impl" | "fn" | "pub" | "mod" | "let"
-                            | "mut" | "self" | "match" | "if" | "else" | "for" | "while"
-                            | "loop" | "return" | "break" | "continue" | "const" | "static"
-                            | "type" | "where" | "unsafe" | "async" | "await" | "move" | "ref"
-                            | "defer" | "try" | "var" => {
-                                Some(Style::default().fg(Color::Red).add_modifier(Modifier::BOLD))
-                            }
-
-                            // Module-level items
-                            "use_declaration" | "mod_item" => {
-                                Some(Style::default().fg(Color::Cyan))
-                            }
-
-                            // Types
-                            "type_identifier" | "primitive_type" => {
-                                Some(Style::default().fg(Color::Green))
-                            }
-
-                            // Functions
-                            "function_item" => {
-                                let name_node = node.child_by_field_name("name");
-                                if let Some(name) = name_node {
-                                    if start_byte == name.start_byte()
-                                        && end_byte == name.end_byte()
-                                    {
-                                        Some(
-                                            Style::default()
-                                                .fg(Color::Blue)
-                                                .add_modifier(Modifier::BOLD),
-                                        )
-                                    } else {
-                                        None
-                                    }
-                                } else {
-                                    None
-                                }
-                            }
-
-                            // Variables and identifiers
-                            "identifier" => Some(Style::default().fg(Color::White)),
-
-                            // Literals
-                            "string_literal" | "raw_string_literal" => {
-                                Some(Style::default().fg(Color::Yellow))
-                            }
-                            "integer_literal" | "float_literal" => {
-                                Some(Style::default().fg(Color::Magenta))
-                            }
-
-                            // Comments
-                            "line_comment" | "block_comment" => Some(
-                                Style::default()
-                                    .fg(Color::DarkGray)
-                                    .add_modifier(Modifier::ITALIC),
-                            ),
-
-                            // Operators and punctuation
-                            ":" | "::" | "->" | "=>" | "=" | "+" | "-" | "*" | "/" | "%" | "&"
-                            | "|" | "^" | "!" | "." => Some(Style::default().fg(Color::Yellow)),
-
-                            _ => None,
-                        };
-
-                        if let Some(style) = style {
-                            let node_start = start_byte.max(line_start);
-                            let node_end = end_byte.min(line_end);
-                            style_spans.push((node_start, node_end, style));
-                        }
-                    }
-
-                    if !did_visit && cursor.goto_first_child() {
-                        did_visit = false;
-                        continue;
-                    }
-
-                    if cursor.goto_next_sibling() {
-                        did_visit = false;
-                        continue;
-                    }
-
-                    if !cursor.goto_parent() {
-                        break;
-                    }
-                    did_visit = true;
-                }
-
-                // Create final spans for the line
                 style_spans.sort_by_key(|&(start, _, _)| start);
                 let mut spans = Vec::new();
                 let mut current_pos = line_start;
 
-                // Add styled spans for the original content
                 for (start, end, style) in style_spans {
                     if start > current_pos {
                         spans.push(Span::raw(self.content[current_pos..start].to_string()));
@@ -231,19 +135,17 @@ impl Editor {
                     }
                 }
 
-                // Add any remaining unstyled text
                 if current_pos < line_end {
                     spans.push(Span::raw(self.content[current_pos..line_end].to_string()));
                 }
 
-                // Handle prediction overlay for current line
+                // we add the prediction to the file here
                 if let (Some(pred_lines), Some(start_line), Some(_)) =
                     (&prediction_lines, prediction_start_line, cursor_column)
                 {
-                    if absolute_line_idx == start_line {
-                        // This is the line where prediction starts
-                        if let Some(pred_line) = pred_lines.get(absolute_line_idx) {
-                            // Add only the prediction text as is
+                    if line_idx == start_line {
+                        log_to_file(format!("start index {} end {}", line_idx, start_line).as_str());
+                        if let Some(pred_line) = pred_lines.get(start_line) {
                             let diff_string = find_difference(
                                 self.get_current_line_content().as_str(),
                                 pred_line.as_str(),
@@ -251,19 +153,10 @@ impl Editor {
                             spans.push(Span::styled(
                                 diff_string,
                                 Style::default()
-                                    .fg(Color::DarkGray)
+                                    .fg(Color::LightBlue)
                                     .add_modifier(Modifier::ITALIC),
                             ));
                         }
-                    } else if absolute_line_idx > start_line && absolute_line_idx < pred_lines.len()
-                    {
-                        // These are additional prediction lines
-                        spans = vec![Span::styled(
-                            pred_lines[absolute_line_idx].to_string(),
-                            Style::default()
-                                .fg(Color::DarkGray)
-                                .add_modifier(Modifier::ITALIC),
-                        )];
                     }
                 }
 
@@ -339,27 +232,120 @@ impl Editor {
         result
     }
 
+    fn visit_tree_syntax(line_start: usize, line_end: usize, style_spans: &mut Vec<(usize, usize, Style)>, cursor: &mut TreeCursor) -> bool {
+        let mut did_visit = false;
+        loop {
+            let node = cursor.node();
+            let start_byte = node.start_byte();
+            let end_byte = node.end_byte();
+
+            if start_byte < line_end && end_byte > line_start {
+                let style = match node.kind() {
+                    // Keywords
+                    "use" | "struct" | "enum" | "impl" | "fn" | "pub" | "mod" | "let"
+                    | "mut" | "self" | "match" | "if" | "else" | "for" | "while"
+                    | "loop" | "return" | "break" | "continue" | "const" | "static"
+                    | "type" | "where" | "unsafe" | "async" | "await" | "move" | "ref"
+                    | "defer" | "try" | "var" => {
+                        Some(Style::default().fg(Color::Red).add_modifier(Modifier::BOLD))
+                    }
+
+                    // Module-level items
+                    "use_declaration" | "mod_item" => {
+                        Some(Style::default().fg(Color::Cyan))
+                    }
+
+                    // Types
+                    "type_identifier" | "primitive_type" => {
+                        Some(Style::default().fg(Color::Green))
+                    }
+
+                    // Functions
+                    "function_item" => {
+                        let name_node = node.child_by_field_name("name");
+                        if let Some(name) = name_node {
+                            if start_byte == name.start_byte()
+                                && end_byte == name.end_byte()
+                            {
+                                Some(
+                                    Style::default()
+                                        .fg(Color::Blue)
+                                        .add_modifier(Modifier::BOLD),
+                                )
+                            } else {
+                                None
+                            }
+                        } else {
+                            None
+                        }
+                    }
+
+                    // Variables and identifiers
+                    "identifier" => Some(Style::default().fg(Color::White)),
+
+                    // Literals
+                    "string_literal" | "raw_string_literal" => {
+                        Some(Style::default().fg(Color::Yellow))
+                    }
+                    "integer_literal" | "float_literal" => {
+                        Some(Style::default().fg(Color::Magenta))
+                    }
+
+                    // Comments
+                    "line_comment" | "block_comment" => Some(
+                        Style::default()
+                            .fg(Color::DarkGray)
+                            .add_modifier(Modifier::ITALIC),
+                    ),
+
+                    // Operators and punctuation
+                    ":" | "::" | "->" | "=>" | "=" | "+" | "-" | "*" | "/" | "%" | "&"
+                    | "|" | "^" | "!" | "." => Some(Style::default().fg(Color::Yellow)),
+
+                    _ => None,
+                };
+
+                if let Some(style) = style {
+                    let node_start = start_byte.max(line_start);
+                    let node_end = end_byte.min(line_end);
+                    style_spans.push((node_start, node_end, style));
+                }
+            }
+
+            if !did_visit && cursor.goto_first_child() {
+                did_visit = false;
+                continue;
+            }
+
+            if cursor.goto_next_sibling() {
+                did_visit = false;
+                continue;
+            }
+
+            if !cursor.goto_parent() {
+                return false;
+            }
+            did_visit = true;
+        }
+    }
+
     fn get_updated_line_with_prediction(&self) -> (Option<Vec<String>>, Option<usize>, Option<usize>) {
         if let (Some(pred), Some(start_pos)) =
             (&self.current_prediction, self.prediction_start_position)
         {
-            // Get the line where prediction starts
             let start_line = self.content[..start_pos]
                 .chars()
                 .filter(|&c| c == '\n')
                 .count();
 
-            // Calculate cursor column position within the line
             let line_start = self.content[..start_pos]
                 .rfind('\n')
                 .map(|pos| pos + 1)
                 .unwrap_or(0);
             let cursor_column = start_pos - line_start;
 
-            // Get the current line's content
             let current_line = &self.content[line_start..start_pos];
 
-            // Find where the current line ends
             let line_end = self.content[start_pos..]
                 .find('\n')
                 .map(|pos| start_pos + pos)
