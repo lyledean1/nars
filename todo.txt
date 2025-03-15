@@ -1,0 +1,11 @@
+*bugs*
+- fix not showing last line
+- fix showing colours correctly for different syntax
+- fix not showing prediction after line 1
+
+*features*
+- add ability to do undo (ctrl + z)
+
+*prediction*
+- pass through AST to see if that improves accuracy
+- include multiple clients / models (including Vertex AI, Claude APIs etc)

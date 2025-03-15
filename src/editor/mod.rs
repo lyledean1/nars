@@ -6,8 +6,7 @@ use tokio::sync::mpsc;
 use crate::editor::languages::rust::tree_sitter_rust;
 use crate::editor::languages::zig::tree_sitter_zig;
 use crate::logger::log_to_file;
-use crate::models::ollama::OllamaClient;
-use crate::models::{Predictor};
+use crate::models::Predictor;
 use anyhow::{anyhow, Result};
 use ratatui::crossterm::{
     event::{self, Event, KeyCode},
@@ -23,11 +22,10 @@ use ratatui::{
     Terminal,
 };
 use std::io::Stdout;
-use std::time::Instant;
 use std::{fs, io};
-use tree_sitter::{Parser, Tree};
+use tree_sitter::{Parser, Tree, TreeCursor};
 
-struct Editor {
+pub struct Editor {
     content: String,
     cursor_position: usize,
     scroll_offset: usize,
@@ -37,11 +35,10 @@ struct Editor {
     prediction_rx: mpsc::Receiver<String>,
     current_prediction: Option<String>,
     prediction_start_position: Option<usize>,
-    needs_redraw: bool,
 }
 
 impl Editor {
-    fn new(path: String) -> (Self, mpsc::Sender<String>) {
+    pub fn new(path: String) -> (Self, mpsc::Sender<String>) {
         let (prediction_tx, prediction_rx) = mpsc::channel(32);
         let mut parser = Parser::new();
         let filename = path.split(".").last().unwrap_or("rs");
@@ -70,7 +67,6 @@ impl Editor {
                 current_prediction: None,
                 prediction_start_position: None,
                 prediction_rx,
-                needs_redraw: false,
             },
             prediction_tx,
         )
@@ -83,7 +79,7 @@ impl Editor {
         }
         Err(anyhow!("No filename specified"))
     }
-    fn load_file(&mut self, path: String) -> Result<()> {
+    pub fn load_file(&mut self, path: String) -> Result<()> {
         self.content = fs::read_to_string(&path)?;
         self.filename = Some(path);
         self.cursor_position = 0;
@@ -94,68 +90,15 @@ impl Editor {
 
     fn highlight_syntax(&self, window_height: usize) -> Vec<Line> {
         let mut result = Vec::new();
-
-        // Split current content into lines
-        let lines: Vec<&str> = self.content.split('\n').collect();
-
-        // Get visible lines
+        let mut lines: Vec<&str> = self.content.split('\n').collect();
         let visible_lines = lines
             .iter()
             .skip(self.scroll_offset)
             .take(window_height)
             .collect::<Vec<_>>();
 
-        // Calculate prediction content if it exists
         let (prediction_lines, prediction_start_line, cursor_column) =
-            if let (Some(pred), Some(start_pos)) =
-                (&self.current_prediction, self.prediction_start_position)
-            {
-                // Get the line where prediction starts
-                let start_line = self.content[..start_pos]
-                    .chars()
-                    .filter(|&c| c == '\n')
-                    .count();
-
-                // Calculate cursor column position within the line
-                let line_start = self.content[..start_pos]
-                    .rfind('\n')
-                    .map(|pos| pos + 1)
-                    .unwrap_or(0);
-                let cursor_column = start_pos - line_start;
-
-                // Get the current line's content
-                let current_line = &self.content[line_start..start_pos];
-
-                // Find where the current line ends
-                let line_end = self.content[start_pos..]
-                    .find('\n')
-                    .map(|pos| start_pos + pos)
-                    .unwrap_or(self.content.len());
-
-                // Get content after the current line
-                let post_content = if line_end < self.content.len() {
-                    &self.content[line_end..]
-                } else {
-                    ""
-                };
-
-                let new_prediction = if let Some(stripped) = pred.strip_prefix(current_line) {
-                    stripped
-                } else {
-                    pred
-                };
-
-                let full_content = format!("{}{}{}", current_line, new_prediction, post_content);
-
-                let pred_lines = full_content
-                    .split('\n')
-                    .map(|s| s.to_string())
-                    .collect::<Vec<_>>();
-
-                (Some(pred_lines), Some(start_line), Some(cursor_column))
-            } else {
-                (None, None, None)
-            };
+            self.get_updated_line_with_prediction();
 
         if let Some(tree) = &self.tree {
             let root = tree.root_node();
@@ -171,113 +114,17 @@ impl Editor {
                 };
                 let line_end = line_start + line.len();
 
-                // Create spans for syntax highlighting
                 let mut style_spans = Vec::new();
                 let mut cursor = root.walk();
                 let mut did_visit = false;
                 cursor.reset(root);
 
-                // Walk the syntax tree to find nodes that intersect with this line
-                loop {
-                    let node = cursor.node();
-                    let start_byte = node.start_byte();
-                    let end_byte = node.end_byte();
+                did_visit = Self::visit_tree_syntax(line_start, line_end, &mut style_spans, &mut cursor);
 
-                    if start_byte < line_end && end_byte > line_start {
-                        let style = match node.kind() {
-                            // Keywords
-                            "use" | "struct" | "enum" | "impl" | "fn" | "pub" | "mod" | "let"
-                            | "mut" | "self" | "match" | "if" | "else" | "for" | "while"
-                            | "loop" | "return" | "break" | "continue" | "const" | "static"
-                            | "type" | "where" | "unsafe" | "async" | "await" | "move" | "ref"
-                            | "defer" | "try" | "var" => {
-                                Some(Style::default().fg(Color::Red).add_modifier(Modifier::BOLD))
-                            }
-
-                            // Module-level items
-                            "use_declaration" | "mod_item" => {
-                                Some(Style::default().fg(Color::Cyan))
-                            }
-
-                            // Types
-                            "type_identifier" | "primitive_type" => {
-                                Some(Style::default().fg(Color::Green))
-                            }
-
-                            // Functions
-                            "function_item" => {
-                                let name_node = node.child_by_field_name("name");
-                                if let Some(name) = name_node {
-                                    if start_byte == name.start_byte()
-                                        && end_byte == name.end_byte()
-                                    {
-                                        Some(
-                                            Style::default()
-                                                .fg(Color::Blue)
-                                                .add_modifier(Modifier::BOLD),
-                                        )
-                                    } else {
-                                        None
-                                    }
-                                } else {
-                                    None
-                                }
-                            }
-
-                            // Variables and identifiers
-                            "identifier" => Some(Style::default().fg(Color::White)),
-
-                            // Literals
-                            "string_literal" | "raw_string_literal" => {
-                                Some(Style::default().fg(Color::Yellow))
-                            }
-                            "integer_literal" | "float_literal" => {
-                                Some(Style::default().fg(Color::Magenta))
-                            }
-
-                            // Comments
-                            "line_comment" | "block_comment" => Some(
-                                Style::default()
-                                    .fg(Color::DarkGray)
-                                    .add_modifier(Modifier::ITALIC),
-                            ),
-
-                            // Operators and punctuation
-                            ":" | "::" | "->" | "=>" | "=" | "+" | "-" | "*" | "/" | "%" | "&"
-                            | "|" | "^" | "!" | "." => Some(Style::default().fg(Color::Yellow)),
-
-                            _ => None,
-                        };
-
-                        if let Some(style) = style {
-                            let node_start = start_byte.max(line_start);
-                            let node_end = end_byte.min(line_end);
-                            style_spans.push((node_start, node_end, style));
-                        }
-                    }
-
-                    if !did_visit && cursor.goto_first_child() {
-                        did_visit = false;
-                        continue;
-                    }
-
-                    if cursor.goto_next_sibling() {
-                        did_visit = false;
-                        continue;
-                    }
-
-                    if !cursor.goto_parent() {
-                        break;
-                    }
-                    did_visit = true;
-                }
-
-                // Create final spans for the line
                 style_spans.sort_by_key(|&(start, _, _)| start);
                 let mut spans = Vec::new();
                 let mut current_pos = line_start;
 
-                // Add styled spans for the original content
                 for (start, end, style) in style_spans {
                     if start > current_pos {
                         spans.push(Span::raw(self.content[current_pos..start].to_string()));
@@ -288,19 +135,17 @@ impl Editor {
                     }
                 }
 
-                // Add any remaining unstyled text
                 if current_pos < line_end {
                     spans.push(Span::raw(self.content[current_pos..line_end].to_string()));
                 }
 
-                // Handle prediction overlay for current line
+                // we add the prediction to the file here
                 if let (Some(pred_lines), Some(start_line), Some(_)) =
                     (&prediction_lines, prediction_start_line, cursor_column)
                 {
-                    if absolute_line_idx == start_line {
-                        // This is the line where prediction starts
-                        if let Some(pred_line) = pred_lines.get(absolute_line_idx) {
-                            // Add only the prediction text as is
+                    if line_idx == start_line {
+                        log_to_file(format!("start index {} end {}", line_idx, start_line).as_str());
+                        if let Some(pred_line) = pred_lines.get(start_line) {
                             let diff_string = find_difference(
                                 self.get_current_line_content().as_str(),
                                 pred_line.as_str(),
@@ -308,26 +153,16 @@ impl Editor {
                             spans.push(Span::styled(
                                 diff_string,
                                 Style::default()
-                                    .fg(Color::DarkGray)
+                                    .fg(Color::LightBlue)
                                     .add_modifier(Modifier::ITALIC),
                             ));
                         }
-                    } else if absolute_line_idx > start_line && absolute_line_idx < pred_lines.len()
-                    {
-                        // These are additional prediction lines
-                        spans = vec![Span::styled(
-                            pred_lines[absolute_line_idx].to_string(),
-                            Style::default()
-                                .fg(Color::DarkGray)
-                                .add_modifier(Modifier::ITALIC),
-                        )];
                     }
                 }
 
                 result.push(Line::from(spans));
             }
 
-            // Add any additional prediction lines that extend beyond the current content
             if let (Some(pred_lines), _, _) =
                 (&prediction_lines, prediction_start_line, cursor_column)
             {
@@ -345,8 +180,9 @@ impl Editor {
                     )]));
                 }
             }
-        } else {
-            // No syntax tree - handle plain text with predictions
+        } else
+        {
+            // high light syntax without tree
             let max_lines = if let Some(pred_lines) = &prediction_lines {
                 pred_lines.len().max(lines.len())
             } else {
@@ -395,53 +231,187 @@ impl Editor {
 
         result
     }
+
+    fn visit_tree_syntax(line_start: usize, line_end: usize, style_spans: &mut Vec<(usize, usize, Style)>, cursor: &mut TreeCursor) -> bool {
+        let mut did_visit = false;
+        loop {
+            let node = cursor.node();
+            let start_byte = node.start_byte();
+            let end_byte = node.end_byte();
+
+            if start_byte < line_end && end_byte > line_start {
+                let style = match node.kind() {
+                    // Keywords
+                    "use" | "struct" | "enum" | "impl" | "fn" | "pub" | "mod" | "let"
+                    | "mut" | "self" | "match" | "if" | "else" | "for" | "while"
+                    | "loop" | "return" | "break" | "continue" | "const" | "static"
+                    | "type" | "where" | "unsafe" | "async" | "await" | "move" | "ref"
+                    | "defer" | "try" | "var" => {
+                        Some(Style::default().fg(Color::Red).add_modifier(Modifier::BOLD))
+                    }
+
+                    // Module-level items
+                    "use_declaration" | "mod_item" => {
+                        Some(Style::default().fg(Color::Cyan))
+                    }
+
+                    // Types
+                    "type_identifier" | "primitive_type" => {
+                        Some(Style::default().fg(Color::Green))
+                    }
+
+                    // Functions
+                    "function_item" => {
+                        let name_node = node.child_by_field_name("name");
+                        if let Some(name) = name_node {
+                            if start_byte == name.start_byte()
+                                && end_byte == name.end_byte()
+                            {
+                                Some(
+                                    Style::default()
+                                        .fg(Color::Blue)
+                                        .add_modifier(Modifier::BOLD),
+                                )
+                            } else {
+                                None
+                            }
+                        } else {
+                            None
+                        }
+                    }
+
+                    // Variables and identifiers
+                    "identifier" => Some(Style::default().fg(Color::White)),
+
+                    // Literals
+                    "string_literal" | "raw_string_literal" => {
+                        Some(Style::default().fg(Color::Yellow))
+                    }
+                    "integer_literal" | "float_literal" => {
+                        Some(Style::default().fg(Color::Magenta))
+                    }
+
+                    // Comments
+                    "line_comment" | "block_comment" => Some(
+                        Style::default()
+                            .fg(Color::DarkGray)
+                            .add_modifier(Modifier::ITALIC),
+                    ),
+
+                    // Operators and punctuation
+                    ":" | "::" | "->" | "=>" | "=" | "+" | "-" | "*" | "/" | "%" | "&"
+                    | "|" | "^" | "!" | "." => Some(Style::default().fg(Color::Yellow)),
+
+                    _ => None,
+                };
+
+                if let Some(style) = style {
+                    let node_start = start_byte.max(line_start);
+                    let node_end = end_byte.min(line_end);
+                    style_spans.push((node_start, node_end, style));
+                }
+            }
+
+            if !did_visit && cursor.goto_first_child() {
+                did_visit = false;
+                continue;
+            }
+
+            if cursor.goto_next_sibling() {
+                did_visit = false;
+                continue;
+            }
+
+            if !cursor.goto_parent() {
+                return false;
+            }
+            did_visit = true;
+        }
+    }
+
+    fn get_updated_line_with_prediction(&self) -> (Option<Vec<String>>, Option<usize>, Option<usize>) {
+        if let (Some(pred), Some(start_pos)) =
+            (&self.current_prediction, self.prediction_start_position)
+        {
+            let start_line = self.content[..start_pos]
+                .chars()
+                .filter(|&c| c == '\n')
+                .count();
+
+            let line_start = self.content[..start_pos]
+                .rfind('\n')
+                .map(|pos| pos + 1)
+                .unwrap_or(0);
+            let cursor_column = start_pos - line_start;
+
+            let current_line = &self.content[line_start..start_pos];
+
+            let line_end = self.content[start_pos..]
+                .find('\n')
+                .map(|pos| start_pos + pos)
+                .unwrap_or(self.content.len());
+
+            // Get content after the current line
+            let post_content = if line_end < self.content.len() {
+                &self.content[line_end..]
+            } else {
+                ""
+            };
+
+            let new_prediction = if let Some(stripped) = pred.strip_prefix(current_line) {
+                stripped
+            } else {
+                pred
+            };
+
+            let full_content = format!("{}{}{}", current_line, new_prediction, post_content);
+
+            let pred_lines = full_content
+                .split('\n')
+                .map(|s| s.to_string())
+                .collect::<Vec<_>>();
+
+            (Some(pred_lines), Some(start_line), Some(cursor_column))
+        } else {
+            (None, None, None)
+        }
+    }
+
     fn accept_prediction(&mut self) {
         if let (Some(pred), Some(start_pos)) = (
             self.current_prediction.take(),
             self.prediction_start_position.take(),
         ) {
-            // Get the line start position
             let line_start = self.content[..start_pos]
                 .rfind('\n')
                 .map(|pos| pos + 1)
                 .unwrap_or(0);
 
-            // Get the line end position
             let line_end = self.content[line_start..]
                 .find('\n')
                 .map(|pos| line_start + pos)
                 .unwrap_or(self.content.len());
 
-            // Replace the entire line content with the prediction
             let original_line = &self.content[line_start..line_end];
             if pred.len() > original_line.len() {
                 let new_content = format!("{}{}", original_line, &pred[original_line.len()..]);
                 self.content
                     .replace_range(line_start..line_end, &new_content);
             }
-            // Move cursor to end of prediction
             self.cursor_position = line_start + pred.len();
-
-            // Update syntax highlighting
             self.update_syntax_tree();
             self.current_prediction = None;
-
             log_to_file(&format!("accepted prediction: {}", pred));
         }
     }
 
-    // Modify get_latest_prediction to update the stored prediction
-    fn get_latest_prediction(&mut self) -> bool {
-        let mut got_any = false;
+    fn get_latest_prediction(&mut self) {
         log_to_file("checking latest prediction");
         while let Ok(pred) = self.prediction_rx.try_recv() {
             log_to_file(format!("got prediction from channel {}", pred).as_str());
             self.current_prediction = Some(pred);
             self.prediction_start_position = Some(self.cursor_position);
-            self.needs_redraw = true;
-            got_any = true;
         }
-        got_any
     }
     fn get_current_line(&self) -> usize {
         self.content[..self.cursor_position]
@@ -452,13 +422,9 @@ impl Editor {
 
     fn ensure_cursor_visible(&mut self, window_height: usize) {
         let current_line = self.get_current_line();
-
-        // If cursor is above visible area, scroll up
         if current_line < self.scroll_offset {
             self.scroll_offset = current_line;
         }
-
-        // If cursor is below visible area, scroll down
         if current_line >= self.scroll_offset + window_height {
             self.scroll_offset = current_line - window_height + 1;
         }
@@ -621,84 +587,23 @@ impl Editor {
     }
 }
 
-pub async fn run_editor(client: Arc<OllamaClient>, filename: Option<String>) -> Result<()> {
+pub async fn run(mut editor: Editor, mut predictor: Arc<Predictor>) -> Result<()> {
     enable_raw_mode()?;
     let mut stdout = io::stdout();
     execute!(stdout, EnterAlternateScreen)?;
     let backend = CrosstermBackend::new(stdout);
     let mut terminal = Terminal::new(backend)?;
 
-    let (mut editor, prediction_tx) = Editor::new(filename.clone().unwrap_or(".rs".to_string()));
-    let predictor = Arc::new(Predictor::new(client, prediction_tx));
-    let mut status_message = String::new();
-    let mut status_time = Instant::now();
-
-    // Load file if specified
-    if let Some(path) = filename {
-        editor.load_file(path)?;
-    }
-
     loop {
-        let window_height = terminal.size()?.height as usize - 2; // Account for borders
+        let window_height = terminal.size()?.height as usize - 2;
         editor.ensure_cursor_visible(window_height);
         editor.get_latest_prediction();
-
-        log_to_file(format!("editor needs redraw {}", editor.needs_redraw).as_str());
-        if editor.needs_redraw {
-            log_to_file("Should be redrawing with pred");
-            status_message = "updated pred".to_string();
-            terminal.clear()?;
-            terminal.flush()?;
-            editor.needs_redraw = false;
-        }
-
-        redraw_editor(&mut terminal, &mut editor, &mut status_message, status_time)?;
+        redraw_editor(&mut terminal, &mut editor)?;
         if event::poll(std::time::Duration::from_millis(10))? {
-            if let Event::Key(key) = event::read()? {
-                match key.code {
-                    KeyCode::Char('s') if key.modifiers.contains(event::KeyModifiers::CONTROL) => {
-                        match editor.save_file() {
-                            Ok(_) => {
-                                status_message = String::from("File saved successfully!");
-                                status_time = Instant::now();
-                            }
-                            Err(e) => {
-                                status_message = format!("Error saving file: {}", e);
-                                status_time = Instant::now();
-                            }
-                        }
-                    }
-                    KeyCode::Char('k') if key.modifiers.contains(event::KeyModifiers::CONTROL) => {
-                        editor.clear_current_line()
-                    }
-                    KeyCode::Tab => {
-                        if editor.current_prediction.is_some() {
-                            editor.accept_prediction();
-                        } else {
-                            let content = editor.get_current_line_content();
-                            predictor.clone().stream_prediction_background(content);
-                        }
-                    }
-                    KeyCode::Esc => {
-                        editor.current_prediction = None;
-                        editor.prediction_start_position = None;
-                        break;
-                    }
-                    KeyCode::Char(c) => {
-                        editor.current_prediction = None;
-                        editor.prediction_start_position = None;
-                        editor.insert_char(c, 1);
-                    }
-                    // KeyCode::Tab => editor.insert_char('\t', 4),
-                    KeyCode::Enter => editor.insert_char('\n', 1),
-                    KeyCode::Backspace => editor.delete_char(),
-                    KeyCode::Left => editor.move_cursor_left(),
-                    KeyCode::Right => editor.move_cursor_right(),
-                    KeyCode::Up => editor.move_cursor_up(),
-                    KeyCode::Down => editor.move_cursor_down(),
-                    _ => {}
-                }
-            }
+            // return true to exit, else continue
+            if let Ok(true) = handle_key_bindings(&mut editor, &mut predictor) {
+                break;
+            };
         }
     }
 
@@ -707,14 +612,51 @@ pub async fn run_editor(client: Arc<OllamaClient>, filename: Option<String>) -> 
     Ok(())
 }
 
+fn handle_key_bindings(editor: &mut Editor, predictor: &mut Arc<Predictor>) -> Result<bool> {
+    if let Event::Key(key) = event::read()? {
+        match key.code {
+            KeyCode::Char('s') if key.modifiers.contains(event::KeyModifiers::CONTROL) => {
+                editor.save_file()?;
+            }
+            KeyCode::Char('k') if key.modifiers.contains(event::KeyModifiers::CONTROL) => {
+                editor.clear_current_line();
+            }
+            KeyCode::Tab => {
+                if editor.current_prediction.is_some() {
+                    editor.accept_prediction();
+                } else {
+                    let content = editor.get_current_line_content();
+                    predictor.clone().stream_prediction_background(content);
+                }
+            }
+            KeyCode::Esc => {
+                editor.current_prediction = None;
+                editor.prediction_start_position = None;
+                return Ok(true);
+            }
+            KeyCode::Char(c) => {
+                editor.current_prediction = None;
+                editor.prediction_start_position = None;
+                editor.insert_char(c, 1);
+            }
+            // KeyCode::Tab => editor.insert_char('\t', 4),
+            KeyCode::Enter => editor.insert_char('\n', 1),
+            KeyCode::Backspace => editor.delete_char(),
+            KeyCode::Left => editor.move_cursor_left(),
+            KeyCode::Right => editor.move_cursor_right(),
+            KeyCode::Up => editor.move_cursor_up(),
+            KeyCode::Down => editor.move_cursor_down(),
+            _ => {}
+        }
+    }
+    Ok(false)
+}
+
 fn redraw_editor(
     terminal: &mut Terminal<CrosstermBackend<Stdout>>,
     editor: &mut Editor,
-    status_message: &mut String,
-    status_time: Instant,
 ) -> Result<()> {
     terminal.draw(|f| {
-        log_to_file(format!("latest prediction {}", status_message).as_str());
         let chunks = Layout::default()
             .direction(Direction::Vertical)
             .constraints([Constraint::Min(1), Constraint::Length(1)].as_ref())
@@ -744,19 +686,13 @@ fn redraw_editor(
         let mut styled_lines = editor.highlight_syntax(window_height);
         let mut line_numbers = Vec::new();
 
-        for i in 0..styled_lines.len() + 1 {
-            if i == 0 {
-                line_numbers.push(Line::from(vec![Span::styled(
-                    " ".repeat(line_num_width),
-                    Style::default().fg(Color::DarkGray),
-                )]));
-            } else {
-                let line_num = editor.scroll_offset + i;
-                line_numbers.push(Line::from(vec![Span::styled(
-                    format!("{:>width$} ", line_num, width = line_num_width - 1),
-                    Style::default().fg(Color::DarkGray),
-                )]));
-            }
+        // Generate line numbers
+        for i in 0..styled_lines.len() {
+            let line_num = editor.scroll_offset + i + 1; // +1 because line numbers are 1-indexed
+            line_numbers.push(Line::from(vec![Span::styled(
+                format!("{:>width$} ", line_num, width = line_num_width - 1),
+                Style::default().fg(Color::DarkGray),
+            )]));
         }
 
         // Add cursor indicator
@@ -842,13 +778,6 @@ fn redraw_editor(
 
         f.render_widget(line_numbers_widget, horizontal_chunks[0]);
         f.render_widget(paragraph, horizontal_chunks[1]);
-
-        // Add status bar
-        if !status_message.is_empty() && status_time.elapsed() < std::time::Duration::from_secs(5) {
-            let status_bar = Paragraph::new(Line::from(status_message.as_str()))
-                .style(Style::default().fg(Color::White).bg(Color::Black));
-            f.render_widget(status_bar, chunks[1]);
-        }
     })?;
     Ok(())
 }
