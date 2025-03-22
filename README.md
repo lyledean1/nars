@@ -1,6 +1,6 @@
 # nars
 
-**Na**no in **R**u**s**t - NARS - a terminal with LLM code predictions powered by ollama. Work in progress.  
+**Na**no in **R**u**s**t - NARS - a terminal with LLM code predictions powered by Ollama. *Work in progress*.  
 
 ## Install 
 
