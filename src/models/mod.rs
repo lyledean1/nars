@@ -13,13 +13,15 @@ pub mod parser;
 pub struct Predictor {
     client: Arc<OllamaClient>,
     prediction_tx: mpsc::Sender<String>,
+    model: String,
 }
 
 impl Predictor {
-    pub fn new(client: Arc<OllamaClient>, prediction_tx: mpsc::Sender<String>) -> Self {
+    pub fn new(client: Arc<OllamaClient>, prediction_tx: mpsc::Sender<String>, model: String) -> Self {
         Predictor {
             client,
             prediction_tx,
+            model,
         }
     }
 
@@ -28,7 +30,7 @@ impl Predictor {
         log_to_file(&prompt);
         let mut stream = self
             .client
-            .stream_generate("qwen2.5-coder:7b", prompt.as_str())
+            .stream_generate(self.model.as_str(), prompt.as_str())
             .await?;
         let mut pred = "".to_string();
         let mut output = ParsedCode {

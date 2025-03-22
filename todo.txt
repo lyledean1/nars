@@ -4,6 +4,7 @@
 
 *features*
 - add ability to do undo (ctrl + z)
+- make model configurable
 
 *prediction*
 - pass through AST to see if that improves accuracy

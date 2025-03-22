@@ -18,6 +18,10 @@ async fn main() -> Result<()> {
     if let Some(path) = filename {
         editor.load_file(path)?;
     }
-    let predictor = Arc::new(Predictor::new(client, prediction_tx));
+    let mut model = "qwen2.5-coder:7b".to_string();
+    if args.len() >= 2 {
+        model = args.get(2).cloned().unwrap_or(model.to_string());
+    }
+    let predictor = Arc::new(Predictor::new(client, prediction_tx, model));
     run(editor, predictor).await
 }
