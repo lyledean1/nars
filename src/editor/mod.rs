@@ -90,7 +90,7 @@ impl Editor {
 
     fn highlight_syntax(&self, window_height: usize) -> Vec<Line> {
         let mut result = Vec::new();
-        let mut lines: Vec<&str> = self.content.split('\n').collect();
+        let lines: Vec<&str> = self.content.split('\n').collect();
         let visible_lines = lines
             .iter()
             .skip(self.scroll_offset)
@@ -116,13 +116,14 @@ impl Editor {
 
                 let mut style_spans = Vec::new();
                 let mut cursor = root.walk();
-                let mut did_visit = false;
                 cursor.reset(root);
 
-                did_visit = Self::visit_tree_syntax(line_start, line_end, &mut style_spans, &mut cursor);
-
+                let did_visit = Self::visit_tree_syntax(line_start, line_end, &mut style_spans, &mut cursor);
+                if did_visit {
+                    // todo:
+                }
                 style_spans.sort_by_key(|&(start, _, _)| start);
-                let mut spans = Vec::new();
+                let mut spans: Vec<Span> = Vec::new();
                 let mut current_pos = line_start;
 
                 for (start, end, style) in style_spans {
@@ -180,8 +181,7 @@ impl Editor {
                     )]));
                 }
             }
-        } else
-        {
+        } else {
             // high light syntax without tree
             let max_lines = if let Some(pred_lines) = &prediction_lines {
                 pred_lines.len().max(lines.len())
@@ -228,6 +228,7 @@ impl Editor {
                 result.push(Line::from(spans));
             }
         }
+
 
         result
     }

@@ -1,5 +1,4 @@
 *bugs*
-- fix not showing last line
 - fix showing colours correctly for different syntax
 - fix not showing prediction after line 1
 
