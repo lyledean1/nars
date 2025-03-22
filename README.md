@@ -37,3 +37,16 @@ nars {filename} {model}
 ```
 
 You will also need to run Ollama with the accompanying model.
+
+## Running Locally
+
+You'll need to make sure after cloning the repo, you sync the submodules which have a number of tree sitter's. 
+
+Once cloned, run 
+```
+git submodule init && git submodule update
+```
+Or run, before cloning 
+```
+git clone --recurse-submodules https://github.com/lyledean1/nars
+```
